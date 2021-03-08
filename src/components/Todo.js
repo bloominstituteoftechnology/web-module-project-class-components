@@ -1,9 +1,20 @@
 import React from 'react'
 
+import styled from 'styled-components'
+
+const TodoWrapper = styled.div`
+    border: 1px solid white;
+    background-color: ${props => props.theme.lightText};
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
 export default function Todo(props) {
     const { todo, toggleCompleted } = props
     return (
-        <div onDoubleClick={_ => toggleCompleted(todo.id)}>
+        <TodoWrapper onDoubleClick={_ => toggleCompleted(todo.id)}>
             <p
                 style={{
                     textDecoration: todo.completed ? 'line-through' : ''
@@ -14,6 +25,6 @@ export default function Todo(props) {
                 checked={todo.completed}
                 onChange={_ => toggleCompleted(todo.id)}
             />
-        </div>
+        </TodoWrapper>
     )
 }
