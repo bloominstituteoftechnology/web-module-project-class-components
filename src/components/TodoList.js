@@ -13,9 +13,10 @@ class TodoList extends React.Component {
             <h3>TodoList is connected</h3>
             {
                 this.props.todoItems.map((item)=>{
-                   return <Todo item={item} key = {item.id} toggleComplete={this.props.toggleComplete}/>
+                   return <Todo item={item} key = {item.id} toggleComplete={this.props.toggleComplete} />
                 })
             }
+            <button onClick = {this.props.deleteCompleted} >Delete Completed</button>
             </> 
         )
     }

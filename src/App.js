@@ -40,6 +40,16 @@ class App extends React.Component {
       })
     })
   }
+
+  deleteCompleted = () => {
+    //filter for items that are not completed and keep them in the array, remove items if an item has a class of completed,
+    this.setState({
+      todoItems: this.state.todoItems.filter((item)=>{
+        return item.completed === false;
+      })
+    })
+    
+  }
     
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -47,7 +57,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoItems={this.state.todoItems} toggleComplete={this.toggleComplete}/>
+        <TodoList todoItems={this.state.todoItems} toggleComplete={this.toggleComplete} deleteCompleted={this.deleteCompleted}/>
       </div>
     );
   }
