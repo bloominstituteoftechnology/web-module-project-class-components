@@ -6,6 +6,8 @@ import GlobalStyle from './components/styled.global'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
+const updateStoredTodos = (todos) => window.localStorage.setItem('todos', JSON.stringify(todos))
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -14,20 +16,19 @@ class App extends React.Component {
     super()
 
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      todos: [],
       newTodo: ''
     }
+  }
+
+  componentDidMount() {
+    let savedTodos = window.localStorage.getItem('todos')
+    if (!savedTodos) return
+
+    savedTodos = JSON.parse(savedTodos)
+    this.setState({
+      todos: savedTodos
+    })
   }
 
   onChange = (evt) => {
@@ -48,10 +49,12 @@ class App extends React.Component {
       completed: false
     }
 
+    const todos = [...this.state.todos, newTodo]
+
     this.setState({
       newTodo: '',
-      todos: [...this.state.todos, newTodo]
-    })
+      todos
+    }, () => updateStoredTodos(todos))
   }
 
   toggleCompleted = (todoId) => {
@@ -65,12 +68,12 @@ class App extends React.Component {
       return todo
     })
 
-    this.setState({ todos })
+    this.setState({ todos }, () => updateStoredTodos(todos))
   }
 
   clearCompleted = (evt) => {
     const todos = this.state.todos.filter(todo => !todo.completed)
-    this.setState({ todos })
+    this.setState({ todos }, () => updateStoredTodos(todos))
   }
 
   render() {
