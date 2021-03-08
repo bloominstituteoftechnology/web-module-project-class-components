@@ -9,17 +9,17 @@ const TodoWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    p {
+        text-decoration: ${props => props.completed ? 'line-through' : ''};
+    }
 `
 
 export default function Todo(props) {
     const { todo, toggleCompleted } = props
     return (
-        <TodoWrapper onDoubleClick={_ => toggleCompleted(todo.id)}>
-            <p
-                style={{
-                    textDecoration: todo.completed ? 'line-through' : ''
-                }}
-            >{todo.task}</p>
+        <TodoWrapper onDoubleClick={_ => toggleCompleted(todo.id)} completed={todo.completed}>
+            <p>{todo.task}</p>
             <input 
                 type="checkbox"
                 checked={todo.completed}
