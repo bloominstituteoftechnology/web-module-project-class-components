@@ -7,12 +7,13 @@ export default function TodoList(props) {
     return (
         <ul>
             {todos.map(todo => (
-                <Todo 
-                    key={todo.id} 
-                    todo={todo} 
-                    toggleCompleted={toggleCompleted} 
-                    clearCompleted={clearCompleted}
-                />
+                <li key={todo.id}>
+                    <Todo  
+                        todo={todo} 
+                        toggleCompleted={toggleCompleted} 
+                        clearCompleted={clearCompleted}
+                    />
+                </li>
             ))}
         </ul>
     )
