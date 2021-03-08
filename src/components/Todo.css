@@ -1,0 +1,10 @@
+.todo {
+	width: 25%;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.completed {
+	text-decoration-line: line-through;
+	color: #aaa;
+}
