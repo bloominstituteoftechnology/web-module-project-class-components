@@ -1,4 +1,7 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components'
+import theme from './components/styled.theme'
+import GlobalStyle from './components/styled.global'
 
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
@@ -72,7 +75,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
           newTodo={this.state.newTodo}
@@ -84,7 +88,7 @@ class App extends React.Component {
           todos={this.state.todos}
           toggleCompleted={this.toggleCompleted}
         />
-      </div>
+      </ThemeProvider>
     );
   }
 }
