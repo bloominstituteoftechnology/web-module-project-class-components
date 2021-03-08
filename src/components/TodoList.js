@@ -13,7 +13,7 @@ class TodoList extends React.Component {
             <h3>TodoList is connected</h3>
             {
                 this.props.todoItems.map((item)=>{
-                   return <Todo />
+                   return <Todo item={item} key = {item.id} toggleComplete={this.props.toggleComplete}/>
                 })
             }
             </> 
