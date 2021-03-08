@@ -4,25 +4,64 @@ import TodoForm from './components/TodoForm'
 
 
 
-const todoList = []
+const todos = [
+  {
+    name: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    name: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      todoList : todoList,
+      todos : todos,
     }
   }
 
+  toggleTodo = (clickOnId) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === clickOnId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        } else {
+          return todo;
+        }
+      }),
+    });
+  };
+
+  addTodo = (todoName) => {
+    const newItem = {
+      name: todoName,
+      id: new Date(),
+      completed: false,
+    };
+    this.setState({
+      todos:[...this.state.todos, newItem],
+    });
+  };
 
   render() {
     return (
       <div className='app'>
         <div className='header'>
           <h2>Welcome to your Todo App!</h2>
-          <TodoList />
+          <TodoForm addTodo = {this.addTodo} />
+          <TodoList
+            toggleTodo = {this.toggleTodo}
+            todos = {this.state.todos} />
         </div>
         <div>
 
