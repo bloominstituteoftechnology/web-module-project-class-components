@@ -1,0 +1,41 @@
+
+button {
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  background-color: rgb(255, 255, 255);
+}
+button:active {
+  background-color: rgb(35, 122, 221);
+}
+::-webkit-input-placeholder {
+  color:rgb(149, 145, 145)
+}
+::-moz-placeholder {
+  color:rgb(149, 145, 145)
+}
+::-ms-input-placeholder {
+  color:rgb(149, 145, 145);
+}
+:-moz-placeholder {
+  color:rgb(149, 145, 145);
+}
+::placeholder {
+  color:rgb(149, 145, 145)
+}
+
+input {
+  outline:none;
+  border: none;
+  box-shadow: 0px 0px 3px rgb(165, 165, 165);
+}
+
+input:focus {
+  outline: none;
+  border: hidden;
+  box-shadow: 0px 0px 0px 3px #82b6f5;
+}
+
+.strike {
+  text-decoration: line-through;
+}
