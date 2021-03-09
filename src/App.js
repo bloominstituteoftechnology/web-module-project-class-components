@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import SearchBar from './components/SearchBar'
 import './components/Todo.css'
 
 const todos = [
@@ -52,16 +53,26 @@ class App extends React.Component {
     });
   };
 
+  handleChanges = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value,
+    })
+};
+
   delTodo = (id) => {
     console.log(id)
+    this.setState ({todos: [...this.state.todos.filter(todo => todo.completed !== true)]})
   }
 
   render() {
     return (
       <div className='app'>
-        <div className='header'>
-          <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome to your Todo App!</h2>
+        <div className='header'> 
+          <SearchBar />
+          
           <TodoForm 
+            handleChanges = {this.handleChanges}
             addTodo = {this.addTodo} 
             delTodo = {this.delTodo}
           />

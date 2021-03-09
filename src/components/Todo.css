@@ -1,3 +1,41 @@
+ 
+Body {
+    background: #fefefa;
+    color: #121212;
+}
+
+button {
+    padding: 2px 5px;
+    background:aquamarine;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 cadetblue;
+}
+
+input {
+  width: 200px;
+}
+
+.todo {
+    margin: 5px;
+    text-transform: capitalize;
+}
+
 .todo.completed {
     text-decoration: line-through;
 }
+
+.app { 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.clearBtn {
+    background: red;
+}
+
