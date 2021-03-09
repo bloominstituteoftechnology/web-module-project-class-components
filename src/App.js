@@ -10,56 +10,40 @@ class App extends React.Component {
     super();
     this.state = {
       items: [], 
-      text: ''
     };
     this.formSubmit = this.formSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.strikeThrough = this.strikeThrough.bind(this);
     this.clear = this.clear.bind(this);
   }
-  formSubmit = () => {
+  formSubmit = (item) => {
     const newItem = {
-      text: this.state.text,
-      id: Date.now()
+      text: item,
+      id: Date.now(),
+      complete: false
     };
-    this.setState(state => ({
-      items: state.items.concat(newItem),
-      text: ''
+    this.setState(items => ({
+      items: [...this.state.items.concat(newItem)]
     }))
   }
 
-  onSubmit = (evt) =>{
-    evt.preventDefault();
-    const newItem = {
-      text: this.state.text,
-      id: Date.now()
-    };
-    this.setState(state => ({
-      items: state.items.concat(newItem),
-      text: ''
-    }));
-    this.setState({text: ''})
-  }
-  
-  onChange = (evt) => {
-    this.setState({text: evt.target.value});
-  }
- 
   strikeThrough = (evt) => {
     evt.target.classList.toggle('strike');
   }
+  
+
   clear = (evt) => {
     this.setState(state => ({
-      text: this.state.items.filter(item => !item.complete)
+      items: this.state.items.filter(item => !item.complete)
     }))
   };
+
   render() {
     return (
       <div className='todo'>
       <h1>Todo List: MVP</h1>
       <div>
-          <TodoList items = {this.state.items}  strikeThrough={this.strikeThrough} />
-          <TodoForm submit={this.onSubmit} change={this.onChange} value={this.state.text} clear={this.clear}/>
+          <TodoList items = {this.state.items} strikeThrough={this.strikeThrough} toggle={this.toggleItem} />
+          <TodoForm addText={this.formSubmit} clear={this.clear}/>
         </div>
       </div>
     );

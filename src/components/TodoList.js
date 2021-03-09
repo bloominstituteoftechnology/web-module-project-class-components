@@ -9,7 +9,8 @@ const TodoList = (props) => {
     {props.items.map((item) => (
       <Todo 
       key={item.id} 
-      item={item} 
+      item={item.text} 
+      clear={props.clear}
       strikeThrough={props.strikeThrough}/>
     ))}
     </>
