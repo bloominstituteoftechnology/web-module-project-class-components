@@ -1,0 +1,13 @@
+.todo {
+  border: 1px solid black;
+  text-align: center;
+  width: 30%;
+  margin: 3% auto;
+  cursor: pointer;
+  background: greenyellow;
+}
+.completed {
+  color: white;
+  background: red;
+  text-decoration: line-through;
+}
