@@ -1,15 +1,14 @@
 import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
-
-
+import './components/Todo.css'
 
 const todos = [
-  {
-    name: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
+  // {
+  //   name: 'Organize Garage',
+  //   id: 1528817077286,
+  //   completed: false
+  // },
   {
     name: 'Bake Cookies',
     id: 1528817084358,
@@ -53,12 +52,19 @@ class App extends React.Component {
     });
   };
 
+  delTodo = (id) => {
+    console.log(id)
+  }
+
   render() {
     return (
       <div className='app'>
         <div className='header'>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm addTodo = {this.addTodo} />
+          <TodoForm 
+            addTodo = {this.addTodo} 
+            delTodo = {this.delTodo}
+          />
           <TodoList
             toggleTodo = {this.toggleTodo}
             todos = {this.state.todos} />

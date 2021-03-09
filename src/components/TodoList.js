@@ -10,7 +10,6 @@ const TodoList = (props) => {
             {props.todos.map((todo) => (
                 <Todo key={todo.id} todo={todo} toggleTodo={props.toggleTodo} />
             ))}
-            <button className='clearBtn' >Clear Completed</button>
         </div>
     );
 };

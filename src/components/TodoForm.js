@@ -22,6 +22,11 @@ class TodoForm extends React.Component {
         })
     };
 
+    handleClear = (e) => {
+      e.preventDefault();
+      this.props.delTodo()
+    }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -32,6 +37,7 @@ class TodoForm extends React.Component {
                     onChange = {this.handleChanges}
                 />
                 <button>Add</button>
+                <button className='clearBtn' onClick={this.handleClear}>Clear Completed</button>
             </form>
         )
     }
