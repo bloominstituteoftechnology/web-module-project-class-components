@@ -6,6 +6,7 @@ import Todo from './Todo';
 const TodoList = (props) => {
   return (
     <>
+    <div>
     {props.items.map((item) => (
       <Todo 
       key={item.id} 
@@ -13,6 +14,7 @@ const TodoList = (props) => {
       clear={props.clear}
       strikeThrough={props.strikeThrough}/>
     ))}
+  </div>
     </>
   )
 }

@@ -2,23 +2,25 @@ import React from 'react';
 import './Todo.css';
 
 export default class TodoForm extends React.Component {
-constructor() {
-  super();
+constructor(props) {
+  super(props);
   this.state= {
     text: ''
   }  
   this.onSubmit = this.onSubmit.bind(this);
   this.onChange = this.onChange.bind(this);
+  // this.clear = this.clear.bind(this);
 }
-onSubmit = (evt) =>{
-  evt.preventDefault();
+onSubmit = (e) =>{
+  e.preventDefault();
  this.props.addText(this.state.text)
   this.setState({text: ''})
 }
 
-onChange = (evt) => {
-  this.setState({text: evt.target.value});
+onChange = (e) => {
+  this.setState({[e.target.name]: e.target.value});
 }
+
   render(){
     return (
       <div>
@@ -32,7 +34,7 @@ onChange = (evt) => {
           placeholder='...todo'
           />
          <button> Add Todo</button>
-      <button onClick={this.props.clear} > Clear Complete</button>
+         <button onClick={this.props.clear} > Clear Complete</button>
         </form>
       </div>
     )
