@@ -10,6 +10,7 @@ body {
 	background: #33333311;
 	padding: 2% 5%;
 	border-radius: 10px;
+	border: 1px solid #33333333;
 }
 
 .todo {
