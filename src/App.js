@@ -2,11 +2,13 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
-const todo = {
-  task: 'fix this',
-  id: 12345574,
-  completed: false,
-}
+const todos = [
+  {
+    task: 'fix this',
+    id: 12345574,
+    completed: false,
+  }
+]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,14 +17,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: todo,
-      count: 0,
+      todos: todos,
     };
   }
 
   toggleTask = (clickedOnId) => {
     this.setState({
-      todo: this.state.toDo.map(task => {
+      todos: this.state.toDo.map(task => {
         return task.id === clickedOnId ? {...task, completed: !task.completed} : task;
       })
     })
@@ -31,11 +32,11 @@ class App extends React.Component {
   addTask = taskName => {
     const newTask = {
       task: taskName,
-      id: new Date.now(),
+      id: new Date(),
       completed: false,
     };
     this.setState({
-      todo: [...this.state.todo, newTask],
+      todos: [...this.state.todos, newTask],
     });
   };
 
@@ -49,7 +50,7 @@ class App extends React.Component {
         </div>
       <TodoList
         toggleTask={this.toggleTask}
-        todo={this.state.todo}
+        todo={this.state.todos}
       />
       </div>
     );
