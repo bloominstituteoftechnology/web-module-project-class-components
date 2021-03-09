@@ -30,6 +30,7 @@ class App extends React.Component {
 	};
 
 	submitTodo = (todoText) => {
+		if (todoText === '') return;
 		const newTodo = {
 			task: todoText,
 			id: Date.now(),
@@ -42,15 +43,17 @@ class App extends React.Component {
 	};
 	render() {
 		return (
-			<div>
-				<h2>Welcome to your Todo App!</h2>
-				<TodoForm submitTodo={this.submitTodo} />
+			<div className='app'>
+				<h1>Welcome to your Todo App!</h1>
+				<TodoForm
+					submitTodo={this.submitTodo}
+					clearCompleted={this.clearCompleted}
+				/>
 				<TodoList
 					todoList={this.state.todoListArray}
 					toggleCompleted={this.toggleCompleted}
 					removeTodo={this.removeTodo}
 				/>
-				<button onClick={this.clearCompleted}>Clear Completed</button>
 			</div>
 		);
 	}

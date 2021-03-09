@@ -1,10 +1,67 @@
+body {
+	background-image: url('https://images.unsplash.com/photo-1476108621677-3c620901b5e7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80');
+}
+.app {
+	width: 40%;
+	min-width: 575px;
+	margin: 20px auto;
+	text-align: center;
+	padding-left: 5%;
+	background: #33333311;
+	padding: 2% 5%;
+	border-radius: 10px;
+}
+
 .todo {
-	width: 25%;
 	display: flex;
 	justify-content: space-between;
 	cursor: pointer;
+	font-size: 1.4rem;
+	background: #33333333;
+	padding-left: 2%;
+	border-bottom: 1px solid #33333399;
+	border-radius: 5px;
 }
 .completed {
 	text-decoration-line: line-through;
-	color: #aaa;
+	background: #33333311;
+	color: #33333399;
+}
+.form-container {
+	display: flex;
+	justify-content: space-between;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 70px;
+}
+form {
+	display: flex;
+	justify-content: left;
+	width: 60%;
+	align-items: center;
+}
+input {
+	padding-left: 2%;
+	width: 15%;
+	min-width: 250px;
+	height: 2rem;
+	font-size: 1.6rem;
+	margin-left: 0;
+	margin-bottom: 10px;
+	border-right: none;
+	outline: none;
+	border-radius: 5px;
+}
+form button {
+	margin-left: -1px;
+	font-size: 1.65rem;
+	margin-bottom: 10px;
+}
+button {
+	font-size: 1.5rem;
+	margin-left: 10px;
+	margin-bottom: 2%;
+	padding: 0.6% 1%;
+	border-radius: 5px;
 }

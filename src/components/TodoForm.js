@@ -32,16 +32,23 @@ class TodoForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					name='todoText'
-					type='text'
-					value={this.state.formState.todoText}
-					onChange={this.handleChange}
-					autoFocus
-				/>
-				<button type='submit'>+ Add</button>
-			</form>
+			<div className='form-container'>
+				<form onSubmit={this.handleSubmit}>
+					<input
+						name='todoText'
+						type='text'
+						value={this.state.formState.todoText}
+						onChange={this.handleChange}
+						autoFocus
+					/>
+					<button type='submit' disabled={this.state.formState.todoText === ''}>
+						+ Add
+					</button>
+				</form>
+				<button onClick={() => this.props.clearCompleted()}>
+					Clear Completed
+				</button>
+			</div>
 		);
 	}
 }
