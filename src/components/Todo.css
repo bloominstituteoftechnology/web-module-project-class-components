@@ -1,0 +1,8 @@
+.todoItem{
+    background-color: lightblue;
+}
+
+.completed {
+    text-decoration: line-through;
+    font-style: italic;
+  }
