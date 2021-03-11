@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React, {Component} from 'react';
 
-export class TodoForm extends Component {
+class TodoForm extends Component {
     constructor(){
         super();
         this.state = {
@@ -10,20 +10,32 @@ export class TodoForm extends Component {
     }
 
 
-handleChanges
-handleSubmit
-handleClear
+handleChanges = e =>{
+  //update state with each keystroke
+  this.setState({todo: e.target.value})
+};
+
+handleSubmit = e =>{
+  e.preventDefault();
+  this.props.addTodo(this.state.todo);
+  this.setState({
+    todo: ""
+  })
+}
+handleClear = e => {
+  e.preventDefault();
+  this.props.clearCompleted();
+}
 
 render(props) {
 return(
     <form className="form">
-    {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
     <input
     className="input"
       type="text"
       name="todo"
       placeholder="Add a Todo"
-      value= {this.state.todo}
+      value= {this.state.todo} //adding this "value" and the event handler below turns this into a controlled component
       onChange= {this.handleChanges}
     />
     <button className= "btn" onClick={this.handleSubmit}>Add Todo</button>
@@ -33,3 +45,4 @@ return(
 
 }
 }
+export default TodoForm
