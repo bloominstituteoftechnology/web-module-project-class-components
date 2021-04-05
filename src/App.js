@@ -39,6 +39,15 @@ class App extends React.Component {
     }
   }
 
+  addTodo = ( todoName ) => {
+    this.setState({
+      todos: [...this.state.todo, {
+        name: todoName,
+        id: Math.random(),
+        completed: false,
+      }]
+    })
+  }
 
 
 
@@ -46,8 +55,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={todos} />
-        <TodoForm />
+        <TodoList todos={ todos } />
+        <TodoForm addTodo={ this.addTodo }/>
       
       </div>
     );
