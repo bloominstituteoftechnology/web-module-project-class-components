@@ -5,11 +5,6 @@ import TodoForm from './components/TodoForm';
 import './styles.scss';
 
 const todoarr = [
-  {
-    name:"Stupid",
-    id:69,
-    completed:true
-  },
   
 ]; //array to store data
 
