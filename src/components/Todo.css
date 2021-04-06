@@ -1,0 +1,10 @@
+.completed {
+	text-decoration-line: line-through;
+	color: #aaa;
+}
+
+.form-container {
+	display: flex;
+	justify-content:first baseline;
+}
+
