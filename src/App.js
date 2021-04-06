@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './todo.css'
 
 const todos = [
   {
