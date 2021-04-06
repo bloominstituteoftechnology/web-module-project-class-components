@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList'
-import TodoForm from './components/'
+import TodoForm from './components/TodoList'
 
 
   // you will need a place to store your state in this component.
@@ -77,8 +77,8 @@ import TodoForm from './components/'
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
-        <TodoList />
+        <TodoForm addTodo = {this.addTodo} />
+        <TodoList clearFinished = {this.clearFinished} toggleDone = {this.toggleDone} objectives = {this.state.objectives}/>
       </div>
     );
   }
