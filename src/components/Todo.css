@@ -1,0 +1,30 @@
+body {
+    background-color: slategray;
+}
+
+.todo.completed{
+    text-decoration: line-through;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+p {
+    font-size: 1.8rem;
+    background-color: black;
+    color:slategray;
+    width: 45%;
+    text-align: center;
+    padding: 2%;
+    border-radius: 20%;
+}
+
+.cards-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 2px solid springgreen;
+    width: 45%
+}
