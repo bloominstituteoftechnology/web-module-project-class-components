@@ -57,11 +57,10 @@ Follow these steps for completing your project.
 
 - Be sure to use the given files for building out these components.
 
-
-- App is the main Application
+<!-- - App is the main Application
 - ToDoForm is the FORM that will be displayed and logic
 - ToDo is the Component that takes in the ToDoForm
-- ToDoList is the raw data and some logic
+- ToDoList is the raw data and some logic -->
 
 
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
@@ -90,6 +89,6 @@ Follow these steps for completing your project.
 
 ## Submission Format
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas to submit your assignment
+- [x] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+- [x] From the home page of your repo, make sure you have your branch selected
+- [x] Copy the URL and paste it into Canvas to submit your assignment

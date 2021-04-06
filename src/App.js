@@ -41,14 +41,24 @@ class App extends React.Component {
     ],
     searched: [],
   };
-}
 
-addToDo = (newTask) => {
+
+
+// STATES //
+
+const [ToDo, SetToDo] = useState(ToDo)
+const [List, SetList] = useState(List)
+
+const idNumber = 0;
+
+addToDo = (newToDo) => {
   const newToDo = {
-    task: newTask,
-    id: "",
+    task: newToDo,
+    idNumber: {(idNumber + 1)},
     completed: false;
-  }
+  };
+  this.setState({ todos: [...this.state.todos, newToDo] });
+
 }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
