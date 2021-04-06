@@ -35,13 +35,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: todos
+      todos: todos
     }
   }
 
   addTodo = ( todoName ) => {
     this.setState({
-      todos: [...this.state.todo, {
+      todos: [...this.state.todos, {
         name: todoName,
         id: Math.random(),
         completed: false,
@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={ todos } />
+        <TodoList todos={ this.state.todos } />
         <TodoForm addTodo={ this.addTodo }/>
       
       </div>
