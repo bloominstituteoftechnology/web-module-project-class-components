@@ -41,17 +41,21 @@ class App extends React.Component {
   }
 
   toggleTodo = (id) => {
+
+
+    // LOL THIS CLEARS //
+
     const newTodo = this.state.todos.map(todo => {
       if (todo.id === id) {
         return ( {
-          ...todo.completed,
+          ...todo,
           completed: !todo.completed
         });
       } else {
         return todo
       }
     })
-
+    console.log(newTodo)
     this.setState({
       todos: newTodo
     })
@@ -73,7 +77,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={ this.state.todos } />
+        <TodoList toggleTodo={this.toggleTodo} todos={ this.state.todos } />
         <TodoForm addTodo={ this.addTodo }/>
       
       </div>
