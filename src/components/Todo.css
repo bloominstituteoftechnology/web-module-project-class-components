@@ -1,7 +1,26 @@
 
 
+.container {
+    border: solid black 3px;
+}
 
-.toDoForm {
-    border: solid red 3px;
+.list {
+        margin: 1vh;
+        border: solid green 2px;
+        background-color: #f4f4f4;
+    }
+}
+
+.toDos {
+    margin: 1vh;
+    border: solid blue 2px;
     background-color: #f4f4f4;
 }
+
+.toDoForm {
+    margin: 1vh;
+    border: solid red 2px;
+    background-color: #f4f4f4;
+}
+
+

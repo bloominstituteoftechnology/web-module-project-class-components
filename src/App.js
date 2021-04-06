@@ -1,45 +1,69 @@
-import React from 'react';
-
+import React, {usestate} from 'react';
+import ToDoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
+import ToDo from './components/Todo'
 
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: [
+        {
+        task: 'Take Normandy Beach',
+        id: 'A1' ,
+        completed: false
+        },
+    
+        {
+        task: 'Occupy Carentan',
+        id: 'B2',
+        completed: false
+        },
+    
+        {
+        task: 'Liberate Paris',
+        id: 'C3',
+        completed: false
+        },
+    
+        {
+        task: 'Help the Brits with the Hochwald Gap',
+        id: 'D4',
+        completed: false
+        },
+    
+        {
+        task: 'Enter Berlin',
+        id: 'E5',
+        completed: false
+        }
+    ],
+    searched: [],
+  };
+}
+
+addToDo = (newTask) => {
+  const newToDo = {
+    task: newTask,
+    id: "",
+    completed: false;
+  }
+}
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   render() {
     return (
-      <div className = "toDoForm">
+      <div className = "container">
         <h2>Welcome to your Todo App!</h2>
-        <div>
+          <TodoList/>
+          <Todo/>
           <TodoForm/>
-        </div>
       </div>
     );
   }
 }
-
-class ToDoForm extends React.Component {
-  constructor() {
-      super();
-      this.state = {
-          task: {initialToDoDate.task},
-          id: {initialToDoDate.id},
-          completed: {initialToDoDate.completed},
-      };
-  }
-
-  handleClick = () => {
-      this.setState({
-          task: "",
-          id:
-          completed: 
-      });
-  }
-
-
-}
-
-export default App2;
 
 export default App;
