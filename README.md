@@ -34,23 +34,36 @@ We're going to practice building a stateful class component with this project. E
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository in your terminal
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Clone your OWN version of the repository in your terminal
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
+- [x] From the home page of your repo, make sure you have your branch selected
+- [x] Copy the URL and paste it into Canvas
 
 ### Task 2: MVP
 
 - **Don't focus on styling yet**. We want you to worry about function over form today.
-- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
+- Your todo list should display:
+1) list of todos - make array of data using default 
+2) an input field - form creation
+3) a submit button - button with OnSubmit()
+4) and a clear all button - button - resets state to blank original array?
+
 - Be sure to use the given files for building out these components.
+
+
+- App is the main Application
+- ToDoForm is the FORM that will be displayed and logic
+- ToDo is the Component that takes in the ToDoForm
+- ToDoList is the raw data and some logic
+
+
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
   - All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
