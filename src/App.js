@@ -84,8 +84,8 @@ clearCompleted = (e) => {
   
   render() {
     return (
-      <div>
-        <h1>Welcome to your Todo App!</h1>
+      <div className="app-container">
+        <h1>Let's Todo Something!</h1>
         <TodoForm 
         key={this.id}
         addTodo={this.addTodo}/>
