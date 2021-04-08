@@ -30,24 +30,60 @@ class App extends React.Component {
         todos:todos // the 'prop' is on the left, the value is on the right, the initial data set
                     //this is a property/value pair - you can have many 
       }
+    }
 
-
+  //Handler Functions to update the state ***We do this in here because we cannot pass down state!
+  toggleTodo = todoId => {
+    console.log("Toggling todo", todoId);
+    const updateTodos = this.state.todos.map(todo => {
+      if (todoId === todo.id) {
+        return { ...todo, completed: !todo.completed }
+      }
+      return todo;
+    });
+    console.log ("updated todos array", updateTodos);
+    this.setState({
+      ...this.state,
+      todos: updateTodos
+    });
   }
 
-  //Handler Functions
+  addTodo = todoTask => {
+    this.setState ({
+      ...this.state,
+      todos : [
+        ...this.state.todos,
+        {
+          task: todoTask,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    })
+  }
 
+clearCompleted =e => {
+  e.preventDefault();
+  this.setState({
+    ...this.state,
+    todos: this.state.todos.filter(todo => !todo.completed)
+  })
+}
 
+////Lifecycle methods to handle API calls, event listeners, and other side effects
+
+//Render method to render HTML to the DOM in JSX
   render() {
     return (
       <div className="App">
 
           <div className="header">
-            <h1>My Task List</h1>
-             <TodoForm/> 
+            <h1>My To-Do List</h1>
+             <TodoForm addTodo={this.addTodo}/> 
           </div>
 
           <div>
-            <TodoList todos={this.state.todos}/> 
+            <TodoList clearCompleted={this.clearCompleted} toggleTodo={this.toggleTodo} todos={this.state.todos}/> 
           </div>
       </div>
     );
