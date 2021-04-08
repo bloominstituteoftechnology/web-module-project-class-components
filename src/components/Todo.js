@@ -4,7 +4,7 @@ const Todo = (props) => {
   console.log(props, props.props.list);
 
   return (
-    <div className="d-flex justify-content-start flex-column flex-wrap" style={{marginTop: '15vh', alignContent: 'start'}}>
+    <div className="d-flex justify-content-center flex-column flex-wrap" style={{marginTop: '15vh', alignContent: 'start'}}>
       {props.props.list.map((item, idx) => {
         return (
           <div
