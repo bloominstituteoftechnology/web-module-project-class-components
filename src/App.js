@@ -27,6 +27,14 @@ class App extends React.Component {
     };
   }
 
+  toggleTodo = (taskId) => {
+    const updatedTodo = this.state.tasks.map((task) => {
+      if ((taskId = task.id)) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+  };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
