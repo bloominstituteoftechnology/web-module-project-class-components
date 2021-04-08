@@ -1,4 +1,4 @@
-//import React from 'react'; --Don't need this if functional components
+import React from 'react'; 
 
 
 //holds input field
@@ -9,9 +9,34 @@
     //use .filter to call your handler function <in the App.js> to filter out any true toggles --onclick fires the handler
     //all the logic/code of .filter lives in App --**cannot pass down setState -- so use this.props.<filterhandlername>
 
-const TodoForm = props => {
-    const {todos} = props.task;
-    
+class TodoForm extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            newTodo : ''
+        }
+    }
+
+    handleChanges = e => {
+        this.setState({ 
+            ...this.state, //this spread operator is updating the state with each keystroke
+            newTodo: e.target.value
+        })
+    };
+
+    submitTodo = e => {
+        e.preventDefault();
+        this.props.addTodo(this.state.newTodo);
+    }
+
+    render() {
+        return(
+            <form onSubmit={this.submitTodo}>
+                <input value={this.state.newTodo} onChange={this.handleChanges} type="text" task="todo"/>
+                <button>Add</button>
+            </form>
+        )
+    }
 }
 
 export default TodoForm;
