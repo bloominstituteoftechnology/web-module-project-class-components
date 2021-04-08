@@ -1,10 +1,11 @@
 import React from 'react';
 
-//import TodoForm from './components/TodoForm';
-//import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 
-const todo = [
+
+const todos = [
   {
       task: 'Pay Bills',
       id: Date.now(),
@@ -24,11 +25,16 @@ const todo = [
 
 class App extends React.Component {
   constructor() {
-      super();
+      super(); 
       this.state = {
-        todo:todo
+        todos:todos // the 'prop' is on the left, the value is on the right, the initial data set
+                    //this is a property/value pair - you can have many 
       }
+
+
   }
+
+  //Handler Functions
 
 
   render() {
@@ -37,11 +43,11 @@ class App extends React.Component {
 
           <div className="header">
             <h1>My Task List</h1>
-            {/* <TodoForm/> */}
+             <TodoForm/> 
           </div>
 
           <div>
-            {/* <TodoList todo={todo}/> */}
+            <TodoList todos={this.state.todos}/> 
           </div>
       </div>
     );
@@ -52,6 +58,9 @@ export default App;
 
 
 ///////////HANDLER FUNCTIONS///////////
-//Add functionality <is this here or in a different component?>
+//Add functionality 
     //toggle the box from false to true once completed, adding a line-through style property upon true
     //remove completed todos <.filter> when clicking Clear Completed button, that are toggled true
+
+    //*this means within this App component, *state means state explicitly, *todos is the property in the state
+  //wrap setState in a handler function and then pass that function down*****, b/c you cannot pass that state down directly in class components
