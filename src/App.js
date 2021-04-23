@@ -46,7 +46,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className='app'>
-				<h1 class="rainbow">Welcome to your TODO App!</h1>
+				<h1 className="rainbow">Welcome to your TODO App!</h1>
 				<TodoForm
 					submitTodo={this.submitTodo}
 					clearCompleted={this.clearCompleted}
