@@ -1,0 +1,47 @@
+.container {
+    background-color: rgb(135, 224, 168);
+    border-radius: 20%;
+    padding-bottom: 50%;
+    width: 80%;
+    margin: 0 auto;
+}
+.header{
+    text-align: center;
+    border:10px dotted rgb(108, 95, 233);
+    width:40%;
+    margin:0 auto;
+    border-radius:15%;
+    margin-bottom:10%;
+
+}
+.todo-list{
+    font-size:1.5rem;
+    margin:0 auto;
+    border:5px solid rgb(211, 241, 127);
+    text-align: center;
+    width:30%;
+    margin-bottom:10%;
+}
+.form{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width:40%;
+    margin:0 auto;
+}
+.input{
+    width: 50%;
+    margin-bottom:5%;
+
+}
+.itemcompleted{
+    border:1px solid rgb(15, 242, 7);
+    text-decoration-line: line-through;
+    color:red;
+}
+.item{
+    border:1px solid black;
+}
+button{
+    margin-bottom: 4%;
+}
