@@ -26,7 +26,12 @@ const todos = [
     name: 'Call the bank',
     id: 126,
     completed: false,
-  }
+  },
+  {
+    name: 'Wash the car',
+    id: 127,
+    completed: false,
+  },
 ];
 
 class App extends React.Component {
