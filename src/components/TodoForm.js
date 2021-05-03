@@ -25,10 +25,13 @@ class TodoForm extends React.Component {
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <input onChange={this.handleChange} type='text' name='task'/>
-                <button>Add Task</button>
-                <button onClick={this.handleComplete}>Complete Task</button>
+                <button onClick={this.handleSubmit}>Add Task</button>
+
+                <div>
+                   <button onClick={this.handleComplete}>Complete Task</button>
+                </div>
             </form>
         )
     }
