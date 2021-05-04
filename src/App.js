@@ -51,6 +51,8 @@ class App extends React.Component {
     this.setState({
       tasks: [...this.state.tasks, newItem]
     })
+    window.localStorage.setItem('user', JSON.stringify(tasks))
+
   }
 
   completeTask = () => {
