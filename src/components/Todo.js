@@ -1,5 +1,14 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Todo extends Component {}
+const Todo = (props) => {
+  const handleClick = (e) => {
+    props.toggleTask(props.task.id);
+  };
+  return (
+    <div onClick={handleClick}>
+      <p>{props.task.task}</p>
+    </div>
+  );
+};
 
 export default Todo;
