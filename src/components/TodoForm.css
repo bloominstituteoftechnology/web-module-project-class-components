@@ -1,0 +1,39 @@
+.custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: calc(500px);
+}
+
+#item {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 2px solid gray;
+  border-radius: 20px;
+  transition: ease-in-out 0.2s;
+}
+
+#item:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.none {
+  text-decoration: none;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
