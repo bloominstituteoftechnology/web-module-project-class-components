@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const Item = props => {
   // const [item, setItem] = useState({
@@ -17,7 +17,7 @@ const Item = props => {
   }
 
   return (
-    <div onClick={handleClick} className={`item${props.item.completed ? ' purchased' : ''}`}>
+    <div onClick={handleClick} className={`item${props.item.completed ? ' complete' : ' xx'}`}>
       <p>{props.item.task}</p>
     </div>
   );

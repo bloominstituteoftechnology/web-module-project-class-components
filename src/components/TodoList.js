@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Item from './Item';
+import './Todo.css';
 
 const Todo = (props) => {
 
