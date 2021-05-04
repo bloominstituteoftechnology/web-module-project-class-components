@@ -12,6 +12,7 @@ const Todo = (props) => {
 
     return(
     <div className="list">
+        {console.log("Todo list:", props.list)}
         {props.list.map(item => (
             <Item key={item.id} toggleItem={props.toggleItem} item={item} />
         ))}

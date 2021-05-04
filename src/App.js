@@ -5,18 +5,30 @@ import Todo from './components/TodoList';
 
 
 const list = [{
-  task: "Rake lawn",
+  task: "Task 1",
   id: 0,
+  completed: false,
+},{
+  task: "Task 2",
+  id: 1,
+  completed: false,
+},{
+  task: "Task 3",
+  id: 2,
+  completed: false,
+},{
+  task: "Rake lawn",
+  id: 3,
   completed: false,
 },
 {
   task: "Buy groceries",
-  id: 1,
-  completed: true,
+  id: 4,
+  completed: false,
 },
 {
   task: "Get gas",
-  id: 2,
+  id: 5,
   completed: false,
 }
 ]
@@ -53,7 +65,6 @@ class App extends React.Component {
         return (item);
       }
     });
-    console.log("newItems: ", newItems);
     this.setState({
       list: newItems
     });
@@ -61,18 +72,13 @@ class App extends React.Component {
 
   addItem = (task) => {
     const newItem = {
-      name:task,
-      id:this.state.list.length,
+      task: task,
+      id: this.state.list.length,
       completed: false
     };
-    // list.push(newItem);
     this.setState({
       list: [...this.state.list, newItem]
     })
-    
-    console.log("List: ", list)
-    console.log("this.state.list: ", this.state.list)
-    console.log("newItem: ", newItem )
   }
 
     render() {
@@ -82,6 +88,9 @@ class App extends React.Component {
           <h2>Welcome to your To-Do App!</h2>
           <TaskForm addTask={this.addItem} />
         </div>
+    {console.log("Render List: ", list)}
+    {console.log("Render this.state.list: ", this.state.list)}
+
         <Todo clearCompleted={this.clearCompleted} toggleItem={this.toggleItem} list={this.state.list} />  
       </div>   
     );
