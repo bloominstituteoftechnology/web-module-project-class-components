@@ -1,7 +1,7 @@
 import React from "react";
 
 import TodoForm from "./components/TodoForm";
-// import TodoList from "./components/TodoList";
+import TodoList from "./components/TodoList";
 
 // make an array of objects containing tasks for todo list
 const tasks = [
@@ -73,6 +73,11 @@ class App extends React.Component {
           <h1>Todo List</h1>
           <TodoForm addTask={this.addTask} />
         </div>
+        <TodoList
+          clearCompleted={this.clearCompleted}
+          tasks={this.state.tasks}
+          toggleCompleted={this.toggleCompleted}
+        />
       </div>
     );
   }
