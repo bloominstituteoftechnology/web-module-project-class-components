@@ -31,6 +31,7 @@ class TodoList extends React.Component {
             value={this.state.newTaskName}
             onChange={this.handleChanges}
           />
+          <button>Add</button>
         </form>
       </div>
     );

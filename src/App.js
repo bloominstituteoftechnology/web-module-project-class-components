@@ -1,7 +1,7 @@
 import React from "react";
 
 import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+// import TodoList from "./components/TodoList";
 
 // make an array of objects containing tasks for todo list
 const tasks = [
@@ -39,7 +39,7 @@ class App extends React.Component {
   addTask = (newTaskName) => {
     this.setState({
       tasks: [
-        ...this.state.task,
+        ...this.state.tasks,
         { name: newTaskName, id: Date.now(), completed: false },
       ],
     });
@@ -55,7 +55,7 @@ class App extends React.Component {
             completed: !task.completed,
           };
         }
-        return item;
+        return task;
       }),
     });
   };
@@ -71,9 +71,8 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h1>Todo List</h1>
-          <TodoForm />
+          <TodoForm addTask={this.addTask} />
         </div>
-        <TodoList />
       </div>
     );
   }
