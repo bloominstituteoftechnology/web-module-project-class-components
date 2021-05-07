@@ -2,8 +2,8 @@ import React from "react";
 
 class TodoForm extends React.Component {
 	// Constructor with state:
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			newTaskName: "",
 		};
@@ -24,13 +24,17 @@ class TodoForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					type="text"
-					onChange={this.state.handleChanges}
-					value={this.state.newTaskName}
-				/>
-			</form>
+			<div>
+				<h3>Add things to do:</h3>
+				<form onSubmit={this.handleSubmit}>
+					<input
+						type="text"
+						onChange={this.handleChanges}
+						value={this.state.newTaskName}
+					/>
+					<button>Add Task</button>
+				</form>
+			</div>
 		);
 	}
 }
