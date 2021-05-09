@@ -1,7 +1,7 @@
 import React from "react";
 
 class TodoForm extends React.Component {
-  state = { input: "" };
+  state = { input: "Add Tasks Here" };
 
   handleChanges = (e) => {
     // update state with each keystroke
@@ -19,8 +19,12 @@ class TodoForm extends React.Component {
       <div className="form">
         <form onSubmit={this.handleSubmit} className="ui form">
           <div className="field">
-            <label>Add New Task</label>
-            <input type="text" name="todo" onChange={this.handleChanges} />
+            <input
+              type="text"
+              name="todo"
+              value={this.state.input}
+              onChange={this.handleChanges}
+            />
           </div>
         </form>
         <button onClick={this.handleSubmit}>Add</button>

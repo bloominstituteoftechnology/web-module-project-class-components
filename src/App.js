@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import "./styles.scss";
 //to do list tasks
 const tasks = [
   { task: "Organize Garage", id: 1528817077286, completed: false },
@@ -10,7 +11,10 @@ const tasks = [
   { task: "Clean Kitchen", id: 1528817077290, completed: false },
   { task: "Put Kids To Bed", id: 1528817077291, completed: false },
 ];
+
+//Defining Class
 class App extends React.Component {
+  //state
   state = { tasks: tasks };
 
   // Class methods to update state
@@ -52,6 +56,7 @@ class App extends React.Component {
   };
 
   render() {
+    // We Render All Components here
     return (
       <div className="App">
         <div className="header">
