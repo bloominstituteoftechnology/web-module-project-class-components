@@ -17,7 +17,7 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div className="form">
-        <form onSubmit={this.handleSubmit} className="ui form">
+        <form onSubmit={this.handleSubmit} className="semantic ui-form">
           <div className="field">
             <input
               type="text"
@@ -27,7 +27,9 @@ class TodoForm extends React.Component {
             />
           </div>
         </form>
-        <button onClick={this.handleSubmit}>Add</button>
+        <button className="add-btn" onClick={this.handleSubmit}>
+          Add
+        </button>
       </div>
     );
   }
