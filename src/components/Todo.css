@@ -1,0 +1,34 @@
+label {
+    font-size: 2rem;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.neoTodo {
+    font-size: 2rem;
+}
+
+.todo {
+    background-color: red;
+    font-size: 3rem;
+    color: blanchedalmond;
+    border-radius: 1rem;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1rem;
+}
+
+.todo-display {
+    margin: 1rem auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button-clear, .button-todo-add {
+    font-size: 3rem;
+    border-radius: 1rem;
+}
