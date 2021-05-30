@@ -56,7 +56,7 @@ class App extends React.Component {
   toggleItem = (id) => {
     const newItems = this.state.list.map(item => {
       if (item.id === id) {
-        console.log("about to toggle", item);
+       // console.log("about to toggle", item);
         return {
           ...item,
           completed: !item.completed
@@ -88,8 +88,6 @@ class App extends React.Component {
           <h2>Welcome to your To-Do App!</h2>
           <TaskForm addTask={this.addItem} />
         </div>
-    {console.log("Render List: ", list)}
-    {console.log("Render this.state.list: ", this.state.list)}
 
         <Todo clearCompleted={this.clearCompleted} toggleItem={this.toggleItem} list={this.state.list} />  
       </div>   

@@ -20,13 +20,16 @@ class TaskForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addTask(this.state.input);
+    this.setState({
+      input: ""
+    });
+    console.log("state after submit: ", this.state)
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
-        <input onChange={this.handleChanges} type="text" name="item"  />
+        <input onChange={this.handleChanges} type="text" name="item" value={this.state.input} />
         <button>Add</button>
       </form>
     );
