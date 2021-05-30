@@ -2,33 +2,33 @@ import React from 'react';
 // import ReactDom from 'react-dom';
 import TaskForm from './components/TaskForm';
 import Todo from './components/TodoList';
-
+import {v4 as uuidv4} from 'uuid';
 
 const list = [{
   task: "Task 1",
-  id: 0,
+  id: uuidv4(),
   completed: false,
 },{
   task: "Task 2",
-  id: 1,
+  id: uuidv4(),
   completed: false,
 },{
   task: "Task 3",
-  id: 2,
+  id: uuidv4(),
   completed: false,
 },{
   task: "Rake lawn",
-  id: 3,
+  id: uuidv4(),
   completed: false,
 },
 {
   task: "Buy groceries",
-  id: 4,
+  id: uuidv4(),
   completed: false,
 },
 {
   task: "Get gas",
-  id: 5,
+  id: uuidv4(),
   completed: false,
 }
 ]
@@ -73,7 +73,8 @@ class App extends React.Component {
   addItem = (task) => {
     const newItem = {
       task: task,
-      id: this.state.list.length,
+      id: uuidv4(),
+      // id: this.state.list.length,
       completed: false
     };
     this.setState({
