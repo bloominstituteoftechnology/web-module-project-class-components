@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react';
+// import ReactDOM from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import './components/Todo.css'
 
 const todos = [
   {
-    task: '',
-    // be careful to check data looks okay since id is currently an empty string
-    // start at 1 or todos.length()?
-    id: 1,
-    completed: false
+    // task: "",
+    // id: "",
+    // completed: false
   }
 ];
 
@@ -26,10 +25,30 @@ class App extends React.Component {
     }
   }
 
+  toggleTodo = (id) => {
+    // console.log("id: ", id);
+    const newTodos = this.state.todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed
+          } 
+        } else {
+          return (todo);
+        }
+      
+    });
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
   addTodo = (title) => {
+    // console.log(title);
     const newTodo = {
       task: title,
-      id: this.state.todos.length,
+      id: Date.now(),
       completed: false
     }
 
@@ -38,13 +57,23 @@ class App extends React.Component {
     })
   }
 
+  clearTodo = () => {
+    const newTodos = this.state.todos.filter(todo => {
+      return(todo.completed === false);
+    })
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
   render() {
-    console.log(todos);
+    console.log(this.state);
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todos={this.state.todos} />
-        <TodoForm addTodo={this.addTodo} />
+        <TodoList todos={this.state.todos} toggleTodo={this.toggleTodo} />
+        <TodoForm addTodo={this.addTodo} clearTodo={this.clearTodo}/>
       </div>
     );
   }

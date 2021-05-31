@@ -5,7 +5,7 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            input: ''
+            input: ""
         }
     }
 
@@ -20,13 +20,19 @@ class TodoForm extends React.Component {
         this.props.addTodo(this.state.input)
     }
 
+    handleClick = (e) => {
+        // console.log("working");
+        e.preventDefault();
+        this.props.clearTodo();
+    }
+
     render() {
         console.log(this.state.input)
         return(
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="text" name="task" />
                 <button>Add Todo</button>
-                <button>Clear Completed</button>
+                <button onClick={this.handleClick}>Clear Completed</button>
             </form>
         );
     }
