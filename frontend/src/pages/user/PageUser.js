@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeBlocks from './TimeBlocks-User.js';
+import TimeBlocks from './TimeBlocks.js';
 
 // ==============================================
 

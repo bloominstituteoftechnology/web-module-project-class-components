@@ -1,6 +1,6 @@
 import React from 'react';
-import TimeBlocks from './TimeBlocks-Admin.js';
-import Apnts from './Admin-Apnts.js';
+import TimeBlocks from './TimeBlocks.js';
+import Apnts from './Apnts.js';
 
 // ==============================================
 
