@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHome from './components/PageHome.js';
+import PageHome from './pages/home/PageHome.js';
 import './styles.css';
 
 // ==============================================

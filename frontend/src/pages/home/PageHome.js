@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import PageUser from './PageUser.js';
-import PageAdmin from './PageAdmin.js';
+import PageUser from '../../components/PageUser.js';
+import PageAdmin from '../../components/PageAdmin.js';
 import axios from 'axios';
 
 // ==============================================
