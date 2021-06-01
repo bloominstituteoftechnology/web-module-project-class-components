@@ -24,6 +24,8 @@ const saltRounds = 10;
 const pets               = client.db("JoshTestDB").collection("pets");
 const users_collection   = client.db("JoshTestDB").collection("users");
 const classes_collection = client.db("JoshTestDB").collection("classes");
+const appointmentAppDB_usersCollection = client.db("appointmentApp").collection("users");
+const appointmentAppDB_apntsCollection  = client.db("appointmentApp").collection("apnts");
 
 // ==============================================
 //
@@ -39,6 +41,27 @@ app.get("/classes", async (req, res) => {
     res.status(400).json("Getting classes from db failed");
   }
 });
+app.get("/users", async (req, res) => {
+  try {
+    const users = await appointmentAppDB_usersCollection.find().toArray();
+    console.log('users: ', users);
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Getting users from db failed");
+  }
+});
+app.get("/apnts", async (req, res) => {
+  try {
+    const apnts = await appointmentAppDB_apntsCollection.find().toArray();
+    console.log('apnts: ', apnts);
+    res.status(200).json(apnts);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Getting apnts from db failed");
+  }
+});
+
 app.get("/classes/:id", async (req, res) => {
 
   const ID = String(req.params.id);
