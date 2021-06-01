@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 
-const Todo = () => {
+const Todo = (props) => {
 
     // --------------------------------------------
 
@@ -22,12 +22,18 @@ const Todo = () => {
 
     return (
       <div>
+        
+        <h1>x: {props.x}</h1>
+
         <form onSubmit={e => {
           e.preventDefault();
           setTodos([...todos, {appointment_type: form_val}]);
           setFormVal('');
         }}>
-          <input type="text" value={form_val} onChange={e => setFormVal(e.target.value)} />
+          <input type="text" value={props.x}  onChange={props.updateStateMessage} />
+          <input type="text" value={form_val} onChange={e => {
+            setFormVal(e.target.value);
+          }} />
           <button type="submit">
             Add Appointment
           </button>
