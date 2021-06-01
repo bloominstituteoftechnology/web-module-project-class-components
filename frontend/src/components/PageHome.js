@@ -15,7 +15,7 @@ const PageHome = () => {
 
   // -------------------------------------------
 
-  const [apnts, setApnts]                        = useState([]);
+  const [apnts, setApnts]                = useState([]);
   const [available_tbs, setAvailableTBs] = useState([]);
 
   // -------------------------------------------
@@ -28,6 +28,18 @@ const PageHome = () => {
         setApnts(res.data);
 
         const compute_available_timeblocks = (() => {
+
+          // -Each doc in apnts collection has following properties:
+          //    --start-time: int32 in range:  8   9   10  11  12  1   2   3   4 
+          //    --duration:   int32 in range  [1,3]
+          //    --time-idx:   int32 in range:  0   1   2   3   4   5   6   7   8
+          // 
+          // -Example available_time_blocks:
+          //                   [>>>)               [>>>>>>>)
+          //    [8-9):        [1   0   0   0   0   0   0   0   0]
+          //    [1-3):        [0   0   0   0   0   1   1   0   0]
+
+
           const available_tbs = [true,true,true,true,true,true,true,true,];
 
           res.data.forEach((apnt) => {
@@ -48,10 +60,12 @@ const PageHome = () => {
 
   return (
     <div>
-      <PageUser  apnts={apnts} available_tbs={available_tbs}/>
+      <PageUser                available_tbs={available_tbs}/>
       <PageAdmin apnts={apnts} available_tbs={available_tbs}/>
     </div>
   );
 };
+
+// ==============================================
 
 export default PageHome;

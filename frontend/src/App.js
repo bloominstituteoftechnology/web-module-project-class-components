@@ -1,11 +1,5 @@
 import React from 'react';
-import Todo from './components/Todo.js';
-import TimeBlocks from './components/TimeBlocks.js';
-import StateDemo from './components/StateDemo.js';
 import PageHome from './components/PageHome.js';
-
-import axios from 'axios';
-
 import './styles.css';
 
 // ==============================================
@@ -50,6 +44,8 @@ class App extends React.Component {
     );
   }
 }
+
+// ==============================================
 
 export default App;
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import UserTimeBlocks from './TimeBlocks-User.js';
+import TimeBlocks from './TimeBlocks-User.js';
 
 // ==============================================
 
-const PageUser = ({apnts, available_tbs}) => {
+const PageUser = ({available_tbs}) => {
   
   // -------------------------------------------
 
@@ -20,10 +20,12 @@ const PageUser = ({apnts, available_tbs}) => {
       <div>Section 2: Dropdown for Appointment Type</div>
       <div>
         Section 3: GUI for Available Appointments
-        <UserTimeBlocks available_tbs={available_tbs} />
+        <TimeBlocks available_tbs={available_tbs} />
       </div>
     </div>
   );
 };
+
+// ==============================================
 
 export default PageUser;
