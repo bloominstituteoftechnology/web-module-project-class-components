@@ -1,5 +1,12 @@
 import React from 'react';
 import Todo from './components/Todo.js';
+import TimeBlocks from './components/TimeBlocks.js';
+import StateDemo from './components/StateDemo.js';
+import PageHome from './components/PageHome.js';
+
+import axios from 'axios';
+
+import './styles.css';
 
 // ==============================================
 
@@ -11,7 +18,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      x: 0
+      x: 0,
+      apnts: []
     };
   }
   
@@ -25,15 +33,20 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <button onClick={() => {
-          console.log('clicked!');
-        }}>
-          Click Me!
-        </button>
-        
-        <Todo updateStateMessage={this.updateStateMessage} x={this.state.x}/>
-      </div>
+      // <div style={{border: 'solid darkorange 2px'}}>
+      //   <div style={{border: 'solid darkorchid 2px'}}>          
+      //     <Todo />
+      //   </div>
+
+      //   <div style={{border: 'solid lightpink 2px'}}>
+      //     <TimeBlocks />
+      //   </div>
+
+      //   <div style={{border: 'solid lightblue 2px'}}>
+      //     <StateDemo updateStateMessage={this.updateStateMessage} x={this.state.x}/>
+      //   </div>
+      // </div>
+      <PageHome />
     );
   }
 }
