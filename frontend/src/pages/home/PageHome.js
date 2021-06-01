@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import PageUser from '../../components/PageUser.js';
+import PageUser from '../user/PageUser.js';
 import PageAdmin from '../admin/PageAdmin.js';
 import axios from 'axios';
 
