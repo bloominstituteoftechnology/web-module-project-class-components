@@ -8,9 +8,9 @@ const ToDoList = props => {
     return (
         <div className = 'task-list'>
             {props.tasks.map(task => (
-                <Task key = {task.id} task = {task} onClick = {props.toggleCompleted}/>
+                <Task key = {task.id} task = {task} toggleCompleted = {props.toggleCompleted}/>
             ))}
-            <button className = 'clear'>
+            <button className = 'clear' onClick = {props.clearCompleted}>
                 Clear Completed Tasks
             </button>
         </div>
