@@ -40,7 +40,7 @@ const PageHome = () => {
           //    [1-3):        [0   0   0   0   0   1   1   0   0]
 
 
-          const available_tbs = [true,true,true,true,true,true,true,true,];
+          const available_tbs = [true,true,true,true,  true,true,true,true, true];
 
           res.data.forEach((apnt) => {
             console.log('apnt.time_idx: ', apnt.time_idx);

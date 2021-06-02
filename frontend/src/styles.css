@@ -1,2 +1,5 @@
 .visibility-hidden { visibility: hidden; }
 .visibility-visble { visibility: visible; }
+
+.translucent { opacity: 0.25; }
+.opaque      { opacity: 1; }

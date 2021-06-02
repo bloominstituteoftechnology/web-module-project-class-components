@@ -54,13 +54,73 @@ app.get("/users", async (req, res) => {
 app.get("/apnts", async (req, res) => {
   try {
     const apnts = await appointmentAppDB_apntsCollection.find().toArray();
-    console.log('apnts: ', apnts);
-    res.status(200).json(apnts);
+    const apnts_objs = apnts.map((apnt, idx) => {
+      
+      const complete_date = Date(apnt.start_time);
+      const split_date = complete_date.split(' ');
+      const time = split_date[4];
+      const time_split = time.split(':');
+
+      return {
+        user_id: idx, // DUMMY: Store this in DB upon user adding new apnt, then retrieve address, name etc from indexing into this corresponding users collection
+        duration: apnt.duration,
+        time_idx: apnt.time_idx,
+        apnt_type: apnt.apnt_type,
+        day: split_date[0],
+        month: split_date[1],
+        date: split_date[2],
+        year: split_date[3],
+        time: time,
+        hour: time_split[0],
+        minute: time_split[1],
+        second: time_split[2],
+        time_zone: split_date[5],
+      };
+    });
+    // console.log('Complete Date: ', complete_date, ',  typeof complete_date: ', typeof complete_date);
+    // console.log('date_obj: ', date_obj);
+    res.status(200).json(apnts_objs);
   } catch (err) {
     console.log(err);
     res.status(400).json("Getting apnts from db failed");
   }
 });
+
+// ==============================================
+//
+// CRUD Create
+//
+app.post("/apnts/add", async (req, res) => {
+  try {
+
+    // const classes = await classes_collection.find().toArray();
+    const result = await appointmentAppDB_apntsCollection.insertOne({
+      user_id:    req.body.user_id, // DUMMY: Store this in DB upon user adding new apnt, then retrieve address, name etc from indexing into this corresponding users collection
+      duration:   req.body.duration,
+      time_idx:   req.body.time_idx,
+      apnt_type:  req.body.apnt_type,
+      day:        req.body.day,
+      month:      req.body.month,
+      date:       req.body.date,
+      year:       req.body.year,
+      time:       req.body.time,
+      hour:       req.body.hour,
+      minute:     req.body.minute,
+      second:     req.body.second,
+      time_zone:  req.body.time_zone,
+    });
+
+    console.log('/classes :: result.insertedId: ', result.insertedId);
+
+    const id = result.insertedId;
+    res.status(200).json(id);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Adding class to db failed");
+  }
+});
+
+// ==============================================
 
 app.get("/classes/:id", async (req, res) => {
 
