@@ -4,16 +4,6 @@ import ToDoList from './components/TodoList'
 import './Todo.css'
 
 const tasks = [
-  {
-    name: 'Do homework',
-    id: 123,
-    completed: false
-  },
-  {
-    name: 'Make Breakfast',
-    id:1234,
-    completed: false
-  }
 ]
 
 class App extends React.Component {
@@ -70,7 +60,7 @@ class App extends React.Component {
       if(!task.completed) {
         return task;
       }
-      
+
     }
     )
     this.setState(
