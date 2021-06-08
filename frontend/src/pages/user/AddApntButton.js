@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import DatePicker from './MUI-calendar.js';
 
 // ==============================================
 
-const AddApnt = ({setActiveSection}) => {
+const AddApnt = ({setActiveSection, setApntDate}) => {
 
   // -------------------------------------------
 
@@ -14,6 +15,7 @@ const AddApnt = ({setActiveSection}) => {
 
   return (
     <div>
+      <DatePicker setApntDate={setApntDate} />
       <button onClick={onClick}>Add Appointment</button>
     </div>
   );

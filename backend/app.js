@@ -85,6 +85,18 @@ app.get("/apnts", async (req, res) => {
     res.status(400).json("Getting apnts from db failed");
   }
 });
+app.get("/apnts-admin", async (req, res) => {
+  try {
+    const apnts = await appointmentAppDB_apntsCollection.find().toArray();
+
+    // console.log('Complete Date: ', complete_date, ',  typeof complete_date: ', typeof complete_date);
+    // console.log('date_obj: ', date_obj);
+    res.status(200).json(apnts);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Getting apnts from db failed");
+  }
+});
 
 // ==============================================
 //

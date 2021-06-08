@@ -3,6 +3,7 @@ import AddApnt from './AddApntButton.js';
 import AvailableStartingTimes from './TimeBlocks-StartingTimes.js';
 import ChosenTimeBlock from './TimeBlocks-Chosen.js';
 import ApntTypeDropdown from './ApntTypeDropdown.js';
+import CustomizedTimeline from './MUI-Timeline-Customized.js';
 
 // ==============================================
 
@@ -17,10 +18,16 @@ const PageUser = ({available_tbs}) => {
   //  -3.1: From available timeblocks (passed down props) and duration (implied from apnt_type)
   //        determine the slots that are available for the user to choose from.
 
-  const [active_section, setActiveSection]     = useState(1);
-  const [apnt_type, setApntType]               = useState(0);
+  const [active_section, setActiveSection]       = useState(1);
+  const [apnt_date, setApntDate]                 = useState('');
+  const [apnt_type, setApntType]                 = useState(0);
+  const [apnt_stylist, setApntStylist]           = useState('all');
   const [chosen_timeblocks, setChosenTimeBlocks] = useState([]);
   
+  // -------------------------------------------
+
+
+
   // -------------------------------------------
 
   return (
@@ -28,12 +35,12 @@ const PageUser = ({available_tbs}) => {
       <h1>User Page</h1>
 
       <div className={active_section == 1 ? 'opaque' : 'translucent'}>
-        <AddApnt setActiveSection={setActiveSection}/>
+        <AddApnt setActiveSection={setActiveSection} setApntDate={setApntDate}/>
       </div>
 
       <div className={active_section == 2 ? 'opaque' : 'translucent'}>
         Section 2: Dropdown for Appointment Type
-        <ApntTypeDropdown setApntType={setApntType} setActiveSection={setActiveSection}/>
+        <ApntTypeDropdown setApntType={setApntType} setApntStylist={setApntStylist} setActiveSection={setActiveSection}/>
         Apnt Type: {apnt_type}
       </div>
       
@@ -55,6 +62,10 @@ const PageUser = ({available_tbs}) => {
 
       </div>
     
+      <div>
+        <CustomizedTimeline />
+      </div>
+
     </div>
   );
 };

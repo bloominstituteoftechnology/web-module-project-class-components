@@ -9,12 +9,6 @@ const PageHome = () => {
 
   // -------------------------------------------
 
-  // Step 1: Grab all appointments from db
-  // Step 2: Place in state
-  // Step 3: Send state down to User and Admin
-
-  // -------------------------------------------
-
   const [apnts, setApnts]                = useState([]);
   const [available_tbs, setAvailableTBs] = useState([]);
 
@@ -69,3 +63,5 @@ const PageHome = () => {
 // ==============================================
 
 export default PageHome;
+
+// ==============================================

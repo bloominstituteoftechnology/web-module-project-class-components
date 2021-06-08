@@ -2,19 +2,18 @@ import React, {useState} from 'react';
 
 // ==============================================
 
-const ApntTypeDropdown = ({setApntType, setActiveSection}) => {
+const ApntTypeDropdown = ({setApntType, setApntStylist, setActiveSection}) => {
   
-  // Step 2: Event listener for dropdown                  => Make section 3 visible
-
   // -------------------------------------------
 
-  const [form_val, setFormVal] = useState('');
+  const [form_val_1, setFormVal1] = useState('');
+  const [form_val_2, setFormVal2] = useState('');
+  const [form_val_3, setFormVal3] = useState('');
 
   // -------------------------------------------
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('chosen dropdown value: ', form_val);
 
     // TODO: Make POST request with AUTH code in 
     //       payload to send to endpoint designated
@@ -24,7 +23,8 @@ const ApntTypeDropdown = ({setApntType, setActiveSection}) => {
     //       and display the dropdown of
     //       available services.
 
-    setApntType(form_val);
+    setApntType(form_val_1);
+    setApntStylist(form_val_2);
     setActiveSection(3);
   };
 
@@ -34,7 +34,7 @@ const ApntTypeDropdown = ({setApntType, setActiveSection}) => {
     <form onSubmit={onSubmit}>
       <label>
         Appointment Type: 
-        <select value={form_val} onChange={e => {setFormVal(e.target.value)}}>
+        <select value={form_val_1} onChange={e => {setFormVal1(e.target.value)}}>
           <option value="0">Choose Type</option>
           <option value="1">Type 1</option>
           <option value="2">Type 2</option>
@@ -47,6 +47,17 @@ const ApntTypeDropdown = ({setApntType, setActiveSection}) => {
           <option value="9">Type 9</option>
         </select>
       </label>
+      
+      <label>
+        Hair Stylist:
+        <select value={form_val_2} onChange={e => {setFormVal2(e.target.value)}}>
+          <option value="0">All</option>
+          <option value="1">Type 1</option>
+          <option value="2">Type 2</option>
+          <option value="3">Type 3</option>
+        </select>
+      </label>
+      
       <button type="submit">Save Appointment Type</button>
     </form>
   );
