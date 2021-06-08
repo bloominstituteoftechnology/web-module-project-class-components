@@ -32,10 +32,6 @@ const Apnts = ({apnts}) => {
           );
         })}
       </div>
-      
-      <div>
-        <p>Start Time: {currently_displayed_apnt.hour}</p>
-      </div>
 
     </div>
   );
