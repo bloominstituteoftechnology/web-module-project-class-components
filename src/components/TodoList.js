@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo"
 
 const TodoList = props =>{
-
+// eslint-disable-next-line
     const handleClick =()=>{
         props.clearCompleted();
     }
