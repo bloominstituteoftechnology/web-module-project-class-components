@@ -18,10 +18,12 @@ test('sanity', () => { })
 
 test('lady gaga', async () => {
   render(<App />)
-  expect(screen.queryByText('lady gaga')).toBeInTheDocument()
+  expect(screen.queryByText('React Codegrade Assignment')).toBeInTheDocument()
 }, 500)
 
 test('hello world', async () => {
   render(<App />)
-  expect(await screen.findByText('Bilbo\'s Pocket')).toBeInTheDocument()
+  expect(await screen.findByText('laundry')).toBeInTheDocument()
+  expect(await screen.findByText('dishes')).toBeInTheDocument()
+  expect(await screen.findByText('groceries')).toBeInTheDocument()
 }, 500)

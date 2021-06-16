@@ -3,41 +3,44 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 const StyledApp = styled.div`
-  background-color: red;
+  padding: 1rem;
+  background-color: lightskyblue;
 `
 
 export default function App() {
-  const [questions, setQuestions] = useState([])
+  const [todos, setTodos] = useState([])
 
   // useEffect(async () => {
-  //   const res = await axios.get('http://localhost:5000/api/questions/7')
-  //   setQuestions(questions.concat(res.data))
+  //   const res = await axios.get('http://localhost:5000/api/todos')
+  //   setTodos(res.data)
   // }, [])
 
   // useEffect(async () => {
-  //   const res = await fetch('http://localhost:5000/api/questions/2')
+  //   const res = await fetch('http://localhost:5000/api/todos')
   //   const data = await res.json()
-  //   setQuestions(questions.concat(data))
+  //   setTodos(data)
   // }, [])
 
   // useEffect(() => {
-  //   axios.get('http://localhost:5000/api/questions/7')
-  //     .then(res => setQuestions(questions.concat(res.data)))
+  //   axios.get('http://localhost:5000/api/todos')
+  //     .then(res => setTodos(res.data))
   // }, [])
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/questions/2')
+    fetch('http://localhost:5000/api/todos')
       .then(res => res.json())
-      .then(data => setQuestions(questions.concat(data)))
+      .then(data => setTodos(data))
   }, [])
 
   return (
     <StyledApp>
-      <h1>lady gaga</h1>
-      <h3>investigating Codegrade</h3>
-      This is the flow students are used to
-      {/* <div>{JSON.stringify(questions)}</div> */}
-      <h4>{!!questions.length && questions[0].question_title}</h4>
+      <h1>Todos</h1>
+      <h3>React Codegrade Assignment</h3>
+      <ul>
+        {
+          todos.map(todo => <li key={todo.id}>{todo.name}</li>)
+        }
+      </ul>
     </StyledApp>
   )
 }
