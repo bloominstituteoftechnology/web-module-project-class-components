@@ -31,10 +31,10 @@ const create = name => {
   return todos
 }
 
-const markDone = id => {
+const toggleDone = id => {
   todos = todos.map(todo => {
     return todo.id === id
-      ? { ...todo, complete: true }
+      ? { ...todo, complete: !todo.complete }
       : todo
   })
   return todos
@@ -51,6 +51,6 @@ module.exports = {
   getAll,
   getById,
   create,
-  markDone,
+  toggleDone,
   remove,
 }

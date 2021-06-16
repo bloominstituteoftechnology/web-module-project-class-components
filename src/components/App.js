@@ -5,6 +5,7 @@ import axios from 'axios'
 const StyledApp = styled.div`
   padding: 1rem;
   background-color: lightskyblue;
+  button { margin-left: 4px; }
 `
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
     .then(res => res.json())
     .then(data => setTodos(data))
 
-  const markDone = id => axios.patch(`http://localhost:5000/api/todos/${id}`)
+  const toggle = id => axios.patch(`http://localhost:5000/api/todos/${id}`)
     .then(res => setTodos(res.data))
 
   useEffect(() => { getAll() }, [])
@@ -28,7 +29,9 @@ export default function App() {
           todos.map(todo => (
             <li key={todo.id}>
               <span>{todo.name} {todo.complete ? 'DONE' : 'pending'}</span>
-              {!todo.complete && <button onClick={() => markDone(todo.id)}>complete</button>}
+              <button onClick={() => toggle(todo.id)}>
+                {todo.complete ? 'not' : 'complete'}
+              </button>
             </li>
           ))
         }

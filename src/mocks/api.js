@@ -21,7 +21,7 @@ api.post('/api/todos', (req, res) => {
 })
 
 api.patch('/api/todos/:id', (req, res) => {
-  res.json(Todo.markDone(req.params.id))
+  res.json(Todo.toggleDone(req.params.id))
 })
 
 api.delete('/api/todos/:id', (req, res) => {

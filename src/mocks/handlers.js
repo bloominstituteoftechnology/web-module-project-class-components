@@ -19,9 +19,9 @@ function create(req, res, ctx) {
   )
 }
 
-function markDone(req, res, ctx) {
+function toggleDone(req, res, ctx) {
   return res(
-    ctx.json(Todo.markDone(req.params.id)),
+    ctx.json(Todo.toggleDone(req.params.id)),
   )
 }
 
@@ -35,6 +35,6 @@ export const handlers = [
   rest.get('http://localhost:5000/api/todos', getAll),
   rest.get('http://localhost:5000/api/todos/:id', getById),
   rest.post('http://localhost:5000/api/todos', create),
-  rest.patch('http://localhost:5000/api/todos/:id', markDone),
+  rest.patch('http://localhost:5000/api/todos/:id', toggleDone),
   rest.delete('http://localhost:5000/api/todos/:id', remove),
 ]
