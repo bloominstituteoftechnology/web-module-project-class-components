@@ -28,7 +28,7 @@ test('todos are present', async () => {
 
 test('can do laundry', async () => {
   render(<App />)
-  expect(await screen.findByText(/laundry pending/)).toBeInTheDocument()
-  fireEvent.click(screen.getAllByText('done')[0])
-  expect(await screen.findByText(/laundry DNE/)).toBeInTheDocument()
+  expect(await screen.findByText('laundry pending')).toBeInTheDocument()
+  fireEvent.click(screen.getAllByText('complete')[0])
+  expect(await screen.findByText('laundry DONE')).toBeInTheDocument()
 })

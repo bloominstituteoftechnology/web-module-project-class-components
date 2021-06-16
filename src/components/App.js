@@ -27,8 +27,8 @@ export default function App() {
         {
           todos.map(todo => (
             <li key={todo.id}>
-              {todo.name} {todo.complete ? 'DONE' : 'pending...'}
-              <button onClick={() => markDone(todo.id)}>✔️</button>
+              <span>{todo.name} {todo.complete ? 'DONE' : 'pending'}</span>
+              {!todo.complete && <button onClick={() => markDone(todo.id)}>complete</button>}
             </li>
           ))
         }
