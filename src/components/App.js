@@ -10,27 +10,14 @@ const StyledApp = styled.div`
 export default function App() {
   const [todos, setTodos] = useState([])
 
-  // useEffect(async () => {
-  //   const res = await axios.get('http://localhost:5000/api/todos')
-  //   setTodos(res.data)
-  // }, [])
+  const getAll = () => fetch('http://localhost:5000/api/todos')
+    .then(res => res.json())
+    .then(data => setTodos(data))
 
-  // useEffect(async () => {
-  //   const res = await fetch('http://localhost:5000/api/todos')
-  //   const data = await res.json()
-  //   setTodos(data)
-  // }, [])
+  const markDone = id => axios.patch(`http://localhost:5000/api/todos/${id}`)
+    .then(res => setTodos(res.data))
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:5000/api/todos')
-  //     .then(res => setTodos(res.data))
-  // }, [])
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/todos')
-      .then(res => res.json())
-      .then(data => setTodos(data))
-  }, [])
+  useEffect(() => { getAll() }, [])
 
   return (
     <StyledApp>
@@ -38,7 +25,12 @@ export default function App() {
       <h3>React Codegrade Assignment</h3>
       <ul>
         {
-          todos.map(todo => <li key={todo.id}>{todo.name}</li>)
+          todos.map(todo => (
+            <li key={todo.id}>
+              {todo.name} {todo.complete ? 'DONE' : 'pending...'}
+              <button onClick={() => markDone(todo.id)}>✔️</button>
+            </li>
+          ))
         }
       </ul>
     </StyledApp>

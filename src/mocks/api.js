@@ -1,14 +1,12 @@
 const express = require('express')
 const Todo = require('./data')
+const cors = require('cors')
 
 const api = express()
 
 api.use(express.json())
 
-api.use((req, res, next) => {
-  res.set('Access-Control-Allow-Origin', '*')
-  next()
-})
+api.use(cors())
 
 api.get('/api/todos', (req, res) => {
   res.json(Todo.getAll())

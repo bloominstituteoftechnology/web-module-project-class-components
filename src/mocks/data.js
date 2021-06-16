@@ -27,23 +27,24 @@ const getById = id => {
 }
 
 const create = name => {
-  const newTodo = { id: nanoid(5), name, completed: false }
-  todos.push(newTodo)
-  return newTodo
+  todos.push({ id: nanoid(5), name, complete: false })
+  return todos
 }
 
 const markDone = id => {
-  return todos.map(todo => {
+  todos = todos.map(todo => {
     return todo.id === id
-      ? { ...todo, completed: true }
+      ? { ...todo, complete: true }
       : todo
   })
+  return todos
 }
 
 const remove = id => {
-  return todos.filter(todo => {
+  todos = todos.filter(todo => {
     return todo.id !== id
   })
+  return todos
 }
 
 module.exports = {

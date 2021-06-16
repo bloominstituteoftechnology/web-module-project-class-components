@@ -21,7 +21,14 @@ test('heading is present', async () => {
 
 test('todos are present', async () => {
   render(<App />)
-  expect(await screen.findByText('laundry')).toBeInTheDocument()
-  expect(await screen.findByText('dishes')).toBeInTheDocument()
-  expect(await screen.findByText('groceries')).toBeInTheDocument()
+  expect(await screen.findByText(/laundry/)).toBeInTheDocument()
+  expect(await screen.findByText(/dishes/)).toBeInTheDocument()
+  expect(await screen.findByText(/groceries/)).toBeInTheDocument()
+})
+
+test('can do laundry', async () => {
+  render(<App />)
+  expect(await screen.findByText(/laundry pending/)).toBeInTheDocument()
+  fireEvent.click(screen.getAllByText('done')[0])
+  expect(await screen.findByText(/laundry DNE/)).toBeInTheDocument()
 })
