@@ -14,16 +14,14 @@ afterEach(() => {
   document.body.innerHTML = ''
 })
 
-test('sanity', () => { })
-
-test('lady gaga', async () => {
+test('heading is present', async () => {
   render(<App />)
   expect(screen.queryByText('React Codegrade Assignment')).toBeInTheDocument()
-}, 500)
+})
 
-test('hello world', async () => {
+test('todos are present', async () => {
   render(<App />)
   expect(await screen.findByText('laundry')).toBeInTheDocument()
   expect(await screen.findByText('dishes')).toBeInTheDocument()
   expect(await screen.findByText('groceries')).toBeInTheDocument()
-}, 500)
+})
