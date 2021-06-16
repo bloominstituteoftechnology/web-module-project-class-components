@@ -1,6 +1,6 @@
 {
   "name": "codegraded-project-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "start": "fkill :5000 :3000 -s && concurrently \"npm:backend\" \"npm:frontend\"",
     "frontend": "webpack serve --open",
