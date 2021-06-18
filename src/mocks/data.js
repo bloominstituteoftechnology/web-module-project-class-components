@@ -1,22 +1,16 @@
 const { nanoid } = require("nanoid")
 
-let todos = [
-  {
-    id: nanoid(5),
-    name: 'laundry',
-    complete: false,
-  },
-  {
-    id: nanoid(5),
-    name: 'dishes',
-    complete: false,
-  },
-  {
-    id: nanoid(5),
-    name: 'groceries',
-    complete: false,
-  },
-]
+let todos
+
+const resetTodos = () => {
+  todos = [
+    { id: nanoid(5), name: 'laundry', complete: false },
+    { id: nanoid(5), name: 'dishes', complete: false },
+    { id: nanoid(5), name: 'groceries', complete: false },
+  ]
+}
+
+resetTodos()
 
 const getAll = () => {
   return todos
@@ -53,4 +47,5 @@ module.exports = {
   create,
   toggleDone,
   remove,
+  resetTodos, // only tests use this
 }
