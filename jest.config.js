@@ -1,6 +1,6 @@
 /*
  * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
+ * https://jestjs.io/docs/en/configuration.html
  */
 
 module.exports = {
@@ -73,10 +73,10 @@ module.exports = {
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
+  //   "json",
   //   "jsx",
   //   "ts",
   //   "tsx",
-  //   "json",
   //   "node"
   // ],
 
@@ -139,7 +139,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  // testEnvironment: "jest-environment-jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -165,7 +165,7 @@ module.exports = {
   // testResultsProcessor: undefined,
 
   // This option allows use of a custom test runner
-  // testRunner: "jest-circus/runner",
+  // testRunner: "jasmine2",
 
   // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
   // testURL: "http://localhost",
