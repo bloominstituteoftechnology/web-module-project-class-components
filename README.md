@@ -12,7 +12,7 @@
 - Uses Jest v.26 which is what Codegrade uses
 - Supports Axios and the browser's fetch API
 - Supports styling via Styled Components
-- Includes an Express server learners can interact with from the app or via Postman
+- Includes an Express server learners can interact with from the app or via Postman (localhost:5000)
 - Single `start` script to launch the Express server and the auto-reloading dev server for the frontend
 - The `start` script takes care of freeing ports 3000 and 5000 for better learner experience
 - The Express server is mocked in the tests with Mock Service Worker
