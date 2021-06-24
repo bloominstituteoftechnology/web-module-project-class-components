@@ -24,8 +24,16 @@ mv $FIXTURES/* . && npm install
 
 ## 4- Auto Tests
 
+### Learner-Facing - Weight 99
+
 ```bash
-NODE_ENV=testing cg-jest run -- --runInBand --forceExit
+NODE_ENV=testing cg-jest run -- codegrade_mvp.test.js --runInBand --forceExit
+```
+
+### Non-Learner-Facing - Weight 1
+
+```bash
+NODE_ENV=testing cg-jest run -- codegrade_mvp1.test.js --runInBand --forceExit
 ```
 
 ## 5- Rubric
