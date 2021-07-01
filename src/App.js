@@ -24,13 +24,23 @@ export default class App extends React.Component {
     super();
     this.state = { notes: notes }
   }
-  // console.log(this.state);
+
+  addItem = newItemName => {
+    this.setState({
+      groceries: [...this.state.notes, {
+        name: newItemName,
+        id: Date.now(), // This makes a number based on milseconds
+        purchased: false
+      }]
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>To do:</h1>
         <ToDoList />
-        <TodoForm />
+        <TodoForm addItem={this.addItem} />
       </div>
     );
   }
