@@ -49,6 +49,17 @@ class App extends Component {
      })
     })
   }
+  addItem = (itemName) =>{
+    const newItem= {
+      task: itemName,
+      id: new Date(),
+      completed: false
+      
+    }
+    this.setState({
+      toDoList: [...this.state.toDoList, newItem]
+    })
+  }
   render() {
    
     
@@ -57,7 +68,7 @@ class App extends Component {
       <div className="welcome">
         <h2>Welcome to your Todo App!</h2>
        <TodoList  list={this.state.toDoList} toggleItem={this.toggleItem}/>
-       <TodoForm />
+       <TodoForm  addItem={this.addItem}/>
       </div>
     );
     
