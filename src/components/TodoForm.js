@@ -15,16 +15,19 @@ class TodoForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // this.state.newItemName
         this.props.addItem(this.state.newItemName)
-
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 {/* Value is linked to the state. */}
-                <input onChange={this.handleChanges} value={this.state.newItemName} type="text" name="item" />
+                <input
+                    onChange={this.handleChanges}
+                    value={this.state.newItemName}
+                    type="text"
+                // name="item" // I am not sure that I need this. Copied it from lecture. 
+                />
                 <button>TodoForm Class Component.</button>
             </form>
         );

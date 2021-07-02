@@ -1,4 +1,8 @@
 * {
-    background-color: rgb(179, 179, 155);
+    /* background-color: rgb(197, 197, 170); */
     font-family: 'M PLUS 1p', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }

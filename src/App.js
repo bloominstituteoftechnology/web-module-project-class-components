@@ -6,7 +6,7 @@ import TodoForm from '../src/components/TodoForm'
 // design `App` to be the parent component of your application.
 // this component is going to take care of state, and any change handlers you need to work with your state
 
-const notes = [
+const notesArr = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -22,12 +22,12 @@ const notes = [
 export default class App extends React.Component {
   constructor() {
     super();
-    this.state = { notes: notes }
+    this.state = { notes: notesArr }
   }
 
   addItem = newItemName => {
     this.setState({
-      groceries: [...this.state.notes, {
+      notes: [...this.state.notes, {
         name: newItemName,
         id: Date.now(), // This makes a number based on milseconds
         purchased: false
@@ -38,9 +38,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>To do:</h1>
-        <ToDoList />
+        <ToDoList notes={this.state.notes} />
         <TodoForm addItem={this.addItem} />
+        {/* <h1>{this.state.task}</h1> */}
+
       </div>
     );
   }
