@@ -60,12 +60,14 @@ class App extends Component {
       toDoList: [...this.state.toDoList, newItem]
     })
   }
+
   deleteItem = () =>{
    const item = this.state.toDoList.filter(item => !item.completed? item: "")
    this.setState({
         toDoList:  item
    })
   }
+
   render() {
    
     
@@ -74,7 +76,10 @@ class App extends Component {
       <div className="welcome">
         <Navbar />
        <TodoList  list={this.state.toDoList} toggleItem={this.toggleItem}/>
+
        <TodoForm  addItem={this.addItem} deleteItem={this.deleteItem}/>
+
+      
       </div>
     );
     
