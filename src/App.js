@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import Navbar from './components/Navbar'
 const toDoList =
       [{
         task: 'Organize Garage',
@@ -35,7 +36,6 @@ class App extends Component {
     }
   }
    toggleItem = (id) =>{
-   
    this.setState({
      toDoList: this.state.toDoList.map(item =>{
        if(item.id === id){
@@ -49,15 +49,32 @@ class App extends Component {
      })
     })
   }
+  addItem = (itemName) =>{
+    const newItem= {
+      task: itemName,
+      id: new Date(),
+      completed: false
+      
+    }
+    this.setState({
+      toDoList: [...this.state.toDoList, newItem]
+    })
+  }
+  deleteItem = () =>{
+   const item = this.state.toDoList.filter(item => !item.completed? item: "")
+   this.setState({
+        toDoList:  item
+   })
+  }
   render() {
    
     
     return (
       
       <div className="welcome">
-        <h2>Welcome to your Todo App!</h2>
+        <Navbar />
        <TodoList  list={this.state.toDoList} toggleItem={this.toggleItem}/>
-       <TodoForm />
+       <TodoForm  addItem={this.addItem} deleteItem={this.deleteItem}/>
       </div>
     );
     

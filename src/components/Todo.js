@@ -5,7 +5,7 @@ export class Todo extends Component {
      
         return (
             <div className={`${this.props.list.completed ? "purchased":""}`}>         
-               <li  onClick={()=>this.props.toggleItem(this.props.list.id)}key={this.props.id}>{this.props.list.task}</li>
+               <li  onClick={()=>this.props.toggleItem(this.props.list.id)}key={this.props.id}>{this.props.list.task} </li>
             </div>
         )
     }

@@ -33,3 +33,13 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
 }
+body {
+    margin: 0 auto;
+    padding: 0;
+    background-color: red;
+}
+.navbar {
+    border: 2px solid black;
+    padding: 5px;
+    background-color: aqua;
+}

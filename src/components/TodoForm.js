@@ -1,20 +1,40 @@
 import React, { Component } from 'react'
 
 export class TodoForm extends Component {
-
+    constructor(){
+        super();
+        this.state={
+            itemText: ""
+        }
+    }
     clickHandler = event => {
-        event.preventDefault();
-        console.log("I am here ", event.type); // this is the react Synthetic Event
+       this.setState({
+           itemText: event.target.value
+       })
+        
         
       };
+      submitHandle = event =>{
+          event.preventDefault();
+         this.props.addItem(this.state.itemText)
+      }
+      deleteItem = event => {
+          event.preventDefault();
+          console.log(event.target.value)
+          this.props.deleteItem(this.state.itemText.id)
+      }
     render() {
         return (
             <div>
-                <form> 
-                Name :
-                <input type="text" placeholder="first name" />
-                <button onClick={this.clickHandler}>Click Me</button>
+                <form onSubmit={this.submitHandle}> 
+               <label htmlFor="inputName"> Name :
+                 <input type="text" name="inputName" value={this.state.itemText} placeholder="first name" onChange={this.clickHandler}/>
+               </label>
+               
+                <button>Click Me</button>
+               
             </form>
+            <button onClick={this.deleteItem}>Remove Item</button>
             </div>
         )
     }
