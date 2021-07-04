@@ -1,86 +1,38 @@
-import React, { useState } from 'react';
-
-
-export default function TodoForm(props){
-
-    const [data, setData] = useState(  {
-        task: '',
-        id: new Date(),
-        completed: false
-      })
-
-    console.log(data.task)
-    // console.log(props.state.notes[0].task) // Organize garage.
-    
-    const handleChange = (e) => {
-        setData({...data, [e.target.name]: e.target.value})
+import React from 'react';
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 1:44:00
+class TodoForm extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            formStateEmptyString: ''
         }
-        
-        // handleSubmit = (e) => {
-            //     e.preventDefault();
-            // }
-            // onSubmit={handleSubmit}
+    }
 
-            return (
+    handleChange = (e) => {
+        this.setState({ formStateEmptyString: e.target.value })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addItem(this.state.formStateEmptyString)
+    }
+
+    render() { 
+        return (
             <div>
-                <form>
-                    <input
-                        onChange={handleChange}
-                        value={data}
+                <form onSubmit={this.handleSubmit}>
+                    <input 
                         type="text"
-                        name="Todo"
+                        onChange={this.handleChange}
+                        name="item"
+                        value={this.state.formStateEmptyString}
                     />
-                    <button>TodoForm Button</button>
+                    <button>Add</button>
                 </form>
-                <h2>{props.state.notes.map(i => <li>{i.task}</li> )}</h2>  {/* Organize Garage Bake Cookies */}
+                {/* <p>{this.state.formStateEmptyString}</p> */}
             </div>
-    );
+        );
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // class TodoForm extends React.Component {
-    //     constructor() {
-    //         super();
-    //         this.state = {
-    //             newItemName: ''
-    //         }
-    //     }
-    
-        // handleChanges = (e) => {
-        //     this.setState({ newItemName: e.target.value })
-        // }
-    
-        // handleSubmit = (e) => {
-        //     e.preventDefault();
-        //     this.props.addItem(this.state.newItemName)
-        // }
-    
-    //     render() {
-    //         return (
-    //             <form onSubmit={this.handleSubmit}>
-    //                 <input
-    //                     onChange={this.handleChanges}
-    //                     value={this.state.newItemName}
-    //                     type="text"
-    //                 />
-    //                 <button>TodoForm Class Component.</button>
-    //             </form>
-    //         );
-    //     }
-    // }
-    // export default TodoForm;
+ 
+export default TodoForm;

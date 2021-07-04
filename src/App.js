@@ -23,25 +23,25 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = { notes: notes }
+    // console.log(this.state.notes) // shows Arr num, then if travered shows the 3 key value pairs.
   }
 
-  // addItem = newItemName => {
-  //   this.setState({
-  //     notes: [...this.state.notes, {
-  //       name: newItemName,
-  //       id: Date.now(),
-  //       purchased: false
-  //     }]
-  //   })
-  // }
+  addItem = (formStateEmptyString) => { // In class components arrow functions do not need "const"
+    this.setState({
+      notes: [...this.state.notes, {
+        name: formStateEmptyString,
+        id: Date.now(),
+        purchased: false
+      }]
+    })
+  }
 
 
   render() {
     return (
       <div>
         {/* <ToDoList notes={this.state.notes} /> */}
-        <p>{notes.task}</p>
-        <TodoForm state={this.state} />
+        <TodoForm state={this.state.notes} />
       </div>
     );
   }
