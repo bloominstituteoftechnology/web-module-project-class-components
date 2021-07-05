@@ -9,7 +9,7 @@ const Todo = props => {
 
     return (
         <div onClick={handleClick} >
-            <p>{props.item.name}</p>
+            <p>{props.item.task}</p>
         </div>
     )
 }
