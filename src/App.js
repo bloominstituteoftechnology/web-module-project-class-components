@@ -54,7 +54,7 @@ export default class App extends React.Component {
   clearCompleted = () => {
     this.setState({
       notes: this.state.notes.filter((item) => { 
-        return !item.purchased                   // Returns true for all items not completed, and false for all items completed.
+        return !item.completed                   // Returns true for all items not completed, and false for all items completed.
       })
     })
   }
@@ -68,7 +68,7 @@ export default class App extends React.Component {
       </div>
     );
   }
-}
+ }
 
 
 
