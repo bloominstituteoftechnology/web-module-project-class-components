@@ -3,6 +3,7 @@ import React from 'react';
 import TaskForm from './components/TaskForm';
 import Todo from './components/TodoList';
 import {v4 as uuidv4} from 'uuid';
+import './styles.scss';
 
 const list = [{
   task: "Task 1",
