@@ -75,7 +75,6 @@ class App extends React.Component {
     const newItem = {
       task: task,
       id: uuidv4(),
-      // id: this.state.list.length,
       completed: false
     };
     this.setState({
