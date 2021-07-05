@@ -1,5 +1,5 @@
 import React from 'react';
-// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 1:44:00
+
 class TodoForm extends React.Component {
     constructor() {
         super();
@@ -29,7 +29,6 @@ class TodoForm extends React.Component {
                     />
                     <button>Add</button>
                 </form>
-                {/* <p>{this.state.formStateEmptyString}</p> */}
             </div>
         );
     }

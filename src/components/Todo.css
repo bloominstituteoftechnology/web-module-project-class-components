@@ -1,8 +1,16 @@
 * {
-    /* background-color: rgb(197, 197, 170); */
     font-family: 'M PLUS 1p', sans-serif;
 }
 
 body {
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.item {
+    color: blue;
+}
+
+.completed {
+    color: rgb(245, 60, 60);
+    text-decoration: line-through
 }
