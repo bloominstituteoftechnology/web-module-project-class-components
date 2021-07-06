@@ -9,7 +9,7 @@ const Search = (props) => {
         <input
             type="search"
             id="header-search"
-            placeholder={props}
+            placeholder="Enter task name"
             name="s"
             onChange={props.handleChange} 
         />
