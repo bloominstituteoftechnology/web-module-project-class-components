@@ -1,14 +1,9 @@
 import React from 'react';
 
-const Todo = props => {
-
-    const handleClick = () => {
-        props.toggleItem(props.item.id)
-    }
-    
-    return (
-        <div onClick = {handleClick} className = {`item${props.item.clicked ? ' clicked' : ''}`}>
-            <p>{props.item.name}</p>
+function Todo(props) {
+    return(
+        <div>
+            <p onClick = {() => props.toggleItem(props.todo.id)}>{props.todo.task}</p>
         </div>
     )
 }
