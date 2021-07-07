@@ -18,11 +18,11 @@ const hardCodedNotes = [
 export default class App extends React.Component {
   constructor() {
     super();
-    this.state = { notes: hardCodedNotes }           // Creates a state with the key notes, which represents the hard coded array of objects.
+    this.state = { notes: hardCodedNotes }           // Creates a state with the key name 'notes', which represents the hard coded array of objects.
     // console.log(this.state.notes) // shows Arr num, then if traversed, shows the 3 key value pairs.
   }
 
-  // This combines the 2 states that are created on two different class components. 
+  // This combines the 2 states that are created on two different class components (App.js and TodoForm.js). 
   addItem = (formStateEmptyString) => {              // In class components arrow functions do not need "const"
     this.setState({ notes: [...this.state.notes,     // We are copying the existing state, and adding one more item onto it.
       {
@@ -33,38 +33,37 @@ export default class App extends React.Component {
     })
   }
 
-  // The Boolean toggler! (Passed into Todo.js via props.)
+  // The Boolean Toggler! (Passed into Todo.js via props.)
   // (itemId) is being passed in as an argument from Todo.js. It is simply the ID of each item/object.
-  toggleItem = (itemId) => {                    // itemId = all items Id's
+  toggleItem = (itemId) => {                         // (itemId) = all item Id's
     this.setState({
-      notes: this.state.notes.map((item) => { // Iterating every item in state.
-        if(item.id === itemId) {              // ItemId is whatever item.id is being clicked on in the Todo.js file.
-          return {                            // Return this if true.
-            ...item,                          // Returns a new object. Spreads all values of existing item/object, with 1 change. 
-            completed: !item.completed        // This is the change! This toggles the Boolean by returning the opposite.
-          }                                   // If completed: is false, then !item.completed = not false. If completed: is true, then !item.completed = not true.
+      notes: this.state.notes.map((item) => {        // Iterating every item in state.
+        if(item.id === itemId) {                     // ItemId is whatever item.id is being clicked on, in the Todo.js file.
+          return {                                   // Return this if true.
+            ...item,                                 // Returns a new object. Spreads all values of existing item/object, with 1 change. 
+            completed: !item.completed               // This is the change! This toggles the Boolean by returning the opposite.
+          }                                          // If completed: is false, then !item.completed is not false. If completed: is true, then !item.completed is not true.
         }
-        return item;                          // Otherwise return this. 
+        return item;                                 // Otherwise return this. 
       })
     })
   }
 
   // Clear Completed Button
-  // With filter, all true remains in the function. All false is filtered out. Creates a new array of all true's.
+  // With filter, all true remains in the function. All false is filtered out. Filter creates a new array of all true's.
   clearCompleted = () => {
     this.setState({
       notes: this.state.notes.filter((item) => { 
-        return !item.completed                   // Returns true for all items not completed, and false for all items completed.
+        return !item.completed                       // Returns true for all items not completed, and false for all items completed.
       })
     })
   }
 
   render() {
     return (
-      <div>
-        <TodoForm addItem={this.addItem} />          {/* Displays input field and add button to the browser. */} 
-        <ToDoList clearCompleted={this.clearCompleted} notes={this.state.notes} toggleItem={this.toggleItem}/>        {/* Displays Hard coded and submitted text onto the browser. */}
-
+      <div className="app">
+        <TodoForm addItem={this.addItem} />                                                                      {/* Displays input field and add button to the browser. */} 
+        <ToDoList clearCompleted={this.clearCompleted} notes={this.state.notes} toggleItem={this.toggleItem}/>   {/* Displays hard coded state, Clear button, and submitted text onto the browser. */}
       </div>
     );
   }

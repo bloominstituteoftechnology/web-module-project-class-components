@@ -10,9 +10,12 @@ const Todo = (props) => {
     }
 
     return (
-        <div onClick={handleClick} className={`item${props.item.completed? ' completed' : ''}`}>   {/* If item completed = true, then add the class name "completed" - otherwise add nothing. */}
-            <h3>{props.item.task} </h3>
+        <div className="cta">
+            <div onClick={handleClick} className={`item${props.item.completed? ' completed' : ''}`}>   {/* If item completed = true, then add the class name "completed" - otherwise add nothing. */}
+                <h3>{props.item.task} </h3>
+            </div>
         </div>
+
 
     )
 }

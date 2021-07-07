@@ -1,16 +1,49 @@
 * {
     font-family: 'M PLUS 1p', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    /* background-image: linear-gradient(120deg, #f0bd15 0%, #ff8462 50%); */
+    background-color: rgb(179, 174, 174);
 }
 
 .item {
-    color: blue;
+    /* border: 2px solid purple; */
+    color: rgb(0, 0, 112);
+    margin: 1rem;
+    background-color: rgb(247, 70, 51);
+    padding: 1rem;
+    min-width: 250px;
+    max-width: 250px;
 }
 
 .completed {
+    /* border: 4px solid red; */
     color: rgb(245, 60, 60);
-    text-decoration: line-through
+    text-decoration: line-through;
+    padding: 1rem;
+    background-color: salmon;
+    margin: 1rem;
+    min-width: 250px;
+    max-width: 250px;
 }
+
+.app {
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 1rem;
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+}
+
+/* .item-cta {
+    display: flex;
+    justify-content: center;
+} */
