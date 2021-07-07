@@ -1,3 +1,41 @@
 .task.completed {
     text-decoration: line-through;
+    color: grey;
+    margin-left: 4%
+}
+.task {
+    margin-left: 4%;
+    font-size: 1.3em;
+}
+body {
+    background-color: lightgray;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    width:100%;
+    padding: 50px;
+}
+button {
+    border-radius: 10px;
+    margin: 0 1% 0 1%;
+    transition: .5s;
+}
+button:hover {
+    transition: .5s;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    margin: 2%;
+    border: none;
+    background-color: inherit;
+    border-bottom: black solid 1px;
+    outline: none;
 }
