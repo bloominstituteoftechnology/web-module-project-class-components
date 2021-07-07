@@ -19,20 +19,43 @@ class App extends React.Component {
   handleAddTask = (task) => {
     const item = {
       task: task,
-      id: Math.floor(Math.random() * 100),
+      id: Math.floor(Math.random() * 10),
       completed: false
     }
 
-    const newItem = [...this.state.todos, item]
-    this.setState({todos: newItem})
+    const newItemArr = [...this.state.todos, item]
+    this.setState({todos: newItemArr})
 
+  }
+
+  handleTaskToggle = (taskId) => {
+    this.setState({
+      todos: this.state.todos.map(task => {
+        if (taskId === task.id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        }
+        return task
+      })
+    })
+  }
+
+
+  handleCompeltedTasks = () => {
+    const newTodoArr = this.state.todos.filter(todo => {
+      return !todo.completed
+    })
+
+    this.setState({todos: newTodoArr})
   }
   render() {
     return (
       <div>
         <h2>To Do list:</h2>
-        <TodoForm handleAddTask={this.handleAddTask}/>
-        <TodoList todos={this.state.todos}/>
+        <TodoForm handleCompletedTasks={this.handleCompeltedTasks} handleAddTask={this.handleAddTask}/>
+        <TodoList todos={this.state.todos} handleTaskToggle={ this.handleTaskToggle}/>
       </div>
     );
   }
