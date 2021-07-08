@@ -1,0 +1,12 @@
+li.collection-item{
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #root > div > div > ul > li > button {
+      position:absolute !important;
+      right: 15px;
+  }
