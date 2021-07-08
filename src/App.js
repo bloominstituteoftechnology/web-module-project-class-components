@@ -47,7 +47,7 @@ class App extends React.Component {
     const newTodoArr = this.state.todos.filter(todo => {
       return !todo.completed
     })
-
+    console.log(newTodoArr)
     this.setState({todos: newTodoArr})
   }
   render() {
