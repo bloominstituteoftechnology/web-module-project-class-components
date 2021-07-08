@@ -68,7 +68,8 @@ class App extends React.Component {
     e.preventDefault();
     let newTodos = [...this.state.todos]
     newTodos.push({id: Date.now(), task: value, completed: false})
-    this.setState({newTodos})
+    console.log(newTodos)
+    this.setState({todos: newTodos})
   }
 
   render() {

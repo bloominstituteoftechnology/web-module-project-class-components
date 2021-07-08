@@ -10,10 +10,11 @@ class TodoForm extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addTodo(e, this.state.inputValue)
+        const newTask = this.state.inputValue;
+        this.props.addTodo(e, newTask)
     }
     render() { 
-        return ( <form action="submit"  onSubmit={this.props.addTodo}>
+        return ( <form action="submit"  onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChange} value={this.state.inputValue} placeholder="Task description" />
             <button type="submit" className="btn waves-effect waves-light" >Add Task</button>
         </form> );
