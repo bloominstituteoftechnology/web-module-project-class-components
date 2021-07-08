@@ -52,24 +52,28 @@ class App extends React.Component {
       })
     })
   }
-  addTodo = task => {
-    const newTodo = {
+
+  addTodo = (task) => {
+    const todo = {
       task: task,
       id: Date.now(),
       completed: false
     }
+    const newTodo =
+      [...this.state.todoList, todo]
     this.setState({
-      ...this.state,
-      todoList: [...this.state.todoList, newTodo]
+      todoList: newTodo
     })
+
   }
 
   clearTodo = () => {
+    const newTodo = this.state.todoList.filter(todo => {
+      return !todo.completed
+
+    })
     this.setState({
-      ...this.state,
-      todoList: this.state.todoList.filter(todo => {
-        return !todo.completed
-      })
+      todoList: newTodo
     })
   }
 

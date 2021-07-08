@@ -1,3 +1,24 @@
+
+
+body {
+  width: 75%;
+  height: 100%;
+  margin: 10%;
+  padding: 0;
+}
+
+body {
+  background-color: honeydew;
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0 36px;
+    max-width: 665px;
+    margin: 0 auto;
+  }
+
 .headerDiv h1 {
     color: dodgerblue;
     text-align: center;
@@ -28,22 +49,27 @@ form > input {
     padding: 6px 14px;
   }
 
-  .todoList {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 45%;
-    text-align: left;
-    padding-left: 8px;
-    cursor: pointer;
-    color: dodgerblue
+  .todo {
+  width: 45%;
+  margin: 5px 50px;
+  padding-left: 8px;
+  cursor: pointer;
+  color: dodgerblue;
+  display: flex;
+    flex-flow: colum;
+    justify-content: center;
   }
 
-  .todo.completed{
+  .todo-list{
+    display: flex;
+    flex-flow: colum;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* .todo.completed{
       color: #e64944;
       text-decoration: line-through;
-  }
+  } */
 

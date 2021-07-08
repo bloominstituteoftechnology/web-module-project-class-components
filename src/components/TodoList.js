@@ -8,7 +8,7 @@ function TodoList(props) {
         props.clearTodo()
     }
     return (
-        <div className='todoList'>
+        <div className='todo-list'>
             {props.todoList.map(todo => (
                 <Todo toggleTodo={props.toggleTodo} key={todo.id} todo={todo} />
             ))}
