@@ -8,11 +8,11 @@ function TodoList(props) {
         props.clearTodo()
     }
     return (
-        <div>
+        <div className='todoList'>
             {props.todoList.map(todo => (
                 <Todo toggleTodo={props.toggleTodo} key={todo.id} todo={todo} />
             ))}
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className='clearButton'>
                 Clear Todo!
             </button>
         </div>

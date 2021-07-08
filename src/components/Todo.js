@@ -5,7 +5,7 @@ function Todo(props) {
         props.toggleTodo(props.todo.id)
     }
     return (
-        <div onClick={handleClick}>
+        <div onClick={handleClick} className={`todo${props.todo.completed ? 'completed' : ''}`}>
             <p>{props.todo.task}</p>
         </div>
     )

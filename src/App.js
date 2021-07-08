@@ -1,6 +1,7 @@
 import React from 'react'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
+import CSS from './components/Todo.css'
 
 const todoList = [
   {
@@ -67,15 +68,15 @@ class App extends React.Component {
     this.setState({
       ...this.state,
       todoList: this.state.todoList.filter(todo => {
-        return todo.completed === false
+        return !todo.completed
       })
     })
   }
 
   render() {
     return (
-      <div>
-        <h2>Honey Do List!</h2>
+      <div className='headerDiv'>
+        <h1>Honey Do List!</h1>
         <TodoForm addTodo={this.addTodo} />
         <TodoList clearTodo={this.clearTodo} toggleTodo={this.toggleTodo} todoList={this.state.todoList} />
       </div>
