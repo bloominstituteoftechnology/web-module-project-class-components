@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 class App extends React.Component {
   constructor(props) {
@@ -63,6 +64,12 @@ class App extends React.Component {
     this.setState({ todos: newState.todos });
   }
 
+  addTodo = (e) => {
+    e.preventDefault();
+    this.setState({todos: [...this.state.todos, {id: () => Date.now(), task: e.target.value, completed: false}]})
+
+  }
+
   render() {
     return (
       <div className="container" >
@@ -75,6 +82,7 @@ class App extends React.Component {
         <button className="btn" onClick={this.clearCompleted} >
           <i className="material-icons left">delete_sweep</i>Clear Completed
         </button>
+        <TodoForm addTodo={this.addTodo} />
       </div>
     );
   }
