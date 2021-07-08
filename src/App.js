@@ -31,7 +31,7 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      todo: todoItems
+      todoItems: todoItems
     }
   }
 
@@ -79,7 +79,7 @@ class App extends React.Component {
             <h2>Welcome to your To-do App!</h2>
             <TodoForm handleAdd={this.handleAdd} />
           </div>
-        <TodoList handleClear={this.handleClear} handleToggle={this.handleToggle} todoItems={this.state.todoItems} />
+        <TodoList handleClear={this.handleClear} handleToggle={this.handleToggle} handleAdd={this.handleAdd} todoItems={this.state.todoItems} />
         
       </div> 
     
