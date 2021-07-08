@@ -66,7 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container" >
-        <h2>Welcome to your Todo App!</h2>
+        <h3 className="center-align" >Welcome to your Todo App!</h3>
         <TodoList
           todos={this.state.todos}
           toggleCompleted={this.toggleCompleted}
