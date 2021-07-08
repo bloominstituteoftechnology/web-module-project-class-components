@@ -5,7 +5,7 @@ class Todo extends Component {
     const { toggleCompleted, removeTask } = this.props;
     const { task, id, completed } = this.props.todo;
     return (
-      <li>
+      <li className="collection-item" >
         <input
           type="checkbox"
           checked={completed}
@@ -28,7 +28,7 @@ class Todo extends Component {
               : { display: "none" }
           }
         >
-          Delete
+          <i className="material-icons">delete</i>
         </button>
       </li>
     );

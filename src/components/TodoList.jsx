@@ -5,7 +5,7 @@ class TodoList extends Component {
   render(props) {
     const { toggleCompleted, removeTask } = this.props;
     return (
-      <ul style={{ listStyleType: "none" }}>
+      <ul className="collection" >
         {this.props.todos.map((todo, index) => (
           <Todo
             todo={todo}

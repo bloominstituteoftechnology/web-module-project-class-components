@@ -48,7 +48,7 @@ class App extends React.Component {
       }
       return todo;
     });
-    this.setState(updatedState);
+    this.setState({todos:updatedState});
   };
 
   removeTask = (e, id) => {
@@ -72,7 +72,9 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted}
           removeTask={this.removeTask}
         />
-        <button onClick={this.clearCompleted} >Clear Completed</button>
+        <button className="btn" onClick={this.clearCompleted} >
+          <i className="material-icons">delete_sweep</i>
+        </button>
       </div>
     );
   }
