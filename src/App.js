@@ -42,7 +42,7 @@ class App extends React.Component {
     });
 
     this.setState({
-      TodoList: newtodoList,
+      todoList: newtodoList,
     });
   };
   // you will need a place to store your state in this component.
