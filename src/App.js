@@ -19,7 +19,7 @@ class App extends React.Component {
   handleAddTask = (task) => {
     const item = {
       task: task,
-      id: Math.floor(Math.random() * 10),
+      id: Math.floor(Date.now()),
       completed: false
     }
 

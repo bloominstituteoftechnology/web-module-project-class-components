@@ -21,9 +21,10 @@ form{
     padding: 50px;
 }
 button {
-    border-radius: 10px;
+    padding: 2%;
     margin: 0 1% 0 1%;
     transition: .5s;
+    border: none;
 }
 button:hover {
     transition: .5s;
