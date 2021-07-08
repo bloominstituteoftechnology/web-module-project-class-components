@@ -52,11 +52,16 @@ class App extends React.Component {
   };
 
   removeTask = (e, id) => {
-    console.log(id);
     let newState = { ...this.state };
     newState.todos = newState.todos.filter((todo) => todo.id !== id);
     this.setState({ todos: newState.todos });
   };
+
+  clearCompleted = () => {
+    let newState = { ...this.state };
+    newState.todos = newState.todos.filter((todo) => todo.completed !== true);
+    this.setState({ todos: newState.todos });
+  }
 
   render() {
     return (
@@ -67,6 +72,7 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted}
           removeTask={this.removeTask}
         />
+        <button onClick={this.clearCompleted} >Clear Completed</button>
       </div>
     );
   }
