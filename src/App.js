@@ -20,12 +20,12 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  constructor(){
-    super();
+  constructor() {
+    super()
     this.state = {
       todo: list
     }
-  }
+  };
 
   toggleItem = (id) => {
     const newList = this.state.todo.map(item => {
@@ -41,7 +41,7 @@ class App extends React.Component {
     this.setState({
       todo: newList
     })
-  }
+  };
 
   addItem = (title) => {
     const newItem = {
@@ -53,7 +53,7 @@ class App extends React.Component {
     this.setState({
       todo: [...this.state.todo, newItem]
     })
-  }
+  };
 
   clearCompleted = (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ class App extends React.Component {
     this.setState({
       todo: newList
     })
-  }
+  };
 
   render() {
     return (
