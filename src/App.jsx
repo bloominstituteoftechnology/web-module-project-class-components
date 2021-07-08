@@ -49,7 +49,7 @@ class App extends React.Component {
       }
       return todo;
     });
-    this.setState({todos:updatedState});
+    this.setState({ todos: updatedState });
   };
 
   removeTask = (e, id) => {
@@ -62,28 +62,32 @@ class App extends React.Component {
     let newState = { ...this.state };
     newState.todos = newState.todos.filter((todo) => todo.completed !== true);
     this.setState({ todos: newState.todos });
-  }
+  };
 
   addTodo = (e, value) => {
     e.preventDefault();
-    let newTodos = [...this.state.todos]
-    newTodos.push({id: Date.now(), task: value, completed: false})
-    console.log(newTodos)
-    this.setState({todos: newTodos})
-  }
+    let newTodos = [...this.state.todos];
+    newTodos.push({ id: Date.now(), task: value, completed: false });
+    console.log(newTodos);
+    this.setState({ todos: newTodos });
+  };
 
   render() {
     return (
-      <div className="container" >
-        <h3 className="center-align" >Welcome to your Todo App!</h3>
-        <TodoList
-          todos={this.state.todos}
-          toggleCompleted={this.toggleCompleted}
-          removeTask={this.removeTask}
-        />
-        <button className="btn" onClick={this.clearCompleted} >
-          <i className="material-icons left">delete_sweep</i>Clear Completed
-        </button>
+      <div className="container">
+        <h3 className="center-align">Welcome to your Todo App!</h3>
+        {this.state.todos.length > 0 ? <div className="todo-list">
+          <TodoList
+            todos={this.state.todos}
+            toggleCompleted={this.toggleCompleted}
+            removeTask={this.removeTask}
+          />
+          <button className="btn" onClick={this.clearCompleted}>
+            <i className="material-icons left">delete_sweep</i>Clear Completed
+          </button>
+        </div> : <div className="no-tasks">
+          <h4>Looks like you're all done!</h4>
+        </div> }
         <TodoForm addTodo={this.addTodo} />
       </div>
     );
