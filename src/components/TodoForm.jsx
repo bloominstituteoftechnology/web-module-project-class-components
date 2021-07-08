@@ -12,6 +12,7 @@ class TodoForm extends Component {
         e.preventDefault();
         const newTask = this.state.inputValue;
         this.props.addTodo(e, newTask)
+        this.setState({inputValue: ''})
     }
     render() { 
         return ( <form action="submit"  onSubmit={this.handleSubmit}>
