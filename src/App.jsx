@@ -1,15 +1,42 @@
 import React from "react";
-import todos from "./data/todos";
 import TodoList from "./components/TodoList";
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
     this.state = {
-      todos: todos,
+      todos: [
+        {
+          task: "Find a hot older chick on Tattooine",
+          id: 0,
+          completed: false,
+        },
+        {
+          task: 'Learn "The Force"',
+          id: 1,
+          completed: false,
+        },
+        {
+          task: "Find some Kyber crystals",
+          id: 2,
+          completed: false,
+        },
+        {
+          task: "Murder all the padawans per Order 66",
+          id: 3,
+          completed: false,
+        },
+        {
+          task: "Find the droids I'm looking for",
+          id: 4,
+          completed: false,
+        },
+        {
+          task: "Defeat the rebel scum",
+          id: 5,
+          completed: false,
+        },
+      ],
     };
   }
 
@@ -23,11 +50,23 @@ class App extends React.Component {
     });
     this.setState(updatedState);
   };
+
+  removeTask = (e, id) => {
+    console.log(id);
+    let newState = { ...this.state };
+    newState.todos = newState.todos.filter((todo) => todo.id !== id);
+    this.setState({ todos: newState.todos });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+          removeTask={this.removeTask}
+        />
       </div>
     );
   }
