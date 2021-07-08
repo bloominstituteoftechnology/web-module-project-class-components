@@ -64,10 +64,11 @@ class App extends React.Component {
     this.setState({ todos: newState.todos });
   }
 
-  addTodo = (e) => {
+  addTodo = (e, value) => {
     e.preventDefault();
-    this.setState({todos: [...this.state.todos, {id: () => Date.now(), task: e.target.value, completed: false}]})
-
+    let newTodos = [...this.state.todos]
+    newTodos.push({id: Date.now(), task: value, completed: false})
+    this.setState({newTodos})
   }
 
   render() {
