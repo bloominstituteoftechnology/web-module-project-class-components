@@ -73,7 +73,7 @@ class App extends React.Component {
           removeTask={this.removeTask}
         />
         <button className="btn" onClick={this.clearCompleted} >
-          <i className="material-icons">delete_sweep</i>
+          <i className="material-icons left">delete_sweep</i>Clear Completed
         </button>
       </div>
     );

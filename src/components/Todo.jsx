@@ -5,7 +5,7 @@ class Todo extends Component {
     const { toggleCompleted, removeTask } = this.props;
     const { task, id, completed } = this.props.todo;
     return (
-      <li className="collection-item" >
+      <li className="collection-item">
         <input
           type="checkbox"
           checked={completed}
@@ -21,10 +21,15 @@ class Todo extends Component {
           {task}
         </span>{" "}
         <button
+        className="btn waves-effect waves-light right delete_button"
           onClick={(e) => removeTask(e, id)}
           style={
             completed
-              ? { display: "inline", textDecoration: "none" }
+              ? { 
+                  display: "inline",
+                  textDecoration: "none",
+                  position: "relative"
+                }
               : { display: "none" }
           }
         >
