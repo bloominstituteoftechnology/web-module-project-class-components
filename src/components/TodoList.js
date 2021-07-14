@@ -8,11 +8,14 @@ const TodoList = props => {
     const handleClick =()=> {
         props.handleItemCompleted();
     }
+    console.log(props)
     return (
         <div className = "todo-list">
-            {props.todoList.map(item => (
-                <Todo handleItemToggle={props.handleItemToggle}  key={item.id} item={item}/>
-            ))}
+
+            {props.todoList.map(item => {
+                console.log(item)
+                return <Todo handleItemToggle={props.handleItemToggle}  key={item.id} item={item}/>
+            })}
             <button onClick={handleClick} className = "clear-btn">Clear todo</button>
         </div>
     )
