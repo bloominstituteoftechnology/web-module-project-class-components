@@ -8,7 +8,41 @@ api.use(express.json())
 
 api.use(cors())
 
+const credentials = {
+  username: "Lambda",
+  password: "School",
+  username: "Lambda School",
+  role: "admin",
+  token:"ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98"
+}
+const authenticator = (req, res, next) => {
+  const { authorization } = req.headers;
+  if (authorization === token) {
+    next();
+  } else {
+    res.status(403).json({ error: 'User must be logged in to do that.' });
+  }
+}
+
 //Get All Posts Endpoint
+api.get('/api/login', (req, res) => {
+  const {username, role, token}  = credentials;
+  res.json({
+    username,
+    role,
+    token
+  })
+})
+
+api.get('/api/logout', (req, res) => {
+  const {username, role, token}  = credentials;
+  res.json({
+    username,
+    role,
+    token
+  })
+})
+
 api.get('/api/posts', (req, res) => {
   res.json(Posts.getAll())
 })
