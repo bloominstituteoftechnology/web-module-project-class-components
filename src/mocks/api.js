@@ -1,5 +1,5 @@
 const express = require('express')
-const Todo = require('./data')
+const Posts = require('./data')
 const cors = require('cors')
 
 const api = express()
@@ -8,24 +8,24 @@ api.use(express.json())
 
 api.use(cors())
 
-api.get('/api/todos', (req, res) => {
-  res.json(Todo.getAll())
+api.get('/api/posts', (req, res) => {
+  res.json(Posts.getAll())
 })
 
-api.get('/api/todos/:id', (req, res) => {
-  res.json(Todo.getById(req.params.id))
+api.get('/api/posts/:id', (req, res) => {
+  res.json(Posts.getById(req.params.id))
 })
 
-api.post('/api/todos', (req, res) => {
-  res.json(Todo.create(req.body))
+api.post('/api/posts', (req, res) => {
+  res.json(Posts.create(req.body))
 })
 
-api.patch('/api/todos/:id', (req, res) => {
-  res.json(Todo.toggleDone(req.params.id))
+api.put('/api/posts/:id', (req, res) => {
+  res.json(Posts.toggleDone(req.params.id))
 })
 
-api.delete('/api/todos/:id', (req, res) => {
-  res.json(Todo.remove(req.params.id))
+api.delete('/api/posts/:id', (req, res) => {
+  res.json(Posts.remove(req.params.id))
 })
 
 api.listen(5000, () => {
