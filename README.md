@@ -1,7 +1,14 @@
 # React-Todo
 
 We're going to practice building a stateful class component with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
-
+- [React-Todo](#react-todo)
+  - [Introduction](#introduction)
+  - [Instructions](#instructions)
+    - [Task 1: Project Set Up](#task-1-project-set-up)
+    - [Task 2: MVP](#task-2-mvp)
+    - [Task 3: Stretch Problems](#task-3-stretch-problems)
+  - [Submission Format](#submission-format)
+  - [Rick Mansfield's Pull request](#rick-mansfields-pull-request)
 ## Introduction
 
 - Your job is to write the components to complete the Todo List application.
@@ -82,4 +89,4 @@ Follow these steps for completing your project.
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
 
 ## Rick Mansfield's Pull request
-- [Link for Convenience]()
+- [Link for Convenience](https://github.com/LambdaSchool/web-module-project-class-components/pull/109)
