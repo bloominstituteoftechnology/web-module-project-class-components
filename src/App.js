@@ -20,25 +20,34 @@ class App extends React.Component {
 
     addTodo = name => {
       console.log('App:', name);
-    }
-    
-    toggleTodo = id => {
-      console.log("App:", id);
-      //set state for groceries with id's purchased flipped
+      const newTodo = {
+        name: name,
+        id: Date.now(),
+        completed: false
+      }
       this.setState({
-        ...this.state.todoList,
-        todoList: this.state.todolist.map(todo =>{
-          if (todo.id === id){
-            return({
-              ...todo,
-              completed: !todo.completed
-            })
-          } else {
-            return todo
-          }
-        })
+        ...this.state,
+        todoList: [...this.state.todoList, newTodo]
       })
     }
+
+    // toggleTodo = id => {
+    //   console.log("App:", id);
+    //   //set state for groceries with id's purchased flipped
+    //   this.setState({
+    //     ...this.state.todoList,
+    //     todoList: this.state.todolist.map(todo =>{
+    //       if (todo.id === id){
+    //         return({
+    //           ...todo,
+    //           completed: !todo.completed
+    //         })
+    //       } else {
+    //         return todo
+    //       }
+    //     })
+    //   })
+    // }
 
   render() {
     return (
