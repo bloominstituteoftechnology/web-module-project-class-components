@@ -31,23 +31,23 @@ class App extends React.Component {
       })
     }
 
-    // toggleTodo = id => {
-    //   console.log("App:", id);
-    //   //set state for groceries with id's purchased flipped
-    //   this.setState({
-    //     ...this.state.todoList,
-    //     todoList: this.state.todolist.map(todo =>{
-    //       if (todo.id === id){
-    //         return({
-    //           ...todo,
-    //           completed: !todo.completed
-    //         })
-    //       } else {
-    //         return todo
-    //       }
-    //     })
-    //   })
-    // }
+    toggleTodo = id => {
+      console.log("App:", id);
+      //set state for todoList with id's purchased flipped
+      this.setState({
+        ...this.state.todoList,
+        todoList: this.state.todoList.map(todo =>{
+          if (todo.id === id){
+            return({
+              ...todo,
+              completed: !todo.completed
+            })
+          } else {
+            return todo
+          }
+        })
+      })
+    }
 
   render() {
     return (
@@ -59,7 +59,7 @@ class App extends React.Component {
           <TodoForm addTodo={this.addTodo} />
         </div>
         <div>
-          <TodoList />
+          <TodoList todoList={this.state.todoList} toggleTodo={this.toggleTodo}/>
         </div>
       </div>
     );
