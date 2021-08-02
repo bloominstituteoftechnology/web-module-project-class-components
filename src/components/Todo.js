@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Todo = props => {
 
+    const handleClick = ()=> {
+        console.log(props.task.name);
+        props.handlePurchased(props.item.id);
+    }
 
     return (
-        <div className={`task${props.task.completed}`}>
+        <div onClick={handleClick}className={`task${props.task.completed ? "completed" : ""}`}>
             <p>{props.task.name}</p>
         </div>
     )

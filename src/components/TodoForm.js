@@ -7,11 +7,24 @@ class TodoList extends React.Component {
             inputValue: ""
         }
     }
+
+    handleChanges = e => {
+        this.setState({
+            ...this.state,
+            inputValue:e.target.value
+        })
+    };
+
+    handleClick = (e)=> {
+        e.preventDefault();
+        this.props.handleAddTask(this.state.inputValue);
+    }
+
     render() {
         return (
             <form>
-                <input onChange={} type="text" name="task" />
-                <button>Add</button>
+                <input onChange={this.handleChanges}type="text" name="task" />
+                <button onClick={this.handleClick}>Add</button>
             </form>
         )
     }
