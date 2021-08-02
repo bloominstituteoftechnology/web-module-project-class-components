@@ -51,12 +51,27 @@ class App extends React.Component {
     })
   }
 
+  handleSave = () => {
+    window.localStorage.setItem('todo', JSON.stringify(this.state.todo))
+  }
+
+  handleLoad = () => {
+    this.setState({
+      ...this.state,
+      todo: JSON.parse(window.localStorage.getItem('todo'))
+    })
+  }
+
   render() {
     return (
       <div className='app'>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todo={this.state.todo} handleComplete={this.handleComplete} />
         <TodoForm handleAddTask={this.handleAddTask} handleClearComplete={this.handleClearComplete} />
+        <div className='save'>
+          <button onClick={this.handleSave}>Save</button>
+          <button onClick={this.handleLoad}>Load</button>
+        </div>
       </div>
     );
   }
