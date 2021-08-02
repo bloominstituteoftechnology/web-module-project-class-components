@@ -27,32 +27,38 @@ class App extends React.Component {
         ...this.state.todo,
         newTask
       ],
-      display: this.state.todo
+      display: [
+        ...this.state.display,
+        newTask
+      ]
     })
   }
 
   handleClearComplete = () => {
+    const filtered = this.state.todo.filter(task => task.completed === false)
+
     this.setState({
       ...this.state,
-      todo: this.state.todo.filter(task => task.completed === false),
-      display: this.state.todo
+      todo: filtered,
+      display: filtered
     })
   }
 
   handleComplete = (id) => {
+    const changed = this.state.todo.map(task => {
+      if (task.id === id){
+        return {
+          ...task,
+          completed: !task.completed
+        }
+      }else{
+        return task
+      }
+    })
     this.setState({
       ...this.state,
-      todo: this.state.todo.map(task => {
-        if (task.id === id){
-          return {
-            ...task,
-            completed: !task.completed
-          }
-        }else{
-          return task
-        }
-      }),
-      display: this.state.todo
+      todo: changed,
+      display: changed
     })
   }
 
