@@ -8,7 +8,9 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      todo: []
+      todo: [],
+      searchValue: '',
+      display: []
     }
   }
 
@@ -24,14 +26,16 @@ class App extends React.Component {
       todo: [
         ...this.state.todo,
         newTask
-      ]
+      ],
+      display: this.state.todo
     })
   }
 
   handleClearComplete = () => {
     this.setState({
       ...this.state,
-      todo: this.state.todo.filter(task => task.completed === false)
+      todo: this.state.todo.filter(task => task.completed === false),
+      display: this.state.todo
     })
   }
 
@@ -47,7 +51,8 @@ class App extends React.Component {
         }else{
           return task
         }
-      })
+      }),
+      display: this.state.todo
     })
   }
 
@@ -62,11 +67,32 @@ class App extends React.Component {
     })
   }
 
+  handleSearch = (value) => {
+    if (value === ''){
+        this.setState({
+            ...this.state,
+            display: this.state.todo
+        })
+    }else{
+        this.setState({
+            ...this.state,
+            display: this.state.todo.filter(item => item.task.includes(value))
+        })
+    }
+}
+
+handleChange = (value) => {
+    this.setState({
+        ...this.state,
+        searchValue: value
+    })
+}
+
   render() {
     return (
       <div className='app'>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todo={this.state.todo} handleComplete={this.handleComplete} />
+        <TodoList display={this.state.display} handleComplete={this.handleComplete} handleSearch={this.handleSearch} handleChange={this.handleChange} searchValue={this.state.searchValue} />
         <TodoForm handleAddTask={this.handleAddTask} handleClearComplete={this.handleClearComplete} />
         <div className='save'>
           <button onClick={this.handleSave}>Save</button>
