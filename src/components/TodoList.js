@@ -4,8 +4,8 @@ import Todo from './Todo'
 class TodoList extends Component {
     render(){
         return (
-            <div>
-                {this.props.todo.map(task => <Todo task={task} />)}
+            <div className='list'>
+                {this.props.todo.map(task => <Todo task={task} key={task.id} handleComplete={this.props.handleComplete} />)}
             </div>
         )
     }

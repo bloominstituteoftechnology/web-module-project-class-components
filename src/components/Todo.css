@@ -1,0 +1,42 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: cornflowerblue;
+    font-weight: bold;
+    height: 100vh
+}
+
+input {
+    background: rgb(196, 227, 238);
+}
+
+button {
+    background: black;
+    color: lightblue;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.task, .complete {
+    border-radius: 20%;
+    padding: 2%;
+    margin: 1%;
+    text-align: center;
+    border: 3px solid black;
+}
+
+.task {
+    background: lightcoral;
+    color: darkgreen;
+}
+
+.complete{
+    background: lightgreen;
+    color: darkred;
+}

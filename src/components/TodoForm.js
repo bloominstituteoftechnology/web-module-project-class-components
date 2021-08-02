@@ -20,8 +20,13 @@ class TodoForm extends Component {
         this.props.handleAddTask(this.state.formValue)
         this.setState({
             ...this.state,
-            formValue: 'test'
+            formValue: ''
         })
+    }
+
+    handleClear = (e) => {
+        e.preventDefault();
+        this.props.handleClearComplete()
     }
 
     render(){
@@ -30,7 +35,7 @@ class TodoForm extends Component {
                 <form>
                     <input name='task' onChange={this.handleChange} value={this.state.formValue} />
                     <button onClick={this.handleAdd}>Add task</button>
-                    <button>Clear Completed</button>
+                    <button onClick={this.handleClear}>Clear Completed</button>
                 </form>
             </div>
         )
