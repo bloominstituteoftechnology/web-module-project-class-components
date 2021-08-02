@@ -3,9 +3,10 @@ import Todo from './Todo'
 
 
 const TodoList = props => {
+    console.log(props.todo)
     return (<div>
       {props.todo.map(item =>(
-          <Todo key={item.id} item={item}/>
+          <Todo handleCompleted={props.handleCompleted} key={item.id} item={item}/>
       ))}
     </div>
     )
