@@ -28,4 +28,3 @@ const Todo = (props) => {
 };
 
 export default Todo;
-// &&        {style={ !props.todo.completed ? "" : { textDecorationLine: "line-through" }  }}
