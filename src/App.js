@@ -1,27 +1,28 @@
 import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import './components/Todo.css'
 
 const todos = [
   {
 
     task: 're-string guitar',
-    id: Date.now(),
+    id: 111,
     completed: false
   },
   {
     task: 'organize bedroom',
-    id: Date.now(),
+    id: 112,
     completed: false,
   },
   {
     task: 'read current book',
-    id: Date.now(),
+    id: 113,
     completed: false
   },
   {
     task: 'increase level in overwatch',
-    id: Date.now(),
+    id: 114,
     completed: false
   }
 ]
@@ -37,10 +38,9 @@ class App extends React.Component {
 
     }
   }
-  handleClick = (todo) => {
-    
+  addTodo = (item) => {
     const newTodo = {
-      task: todo,
+      task: item,
       id: Date.now(),
       completed: false
     }
@@ -53,15 +53,36 @@ class App extends React.Component {
   }
 
   handleClear = () => {
+    this.setState({
+      ...this.state,
+      todoArray: this.state.todoArray.filter(item => {
+        return (item.completed === false)
+      })
+    });
+  }
 
+  handleComplete = (id) => {
+    this.setState({
+      ...this.state,
+      todoArray: this.state.todoArray.map(item => {
+        if(item.id===id) {
+          return ({
+            ...item,
+            completed: !item.completed
+          })
+        }
+        return item
+      })
+    })
+    console.log(this.state)
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todoArray} />
-        <TodoForm handleClick={this.handleClick} handleClear={this.handleClear}/>
+        <TodoList todos={this.state.todoArray} handleComplete={this.handleComplete} />
+        <TodoForm addTodo={this.addTodo} handleClear={this.handleClear}/>
       </div>
     );
   }
