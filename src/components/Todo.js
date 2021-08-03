@@ -5,7 +5,12 @@ class Todo extends React.Component{
 
     render(){
         return(
-            <div>OI this hers your todo </div>
+            <div>
+               {this.props.task.completed 
+               ? (<strike>{this.props.task.task}</strike>)
+                : this.props.task.task
+            }
+            </div>
         )
     }
  }

@@ -5,8 +5,10 @@ import Todo from './Todo'
 class TodoList extends React.Component {
 render(){
   return(<div>
-    <div> This is the Todo list </div>
-    <Todo/>
+     This is the Todo list {this.props.tasklist.map(item =>(
+      <Todo task={item}/>
+    ))}
+   
     </div>
 
   )
