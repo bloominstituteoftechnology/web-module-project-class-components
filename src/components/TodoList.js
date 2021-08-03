@@ -1,6 +1,14 @@
+/**
+ * Tom Bielawski
+ * Lambda School WEB45 3.1.1
+ * React to-do
+ * 08/02/2021
+ */
+
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 
+//Import statements
 import React from 'react'
 import Todo from "./Todo";
 
@@ -17,6 +25,7 @@ const TodoList = (props) =>
     //Return function
     return (
         <div className = "todolist">
+            
             {/* Map over list array */}
              {props.list.map(item => 
              (<Todo handleLists = {props.handleLists} key={item.id} item={item} />))}

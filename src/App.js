@@ -54,13 +54,17 @@ const list =
 class App extends React.Component 
 {
 
+  //Constructor definition
   constructor() 
   {
+    //Super function to permit inheritance
     super();
+
+    //Setting state
     this.state = 
     {
-      list:list
-    };
+        list:list
+    }
   }
 
   //Add task function
@@ -117,15 +121,21 @@ class App extends React.Component
 
 
   //Render and return
-  render() {
+  render() 
+  {
     return (
       <div>
+        {/* Render ToDoForm */}
         <TodoForm 
         handleAddItem = {this.handleAddItem}/>
 
+        {/* Render TodoList */}
         <TodoList 
+        //Clear function
         handleClear = {this.handleClear} 
+        //handleList function
         handleLists = {this.handleLists} 
+        //List state
         list = {this.state.list}/>
 
       </div>
@@ -133,4 +143,5 @@ class App extends React.Component
   }
 }
 
+//Export statement
 export default App;

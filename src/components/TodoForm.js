@@ -57,13 +57,19 @@ class TodoForm extends React.Component
         return(
          <form>
              <h2>Welcome to your Todo App!</h2>
+
+             {/* Label */}
              <label> Input goes here</label>  
+
+             {/* Input */}
              <input
              type = "text"
              name = "item"
+             //change handler function
              onChange = {this.handleChanges}>
              </input>
              
+             {/* Submit button with handler */}
              <button onClick = {this.handleSubmit}>SUBMIT</button>
              <button>CANCEL</button>
          </form>
@@ -72,7 +78,8 @@ class TodoForm extends React.Component
  
      
 }
- 
+
+//Export statement
 export default TodoForm;
 
 

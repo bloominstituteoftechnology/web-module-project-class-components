@@ -12,14 +12,17 @@ import "./Todo.css"
 //Define the Todo(), pass in magical props
 const Todo = (props) => 
 {
+    //Click handler function to check list status
     const handleClick = () => 
     {
         props.handleLists(props.item.id);
     }
 
 
+    //Return function
     return (
         <div 
+        // onClick to change completed status
         onClick = {handleClick} 
         className = {`item${props.item.completed ? ' completed' : ''}`}
         >
