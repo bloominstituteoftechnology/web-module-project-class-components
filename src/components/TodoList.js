@@ -8,6 +8,7 @@ const TodoList = props => {
     const handleClick = () => {
         props.handleClear();
     }
+    console.log(props)
 
     return (
         <div className="todo-list">

@@ -4,7 +4,7 @@ const Todo = props => {
 
     const handleClick = ()=> {
         console.log(props.task.name);
-        props.handlePurchased(props.item.id);
+        props.handleCompleted(props.task.id);
     }
 
     return (
