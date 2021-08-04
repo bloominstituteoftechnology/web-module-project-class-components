@@ -5,31 +5,42 @@ let posts
 
 const resetPosts = () => {
   posts = [
-    { 
+    {
       id: nanoid(5),
-      createdAt: moment().subtract(Math.random()*10, "days").format(),
-      title: '8.2-Magnitude Earthquake Near Alaska Triggers Tsunami Warning', 
-      author: "The Associated Press and Reuters",
-      summary: 'The warning was issued in parts of Alaska after the powerful earthquake struck.',
-      body: 'The warning was issued in parts of Alaska after the powerful earthquake struck about 75 miles off its southern coast, prompting a tsunami watch that spun as far as Hawaii. Within hours, the warning was lifted.',
-    },
-    { 
+      headline: "Less than half of Seattle homes have air conditioning. After a deadly heat wave, ‘everybody’ wants it.",
+      createdOn: moment().subtract(Math.random()*10, "days").format(),
+      author: "Hallie Golden",
+      image: "https://via.placeholder.com/150",
+      summary: "Triple-digit temperatures led to a spike in demand across the region.",
+      body: "Inside the attic of a one-story gray house in a Seattle suburb last week, Jeff Bryson gingerly strapped copper piping across the rafters while wearing a white face mask and a headlamp. The temperature was about 110 degrees in the tight space, which was covered in insulation dust. His work was meant to cool the rest of the home."   
+  },
+  {
       id: nanoid(5),
-      createdAt: moment().subtract(Math.random()*10, "days").format(),
-      title: 'Concerns grow about the plight of a former U.S. Marine imprisoned in Russia',
-      author: "Brad Gibson",
-      summary: 'A Michigan lawmaker is pushing for a bipartisan effort to secure the release of Paul N. Whelan.',
-      body: 'Paul N. Whelan, the former U.S. Marine sentenced in Russia to 16 years in prison on espionage charges, has not been able to contact his family or the U.S. Embassy since July 4, and relatives and members of Congress are increasingly concerned about his well-being.',
-    },
-    { 
+      createdOn: moment().subtract(Math.random()*10, "days").format(),
+      author: "Hallie Golden",
+      image: "https://via.placeholder.com/150",
+      headline: "Less than half of Seattle homes have air conditioning. After a deadly heat wave, ‘everybody’ wants it.",
+      summary: "Triple-digit temperatures led to a spike in demand across the region.",
+      body: "Inside the attic of a one-story gray house in a Seattle suburb last week, Jeff Bryson gingerly strapped copper piping across the rafters while wearing a white face mask and a headlamp. The temperature was about 110 degrees in the tight space, which was covered in insulation dust. His work was meant to cool the rest of the home."   
+  },
+  {
+      id: "MMqR27",
+      createdOn: moment().subtract(Math.random()*10, "days").format(),
+      author: "Hallie Golden",
+      image: "https://via.placeholder.com/150",
+      headline: "Less than half of Seattle homes have air conditioning. After a deadly heat wave, ‘everybody’ wants it.",
+      summary: "Triple-digit temperatures led to a spike in demand across the region.",
+      body: "Inside the attic of a one-story gray house in a Seattle suburb last week, Jeff Bryson gingerly strapped copper piping across the rafters while wearing a white face mask and a headlamp. The temperature was about 110 degrees in the tight space, which was covered in insulation dust. His work was meant to cool the rest of the home."   
+  },
+  {
       id: nanoid(5),
-      createdAt: moment().subtract(Math.random()*10, "days").format(),
-      title: 'Ride-share prices are rising. Will they ever go back down?',
-      author: "Thea Jørgensen",
-      summary: 'The number of tourists, office workers and partyers venturing out in Chicago is ticking up, and ride-share prices are rising with them.',
-      body: 'The uptick in ride-share prices was enough to convince Mike Morgan and his wife, Elena, to rely on the “L to get around the city on a recent trip from California, though it sometimes meant waking up earlier. But midmorning one weekday they were running late, and took a ride-share the roughly 1 mile from their hotel to Navy Pier. The cost: $15.',
-    }
-  ]
+      createdOn: moment().subtract(Math.random()*10, "days").format(),
+      author: "Hallie Golden",
+      image: "https://via.placeholder.com/150",
+      headline: "Less than half of Seattle homes have air conditioning. After a deadly heat wave, ‘everybody’ wants it.",
+      summary: "Triple-digit temperatures led to a spike in demand across the region.",
+      body: "Inside the attic of a one-story gray house in a Seattle suburb last week, Jeff Bryson gingerly strapped copper piping across the rafters while wearing a white face mask and a headlamp. The temperature was about 110 degrees in the tight space, which was covered in insulation dust. His work was meant to cool the rest of the home."   
+  }]
 }
 
 resetPosts()

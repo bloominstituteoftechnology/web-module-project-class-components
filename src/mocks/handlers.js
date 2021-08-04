@@ -8,6 +8,27 @@ function authenticator(req, resp) {
 }
 
 
+function login(req, res, ctx) {
+  const {username, password, role, token}  = credentials;
+
+  if (username === req.body.username && password === req.body.password) {
+    return res(ctx.json({
+      username,
+      role,
+      token
+    }))
+  } else {
+    res( ctx.status(403),ctx.json({ error: 'Incorrect username / password combination.' }));
+  }
+}
+
+function logout(req, res, ctx) {
+  return (authenticator(req), ()=>{
+    return res(ctx.json(Posts.getAll()))
+  })
+}
+
+
 function getAll(req, res, ctx) {
   return (authenticator(req), ()=>{
     return res(ctx.json(Posts.getAll()))
@@ -39,6 +60,8 @@ function remove(req, res, ctx) {
 }
 
 export const handlers = [
+  rest.post('http://localhost:5000/api/login', login),
+  rest.post('http://localhost:5000/api/logout', logout),
   rest.get('http://localhost:5000/api/posts', getAll),
   rest.get('http://localhost:5000/api/posts/:id', getById),
   rest.post('http://localhost:5000/api/posts', create),

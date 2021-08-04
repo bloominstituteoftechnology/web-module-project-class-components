@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import styled from 'styled-components';
+import axios from 'axios';
 
 const ComponentContainer = styled.div`
     height: 70%;
@@ -37,6 +40,32 @@ const Button = styled.button`
 `
 
 const Login = () => {
+    const { push } = useHistory();
+    const [ error, setError ] = useState("");
+    const [credentials, setCredentials] = useState({
+        username:"",
+        password:""
+    });
+
+    const handleChange = (e) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]:e.target.value
+        });
+    }
+
+    const handleClick = (e)=> {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/login', credentials)
+            .then(res=> {
+                localStorage.setItem('token', res.data.token);
+                push('/view');
+            })
+            .catch(err=> {
+                setError('Incorrect username / password combination.');
+            })
+    }
+    
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
@@ -44,16 +73,17 @@ const Login = () => {
             <form>
                 <FormGroup>
                     <Label>Username</Label>
-                    <Input/>
+                    <Input onChange={handleChange} name="username" id="username"/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Password</Label>
-                    <Input/>
+                    <Input onChange={handleChange} name="password" id="password"/>
                 </FormGroup>
 
-                <Button>Login</Button>
+                <Button onClick={handleClick}>Login</Button>
             </form>
+            <p id="error">{error}</p>
         </ModalContainer>
     </ComponentContainer>);
 }

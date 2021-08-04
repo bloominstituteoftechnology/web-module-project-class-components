@@ -21,16 +21,22 @@ const authenticator = (req, res, next) => {
 }
 
 //Get All Posts Endpoint
-api.get('/api/login', (req, res) => {
-  const {username, role, token}  = credentials;
-  res.json({
-    username,
-    role,
-    token
-  })
+api.post('/api/login', (req, res) => {
+  const {username, password, role, token}  = credentials;
+
+  if (username === req.body.username && password === req.body.password) {
+    res.json({
+      username,
+      role,
+      token
+    });
+  } else {
+    res.status(403).json({ error: 'Incorrect username / password combination.' });
+  }
+  
 })
 
-api.get('/api/logout', authenticator, (req, res) => {
+api.post('/api/logout', authenticator, (req, res) => {
   const {username, role, token}  = credentials;
   res.json({
     username,
