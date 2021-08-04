@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Todo from "./components/Todo";
+import TodoList from "./components/TodoList";
 
-const todo = [
+const todos = [
   {
     task: "Organize Garage",
     id: 1528817077286,
@@ -19,14 +20,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: todo
+      todos: todos
     };
   }
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <Todo todo={todo} />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
