@@ -1,28 +1,12 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
-
-import React, { useState } from "react";
+import React from "react";
 import Todo from "./Todo";
 
-const TodoList = props => {
-  const [todo, setTodo] = useState({
-    task: "Organize Garage",
-    id: 1528817077286,
-    completed: false
-  });
-
-  const handleClick = () => {
-    setTodo({
-      ...todo,
-      purchased: true
-    });
-  };
-
+export default function TodoList(props) {
   return (
-    <div className={`TodoList ${props.todos.completed ? " completed" : ""}`}>
-      <p>{props.todos.task}</p>
+    <div>
+      {props.todos.map(todo => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
     </div>
   );
-};
-
-export default TodoList;
+}
