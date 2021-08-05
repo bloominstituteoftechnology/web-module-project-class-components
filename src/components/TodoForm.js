@@ -4,7 +4,7 @@ export default class TodoForm extends Component {
   constructor() {
     super();
     this.state = {
-      todoText: "text"
+      todoText: ""
     };
   }
 
@@ -14,10 +14,18 @@ export default class TodoForm extends Component {
       [name]: value
     });
   };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addItem(this.state.todoText);
+    this.setState({
+      todoText: ""
+    });
+  };
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="todo-input">Add Todo: </label>
           <input
             id="todo-input"
@@ -25,6 +33,7 @@ export default class TodoForm extends Component {
             value={this.state.todoText}
             onChange={this.handleChanges}
           />
+          <button>Add Todo</button>
         </form>
       </div>
     );

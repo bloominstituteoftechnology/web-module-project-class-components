@@ -21,12 +21,40 @@ class App extends React.Component {
     };
   }
 
+  addItem = taskName => {
+    const newTodo = {
+      task: taskName,
+      id: new Date(),
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    });
+  };
+
+  toggleCompleted = id => {
+    this.setState({
+      todos: this.set.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
+  };
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+        />
+        <TodoForm addItem={this.addItem} />
       </div>
     );
   }
