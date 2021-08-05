@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 
@@ -135,12 +136,30 @@ class App extends React.Component {
    TodoData: TodoData,
 
  }
+
+ //answer call to add item to list
+ addItem = (item) => {
+   console.log("we are adding a task");
+   console.log(item, "item")
+   this.setState({
+    ...this.state,
+    TodoData: [
+      ...this.state.TodoData,
+      {
+        task: item,
+        id: Date.now(),
+        completed: false
+      }
+    ]
+  })
+}
  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList TodoData = {this.state.TodoData} />
+        <TodoForm addItem={this.addItem}/>
       </div>
     );
   }
