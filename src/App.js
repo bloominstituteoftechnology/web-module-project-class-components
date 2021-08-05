@@ -127,6 +127,20 @@ const TodoData = [
     },
 ];
 
+const toggleCompleted = (item) => {
+  console.log("Task is done:", item);
+  // map through the array, building a new array from the items
+  // when an item matches the one clicked, toggle its purchased flag
+  // otherwise, don't make any changes
+  /*const updateTaskList = this.state.TodoData.map(item => {
+    if (item.id === itemId) {
+      return { ...item, completed: !item.completed };
+    }
+    else {
+      return item;
+    }
+  });*/
+}
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -153,13 +167,15 @@ class App extends React.Component {
     ]
   })
 }
+
+
  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList TodoData = {this.state.TodoData} />
-        <TodoForm addItem={this.addItem}/>
+        <TodoForm addItem={this.addItem} toggleCompleted={this.toggleCompleted}/>
       </div>
     );
   }

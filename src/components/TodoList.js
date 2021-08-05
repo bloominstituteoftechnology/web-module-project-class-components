@@ -11,6 +11,7 @@ const TodoList = (props) => {
     {let list = props.TodoData.map((teacher) => {
       return (
           <Todo key={teacher.id} task = {teacher.task} completed = {teacher.completed} />
+          
       );
     }); 
     
