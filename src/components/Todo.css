@@ -1,0 +1,16 @@
+.completed {
+    background-color: grey;
+    text-decoration: line-through;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 1%;
+  }
+
+.defaultItem {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1%;
+}
