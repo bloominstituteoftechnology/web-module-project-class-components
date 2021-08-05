@@ -16,10 +16,10 @@ const TodoList = (props) => {
     
     return (
       <div className="main-content">
-        <h2>Teachers</h2>
-        <ul className="group">
+        <h2>TASKS</h2>
+        <ol className="taskslist">
           {list}    
-        </ul>
+        </ol>
       </div>
     );
   }
