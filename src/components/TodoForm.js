@@ -16,7 +16,7 @@ handleSubmit = e => {
     e.preventDefault();
         // phone home to the App component with our new grocery to add
     this.props.addItem(this.state.newTask);
-    //clear form after submitting and successfully adding task
+    //clear form after submitting and successfully
     this.setState({...this.setState, newTask: ""});
 };
 
