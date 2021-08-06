@@ -1,6 +1,6 @@
 import React from 'react';
 import Todo from './components/Todo'
-import TodoForm from './components/TodoForm'
+import ToDoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
 
@@ -58,12 +58,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <form>
-        <label htmlFor="task">To-do
-          <input name="task" type="text" />
-        </label>
-        <button type="submit">Add Task</button>
-        </form>
+        <ToDoForm addItem={this.addItem} />
       </div>
 
     );
