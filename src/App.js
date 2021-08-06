@@ -7,8 +7,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <form>
+        <label htmlFor="task">To-do
+          <input name="task" type="text" />
+        </label>
+        <button type="submit">Add Task</button>
+        </form>
       </div>
+
     );
   }
 }
