@@ -1,0 +1,18 @@
+.done {
+    text-decoration: line-through;
+    font-style: bold italic;
+    
+   
+
+  }
+
+  .clear, .add {
+    border: solid black 2px;
+    font-weight: bolder;
+    margin-left: 3px;
+  }
+
+  .input {
+border: solid gray 2px;
+font-size: 14px;
+  }
