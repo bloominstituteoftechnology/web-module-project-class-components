@@ -5,7 +5,7 @@ import TodoList from './components/TodoList'
 
 
 //this portion handles the pre made to-do list
-const doDue = [
+const taskList = [
   {
     task: 'Maker Dinner',
     id: 1,
@@ -27,6 +27,7 @@ const doDue = [
     completed: false
   }
 ]
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -36,16 +37,17 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDoItems: doDue
+      taskList: taskList
     }
-}
+  }
+  
 
   // this helps user add item to list
   addItem = (item) => {
     this.setState({
       ...this.state,
-      toDoItems: [
-        ...this.state.toDoItems,
+      taskList: [
+        ...this.state.taskList,
         {
           task: item,
           id: Date.now(),
@@ -55,10 +57,30 @@ class App extends React.Component {
     })
   }
 
+  // this helps me toggle between false and true on the completed key
+  toggleComplete = (itemId) => {
+    const newTaskList = this.state.toDoItems.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          completed: !item.completed
+        }
+      } else {
+        return item
+      }
+    })
+    this.setState({
+      ...this.state,
+      taskList: newTaskList
+    })
+  }
+
+
   render() {
     return (
       <div>
         <ToDoForm addItem={this.addItem} />
+        <TodoList taskList={this.state.taskList} toggleComplete={this.toggleComplete}/>
       </div>
 
     );

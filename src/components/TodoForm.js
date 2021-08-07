@@ -6,6 +6,7 @@ class ToDoForm extends React.Component {
 		this.state = {
 			newTask: ''
 		}
+		
 	}
 
 	handleChange = (e) => {
@@ -17,12 +18,12 @@ class ToDoForm extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.addItem(this.state.newTask);
+		this.props.addItem(this.state.newTask)
 		this.setState({
-			...this.state,
 			newTask: ''
 		})
-
+		
+		
 	}
 	
 	render() {
@@ -34,11 +35,12 @@ class ToDoForm extends React.Component {
 							type="text"
 							name="addItem"
 							placeholder="add a new task"
+							value={this.state.newTask}
 							onChange={this.handleChange}/>
+					</label>
 						<button
 							type="submit">Add Task
 						</button>
-					</label>
 				</form>
 			</div>
 			)
