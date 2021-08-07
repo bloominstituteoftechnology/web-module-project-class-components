@@ -59,7 +59,7 @@ class App extends React.Component {
 
   // this helps me toggle between false and true on the completed key
   toggleComplete = (itemId) => {
-    const newTaskList = this.state.toDoItems.map(item => {
+    const newTaskList = this.state.taskList.map(item => {
       if (item.id === itemId) {
         return {
           ...item,
@@ -75,12 +75,23 @@ class App extends React.Component {
     })
   }
 
+  deleteFinished = (props) => {
+    this.setState({
+      ...this.state,
+      
+    })
+  }
+
 
   render() {
     return (
       <div>
         <ToDoForm addItem={this.addItem} />
-        <TodoList taskList={this.state.taskList} toggleComplete={this.toggleComplete}/>
+        <TodoList
+          taskList={this.state.taskList}
+          toggleComplete={this.toggleComplete}
+          deleteFinished={this.deleteFinished}
+        />
       </div>
 
     );
