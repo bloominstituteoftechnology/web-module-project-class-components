@@ -45,31 +45,27 @@ class App extends React.Component {
   }
 
   // toggle finished 
-  // ?? not sure where itemId comes from
-  toggleFinished = (itemId) => {
+  
+  toggleFinished = (id) => {
+    this.setState({
     // conosle.log working & passing the itemId, not sure how it's doing that ???, but it is
-    console.log("toggling finished tasks", itemId);
+    //console.log("toggling finished tasks", id);
     // map thru the array
     // when the item matches the one clicked, toggle its completed flag
     // otherwise, don't make any changes
-    const updatedTodoList = this.state.todos.map(item => {
+    updatedTodoList : this.state.todos.map(item => {
       // Logic walk through
       // if item.id === itemId, toggle completed flag
       // else, return item
       // ??? IDK this doesn't seem to be doing anything ???
-      if (item.id === itemId) {
+      if (item.id === id) {
         return {...item, completed: !item.completed};
       }
       else {
         return item;
       }  
-    });
-    // logic check : Yay! it's hitting
-    console.log("updated todo list:", updatedTodoList);
-    // updating state
-    this.setState({
-      ...this.state,
-      todos: updatedTodoList
+    }),
+    
     });
   
   }
@@ -79,16 +75,17 @@ class App extends React.Component {
   addItem = (newItem) => {
     // this console is working :)
     console.log("Adding a new task:", newItem);
-    this.setState({
-      ...this.state,
-      todos: [
-        ...this.state.todos,
-        {
+    const anItem = {
           name: newItem,
-          id: Date.now(),
+          id: new Date(),
           completed: false
-        }
-      ]
+    };
+
+    this.setState({
+      //...this.state,
+      todos: [
+        ...this.state.todos, anItem
+      ],
     })
   }
 
@@ -96,7 +93,7 @@ class App extends React.Component {
     // ??? this console.log doesn't seem to be working ???
     console.log("clearing completed tasks");
     this.setState({
-      ...this.state,
+      //...this.state,
       todos: this.state.todos.filter(item => !item.completed)
     })
   }

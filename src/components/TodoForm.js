@@ -6,15 +6,15 @@ class ToDoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            newItem: ""
+            newItem: "",
         }
     }
 
-    // ??? should this be in app.js - why is it here in example code ???
+  
     handleChanges = e => {
         // update state with each keystroke
         this.setState({
-            ...this.state,
+            //...this.state,
             newItem: e.target.value
         });
     };
@@ -24,6 +24,10 @@ class ToDoForm extends React.Component {
         // props coming from App.js
         e.preventDefault();
         this.props.addItem(this.state.newItem);
+        // resets textbox back to empty after it submits
+        this.setState({
+            newItem: ''
+        })
     };
 
     render() {

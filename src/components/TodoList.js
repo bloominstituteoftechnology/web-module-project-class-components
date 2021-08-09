@@ -8,7 +8,7 @@ import Todo from "./Todo";
 const TodoList = props => {
     // for sorting the list based whether a task has been completed or not
     return (
-        <div>
+        <div className='test'> 
             {/* ??? don't 100% get what this is doing ??? */}
             {props.todos.map(item => (
               <Todo key={item.id} item={item} toggleFinished={props.toggleFinished} />   
