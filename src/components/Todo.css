@@ -1,4 +1,4 @@
-.item.done {
+.item.completed {
     text-decoration: line-through;
     font-style: bold italic;
     

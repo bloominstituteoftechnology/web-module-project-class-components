@@ -53,7 +53,7 @@ class App extends React.Component {
     // map thru the array
     // when the item matches the one clicked, toggle its completed flag
     // otherwise, don't make any changes
-    updatedTodoList : this.state.todos.map(item => {
+    todos : this.state.todos.map(item => {
       // Logic walk through
       // if item.id === itemId, toggle completed flag
       // else, return item
@@ -76,7 +76,7 @@ class App extends React.Component {
     // this console is working :)
     console.log("Adding a new task:", newItem);
     const anItem = {
-          name: newItem,
+          task: newItem,
           id: new Date(),
           completed: false
     };
