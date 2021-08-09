@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect } from "react-router-dom";
 import { AppContainer, RouteContainer} from './styles/AppStyles';
+import PrivateRoute from './PrivateRoute';
 
 import Header from './Header';
 import LambdaHeader from './LambdaHeader';
@@ -10,10 +11,7 @@ import Edit from './Edit';
 import Login from './Login';
 import Logout from './Logout';
 
-export default function App() {
-  const [articles, setArticles] = useState([]);
-  const [user, setUser] = useState({});
-
+const App = () => {
   return (
     <AppContainer>
       <LambdaHeader/>
@@ -27,22 +25,19 @@ export default function App() {
           <Redirect to="/"/>
         </Route>
         
-        <Route path="/view">
-          <View articles={articles}/>
-        </Route>
-
-        <Route path="/edit">
-          <Edit articles={articles}/>
-        </Route>
-
-        <Route path="/create">
-          <Create/>
-        </Route>
+        <PrivateRoute path="/view" component={View}/>
+        <PrivateRoute path="/edit" component={Edit}/>
+        <PrivateRoute path="/create" component={Create}/>
 
         <Route path="/logout">
           <Logout/>
         </Route>
+        
       </RouteContainer>
     </AppContainer>
   )
 }
+
+export default App;
+
+//1. Add in PrivateRoute

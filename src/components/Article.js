@@ -6,7 +6,7 @@ const Article = (props)=> {
         <Container>
             <p>{props.createdOn}</p>
             <p>By {props.author}</p>
-            <img src={props.image}/>
+            <img src="http://via.placeholder.com/150"/>
         </Container>
         <Container>
             <h1>{props.headline}</h1>
