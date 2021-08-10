@@ -1,10 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 import { ArticleStyle, Container } from './styles/CommonStyles';;
 
 const Article = (props)=> {
     return(<ArticleStyle>
         <Container>
-            <p>{props.createdOn}</p>
+            <p>{moment(props.createdOn).format("ddd, MMM Do YYYY")}</p>
             <p>By {props.author}</p>
             <img src="http://via.placeholder.com/150"/>
         </Container>

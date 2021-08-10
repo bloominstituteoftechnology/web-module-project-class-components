@@ -9,8 +9,6 @@ const Header = () => {
             <StyledMenu>
                 <li><Link to="/">Login</Link></li>
                 <li><Link to="view">View</Link></li>
-                <li><Link to="create">Create</Link></li>
-                <li><Link to="edit">Edit</Link></li>
                 <li><Link to="logout">Logout</Link></li>
             </StyledMenu>
         </StyledHeader>
