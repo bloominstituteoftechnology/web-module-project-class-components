@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import { useHistory } from 'react-router-dom';
 import { getArticle, getArticles, editArticle, deleteArticle } from '../services/blogServices';
 import styled from 'styled-components';
 import Article from './Article';
@@ -13,11 +12,8 @@ const initialForm = {
 };
 
 const View = (props) => {
-    const [showEdit] = useState(false);
     const [form, setForm]  = useState(initialForm);
     const [articles, setArticles] = useState([]);
-
-    const { push } = useHistory();
 
     useEffect(()=>{
         getArticles()

@@ -41,7 +41,6 @@ export default App;
 
 
 const AppContainer = styled.div`
-  background: #eeeeee;
   height: 100%;
 `
 const RouteContainer = styled.div`
