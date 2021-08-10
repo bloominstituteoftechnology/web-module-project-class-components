@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from "react-router-dom";
-import { AppContainer, RouteContainer} from './styles/AppStyles';
 import PrivateRoute from './PrivateRoute';
+import styled from 'styled-components';
 
 import Header from './Header';
 import LambdaHeader from './LambdaHeader';
@@ -37,3 +37,16 @@ const App = () => {
 export default App;
 
 //1. Add in PrivateRoute
+
+
+
+const AppContainer = styled.div`
+  background: #eeeeee;
+  height: 100%;
+`
+const RouteContainer = styled.div`
+  display: flex;
+  height: 85%;
+  align-items: center;
+  flex-direction: column;
+`

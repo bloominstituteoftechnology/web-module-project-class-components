@@ -1,18 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { StyledHeader, StyledMenu } from './styles/MenuStyles';
+import styled from 'styled-components';
 
 const Header = () => {
     return(
-        <StyledHeader>
+        <HeaderStyle>
             <div>Blogger Pro</div>
-            <StyledMenu>
+            <MenuStyle>
                 <li><Link to="/">Login</Link></li>
                 <li><Link to="view">View</Link></li>
                 <li><Link to="logout">Logout</Link></li>
-            </StyledMenu>
-        </StyledHeader>
+            </MenuStyle>
+        </HeaderStyle>
     );
 }
 
 export default Header;
+
+
+
+
+
+const HeaderStyle = styled.div`
+    padding: 1rem;
+    background-color: #daa1ac;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const MenuStyle = styled.ul`
+  li {
+        display: inline-block;
+        padding: 0.3rem 1rem;
+        
+        a {
+            text-decoration: none;
+        }
+    }
+`

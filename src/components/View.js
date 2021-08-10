@@ -1,21 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { getArticle, getArticles, editArticle, deleteArticle } from '../services/blogServices';
-import Article from './Article';
-
-import { Container, FormContainer, ContentContainer, HeaderContainer, ComponentContainer } from './styles/CommonStyles';
-import axiosWithAuth from '../utils/axiosWithAuth';
-
 import styled from 'styled-components';
-
-const EditContainer = styled.div`
-    width: 70%;
-    padding: 1em;
-`;
-
-const ArticleDivider = styled.div`
-    border-bottom: 1px solid black;
-`
+import Article from './Article';
 
 const initialForm = {
     id:"",
@@ -79,12 +66,8 @@ const View = (props) => {
                         return <ArticleDivider key={article.id}>
                             <div>
                                 <Article key={article.id} {...article}/>
-                                <button onClick={
-                                    ()=> {handleEditSelect(article.id)}
-                                }>Edit</button>
-                                <button onClick={
-                                    ()=> {handleDelete(article.id)}
-                                }>Delete</button>
+                                <button onClick={()=> {handleEditSelect(article.id)}}>Edit</button>
+                                <button onClick={()=> {handleDelete(article.id)}}>Delete</button>
                             </div>
                         </ArticleDivider>
                     })
@@ -115,3 +98,41 @@ const View = (props) => {
 }
 
 export default View;
+
+const HeaderContainer = styled.h1`
+    border-bottom: solid black 2px;
+    padding: 0.5em;
+    margin:0;
+`
+
+const Container = styled.div`
+    padding: 0.5em; 
+`
+
+const EditContainer = styled.div`
+    width: 70%;
+    padding: 1em;
+`;
+
+const ArticleDivider = styled.div`
+    border-bottom: 1px solid black;
+`
+
+const ComponentContainer = styled.div`
+    display:flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    background: grey;   
+`
+
+const ContentContainer = styled.div`
+    height:100%;
+    display: flex;
+    flex-direction: ${props => props.flexDirection};
+`
+
+const FormContainer = styled.form`
+    padding: 1em;
+`
+

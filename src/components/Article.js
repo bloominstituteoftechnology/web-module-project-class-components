@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import moment from 'moment';
-import { ArticleStyle, Container } from './styles/CommonStyles';;
 
 const Article = (props)=> {
     return(<ArticleStyle>
@@ -18,3 +18,13 @@ const Article = (props)=> {
 }
 
 export default Article;
+
+
+const ArticleStyle = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Container = styled.div`
+    padding: 0.5em; 
+`
