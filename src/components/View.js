@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react';
+import axiosWithAuth from './../utils/axiosWithAuth';
 import styled from 'styled-components';
-
-import {  getArticles, editArticle, deleteArticle } from '../services/blogServices';
 
 import Article from './Article';
 import EditForm from './EditForm';
@@ -12,30 +11,39 @@ const View = (props) => {
     const [editId, setEditId] = useState();
 
     useEffect(()=>{
-        getArticles()
-            .then(articles=> {
-                setArticles(articles);
+        axiosWithAuth()
+            .get('/posts')
+            .then(res=> {
+                setArticles(res.data);
             });
     }, []);
+
+    const handleDelete = (id) => {
+        axiosWithAuth()
+            .delete(`/posts/${id}`)
+            .then(res=>{
+                setArticles(res.data);
+                setEditing(false);
+            })
+    }
+
+    const handleEdit = (article) => {
+        axiosWithAuth()
+            .put(`/posts/${article.id}`, article)
+            .then(res=> {
+                setArticles(res.data);
+                setEditing(false);
+            })
+    }
+
 
     const handleEditSelect = (id)=> {
         setEditing(true);
         setEditId(id);
     }
 
-    const handleDelete = (id) => {
-        deleteArticle(id)
-            .then(articles=> {
-                setArticles(articles);
-            })
-    }
-
-    const handleEdit = (article) => {
-        editArticle(article)
-            .then(articles=> {
-                setArticles(articles);
-                setEditing(false);
-            })
+    const handleEditCancel = ()=>{
+        setEditing(false);
     }
 
     return(<ComponentContainer>
@@ -52,7 +60,7 @@ const View = (props) => {
             </ArticleContainer>
             
             {
-                editing && <EditForm editId={editId} handleEdit={handleEdit}/>
+                editing && <EditForm editId={editId} handleEdit={handleEdit} handleEditCancel={handleEditCancel}/>
             }
         </ContentContainer>
     </ComponentContainer>);

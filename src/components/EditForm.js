@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getArticle } from '../services/blogServices';
+import axiosWithAuth from './../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 const initialArticle = {
@@ -12,13 +12,14 @@ const initialArticle = {
 
 const EditForm = (props)=> {
     const [article, setArticle]  = useState(initialArticle);
-    const {handleEdit, editId} = props;
+    const {handleEdit, handleEditCancel, editId} = props;
 
     useEffect(()=> {
-        getArticle(editId)
-            .then(article => {
-                setArticle(article);
-            })
+        axiosWithAuth()
+            .get(`/posts/${editId}`)
+            .then(res=> {
+                setArticle(res.data);
+            });
     }, []);
 
     const handleChange = (e)=> {
@@ -31,6 +32,12 @@ const EditForm = (props)=> {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleEdit(article);
+    }
+
+
+    const handleCancel = (e) => {
+        e.preventDefault();
+        handleEditCancel();
     }
 
     return(<FormContainer onSubmit={handleSubmit}>
@@ -52,6 +59,7 @@ const EditForm = (props)=> {
             <input value={article.body} id="body" name="body" onChange={handleChange}/>
         </div>
         <Button>Edit Article</Button>
+        <Button onClick={handleCancel}>Cancel</Button>
     </FormContainer>);
 }
 
