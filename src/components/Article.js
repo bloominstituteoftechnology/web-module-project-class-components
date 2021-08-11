@@ -4,11 +4,12 @@ import moment from 'moment';
 
 const Article = (props)=> {
     const {article, handleDelete, handleEditSelect} = props;
+
     return(<div>
         <ArticleStyle>
             <Container>
                 <p>{moment(article.createdOn).format("ddd, MMM Do YYYY")}</p>
-                <p>By {article.author}</p>
+                <p>By {article.author || "Associated Press"}</p>
                 <img src="http://via.placeholder.com/150"/>
             </Container>
             <Container>
