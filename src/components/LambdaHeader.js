@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const LambdaHeader = () => {
     return(
     <HeaderStyle>
-        <div>Sprint Challenge 3.3</div>
+      <img width="40" src="data:image/png;base64,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"/>
+      <div>Sprint Challenge 3.3</div>
     </HeaderStyle>);
 }
 
@@ -18,4 +19,11 @@ const HeaderStyle = styled.div`
   font-weight: bold;
   text-align: right;
   font-family: "Arial";
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  img {
+    padding-left: 0.5em;
+  }
 `

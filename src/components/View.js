@@ -1,134 +1,95 @@
 import React, { useState, useEffect} from 'react';
-import { getArticle, getArticles, editArticle, deleteArticle } from '../services/blogServices';
 import styled from 'styled-components';
-import Article from './Article';
 
-const initialForm = {
-    id:"",
-    headline: "",
-    author: "",
-    summary: "",
-    body: ""
-};
+import {  getArticles, editArticle, deleteArticle } from '../services/blogServices';
+
+import Article from './Article';
+import EditForm from './EditForm';
 
 const View = (props) => {
-    const [form, setForm]  = useState(initialForm);
     const [articles, setArticles] = useState([]);
+    const [editing, setEditing] = useState(false);
+    const [editId, setEditId] = useState();
 
     useEffect(()=>{
         getArticles()
             .then(articles=> {
-                
                 setArticles(articles);
             });
-    }, [articles]);
+    }, []);
 
     const handleEditSelect = (id)=> {
-        getArticle(id)
-            .then(article => {
-                setForm(article);
-            });
-    }
-
-    const handleEdit = (e) => {
-        e.preventDefault();
-        editArticle(form.id)
-            .then(articles=> {
-                setArticles(articles);
-            })
+        setEditing(true);
+        setEditId(id);
     }
 
     const handleDelete = (id) => {
         deleteArticle(id)
             .then(articles=> {
-                setForm(initialForm);
                 setArticles(articles);
             })
     }
 
-    const handleChange = (e)=> {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
+    const handleEdit = (article) => {
+        editArticle(article)
+            .then(articles=> {
+                setArticles(articles);
+                setEditing(false);
+            })
     }
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>
         <ContentContainer flexDirection="row">
-            <EditContainer>
+            <ArticleContainer>
                 {
                     articles.map(article => {
                         return <ArticleDivider key={article.id}>
-                            <div>
-                                <Article key={article.id} {...article}/>
-                                <button onClick={()=> {handleEditSelect(article.id)}}>Edit</button>
-                                <button onClick={()=> {handleDelete(article.id)}}>Delete</button>
-                            </div>
+                            <Article key={article.id} article={article} handleDelete={handleDelete} handleEditSelect={handleEditSelect}/>
                         </ArticleDivider>
                     })
                 }
-            </EditContainer>
+            </ArticleContainer>
             
-            <FormContainer onSubmit={handleEdit}>
-                <div>
-                    <label>Headline</label>
-                    <input value={form.headline} id="headline" name="headline" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Author</label>
-                    <input value={form.author} id="author" name="author" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Summary</label>
-                    <input value={form.summary} id="summary" name="summary" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Body</label>
-                    <input value={form.body} id="body" name="body" onChange={handleChange}/>
-                </div>
-                <button>Edit Article</button>
-            </FormContainer>
+            {
+                editing && <EditForm editId={editId} handleEdit={handleEdit}/>
+            }
         </ContentContainer>
     </ComponentContainer>);
 }
 
 export default View;
 
+const Container = styled.div`
+    padding: 0.5em;
+`
 const HeaderContainer = styled.h1`
     border-bottom: solid black 2px;
-    padding: 0.5em;
-    margin:0;
-`
-
-const Container = styled.div`
-    padding: 0.5em; 
-`
-
-const EditContainer = styled.div`
-    width: 70%;
     padding: 1em;
-`;
+    margin:0;
+    font-size: 1.5em;
+    background: black;
+    color: white;
+`
 
 const ArticleDivider = styled.div`
     border-bottom: 1px solid black;
+    padding: 1em;
 `
 
 const ComponentContainer = styled.div`
     display:flex;
-    width: 70%;
+    width: 80%;
     flex-direction: column;
     justify-content: center;
-    background: grey;   
+    
 `
 
 const ContentContainer = styled.div`
-    height:100%;
     display: flex;
     flex-direction: ${props => props.flexDirection};
 `
 
-const FormContainer = styled.form`
-    padding: 1em;
-`
-
+const ArticleContainer = styled.div`
+    background: grey;
+`;

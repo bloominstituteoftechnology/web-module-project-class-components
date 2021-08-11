@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Header = () => {
     return(
         <HeaderStyle>
-            <div>Blogger Pro</div>
+            <p>Blogger Pro</p>
             <MenuStyle>
                 <li><Link to="/">Login</Link></li>
                 <li><Link to="view">View</Link></li>
@@ -17,16 +17,17 @@ const Header = () => {
 
 export default Header;
 
-
-
-
-
 const HeaderStyle = styled.div`
-    padding: 1rem;
+    padding: 1em;
     background-color: #daa1ac;
     display:flex;
     align-items: center;
     justify-content: space-between;
+
+    p {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
 `
 
 const MenuStyle = styled.ul`
@@ -36,6 +37,8 @@ const MenuStyle = styled.ul`
         
         a {
             text-decoration: none;
+            color: black;
+            font-size: 1em;
         }
     }
 `
