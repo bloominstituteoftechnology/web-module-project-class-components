@@ -27,10 +27,11 @@ const Login = () => {
                 push('/view');
             })
             .catch(err=> {
+                console.log(err.response.data);
                 setError('Incorrect username / password combination.');
             })
     }
-    
+
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
@@ -46,7 +47,7 @@ const Login = () => {
                     <Input onChange={handleChange} name="password" id="password"/>
                 </FormGroup>
 
-                <Button onClick={handleClick}>Login</Button>
+                <Button onClick={handleClick} id="submit">Login</Button>
             </form>
             <p id="error">{error}</p>
         </ModalContainer>
@@ -55,8 +56,12 @@ const Login = () => {
 
 export default Login;
 
-//Build Login page from scratch
-//Build axios calls to save token
+//Task List
+//1. Build login form DOM from scratch, making use of styled components if needed.
+//2. Add in a p tag under the login form for use in error display.
+//2. Add in necessary local state to support login form and error display.
+//3. When login form is submitted, make an http call to the login route. Save the auth token on a successful response and redirect to view page.
+//4. If the response is not successful, display an error statement. **a server provided error message can be found in ```err.response.data```**
 
 const ComponentContainer = styled.div`
     height: 70%;
