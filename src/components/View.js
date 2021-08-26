@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axiosWithAuth from './../utils/axiosWithAuth';
+import articleService from './../services/articleServices';
 import styled from 'styled-components';
 
 import Article from './Article';
@@ -11,10 +12,9 @@ const View = (props) => {
     const [editId, setEditId] = useState();
 
     useEffect(()=>{
-        axiosWithAuth()
-            .get('/articles')
-            .then(res=> {
-                setArticles(res.data);
+        articleService()
+            .then(articles=> {
+                setArticles(articles);
             })
             .catch(err=> {
                 console.log(err);
