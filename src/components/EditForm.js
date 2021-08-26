@@ -42,27 +42,26 @@ const EditForm = (props)=> {
     }
 
     return(<FormContainer onSubmit={handleSubmit}>
-        <h3>Edit Article</h3>
         <div>
-            <label htmlFor="headline">Headline</label>
+            <label htmlFor="headline">Headline:</label>
             <input value={article.headline} data-testid="headlineInput" id="headline" name="headline" onChange={handleChange}/>
         </div>
         <div>
-            <label htmlFor="author">Author</label>
+            <label htmlFor="author">Author:</label>
             <input value={article.author} id="author" name="author" onChange={handleChange}/>
         </div>
         <div>
-            <label htmlFor="summary">Summary</label>
+            <label htmlFor="summary">Summary:</label>
             <input value={article.summary} id="summary" name="summary" onChange={handleChange}/>
         </div>
         <div>
-            <label htmlFor="image">Image</label>
+            <label htmlFor="image">Image:</label>
             <input value={article.image} type="number" id="image" name="image" onChange={handleChange}/>
             <EditImg src={`https://picsum.photos/id/${article.image}/150/150`} alt="formImage"/>
         </div>
 
         <div>
-            <label htmlFor="body">Body</label>
+            <label htmlFor="body">Body:</label>
             <input value={article.body} id="body" name="body" onChange={handleChange}/>
         </div>
         <Button id="editButton">Edit Article</Button>
@@ -77,16 +76,22 @@ export default EditForm;
 
 
 const FormContainer = styled.form`
-    padding: 1em;
-    width: 400px;
-    background: white;
+    padding: 5em;
+    background: #e0e0e1;
+    border-left: black 2px solid;
 
     label {
         margin-top: 0.5em;
+        margin-bottom: 0.2em;
+        display: block;
+        text-align: left;
+        font-size: 1rem;
     }
 
     input {
-        padding: 0.5em;
+        font-size: 1rem;
+        padding: 1rem;
+        border: 0px;
     }
     
     div { 
@@ -95,11 +100,18 @@ const FormContainer = styled.form`
 `
 
 const Button = styled.button`
+    margin: 0.5em;
+    display: block;
     width: 100%;
-    padding:1em;
-    margin-top: 1em;
+    padding:1rem;
+    background-color: rgb(87,125,159);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 0.8em;
 `
 
 const EditImg = styled.img`
-    padding: 0.3em;
+    margin-top: 0.2em;
+    width: 100%;
 `

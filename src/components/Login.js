@@ -38,18 +38,18 @@ const Login = () => {
             <h2>Please enter your account information.</h2>
             <form>
                 <FormGroup>
-                    <Label>Username</Label>
+                    <Label>Username:</Label>
                     <Input onChange={handleChange} name="username" id="username"/>
                 </FormGroup>
 
                 <FormGroup>
-                    <Label>Password</Label>
+                    <Label>Password:</Label>
                     <Input onChange={handleChange} name="password" id="password"/>
                 </FormGroup>
 
-                <Button onClick={handleClick} id="submit">Login</Button>
+                <Button onClick={handleClick} id="submit">Click to Login</Button>
             </form>
-            <p id="error">{error}</p>
+            <ErrorDiv id="error">{error}</ErrorDiv>
         </ModalContainer>
     </ComponentContainer>);
 }
@@ -75,6 +75,7 @@ const ModalContainer = styled.div`
     background: white;
     padding: 2rem;
     text-align: center;
+    border: rgb(50,50,50, 0.3) 3px solid;
 `
 
 const Label = styled.label`
@@ -84,16 +85,28 @@ const Label = styled.label`
 `
 
 const FormGroup = styled.div`
-    padding:1rem;
+    display:flex;
+    flex-direction: column;
+    padding: 0.5em 0;
 `
 
 const Input = styled.input`
     font-size: 1rem;
-    padding: 1rem 0;
-    width:100%;
+    padding: 1rem;
 `
 
 const Button = styled.button`
+    margin-top: 1em;
     padding:1rem;
     width: 100%;
+    background-color: rgb(87,125,159);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 1.3em;
+`
+
+const ErrorDiv = styled.p`
+    color: #c41e1e;
+    font-size:1em;
 `

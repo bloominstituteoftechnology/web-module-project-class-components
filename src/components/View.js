@@ -44,7 +44,7 @@ const View = (props) => {
 
 
     const handleEditSelect = (id)=> {
-        setEditing(true);
+        setEditing(!editing);
         setEditId(id);
     }
 
@@ -74,11 +74,18 @@ const View = (props) => {
 
 export default View;
 
+//Task List
 //1. Build and import axiosWithAuth module in the utils.
 //2. When the component mounts, make an http request that adds all articles to state.
 //3. Complete handleDelete method. It should make a request that delete the article with the included id.
 //4. Complete handleEdit method. It should make a request that updates the article that matches the included article param.
 
+const ComponentContainer = styled.div`
+    display:flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+`
 
 const HeaderContainer = styled.h1`
     border-bottom: solid black 2px;
@@ -89,24 +96,46 @@ const HeaderContainer = styled.h1`
     color: white;
 `
 
-const ArticleDivider = styled.div`
-    border-bottom: 1px solid black;
-    padding: 1em;
-`
-
-const ComponentContainer = styled.div`
-    display:flex;
-    width: 80%;
-    flex-direction: column;
-    justify-content: center;
-    
-`
-
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection};
+    justify-content: space-around;
+`
+const ArticleContainer = styled.div`
+    background: white;
+`;
+
+const ArticleDivider = styled.div`
+    border-bottom: 2px solid black;
+    padding: 1em;
 `
 
-const ArticleContainer = styled.div`
-    background: grey;
-`;
+// const ComponentContainer = styled.div`
+//     display:flex;
+//     width: 70%;
+//     flex-direction: column;
+//     justify-content: center;
+// `
+
+// const HeaderContainer = styled.h1`
+//     border-bottom: solid black 2px;
+//     padding: 1em;
+//     margin:0;
+//     font-size: 1.5em;
+//     background: black;
+//     color: white;
+// `
+
+// const ArticleDivider = styled.div`
+//     border-bottom: 1px solid black;
+//     padding: 1em;
+// `
+
+// const ContentContainer = styled.div`
+//     display: flex;
+//     flex-direction: ${props => props.flexDirection};
+// `
+
+// const ArticleContainer = styled.div`
+//     background: white;
+// `;
