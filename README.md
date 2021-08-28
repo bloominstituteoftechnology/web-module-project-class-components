@@ -91,4 +91,4 @@ Follow these steps for completing your project.
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
 
 ## Rick's Pull Request
-- [Linked here]()
+- [Linked here](https://github.com/LambdaSchool/web-module-project-class-components/pull/136)
