@@ -7,6 +7,7 @@
     - [Task 2: MVP](#task-2-mvp)
     - [Task 3: Stretch Problems](#task-3-stretch-problems)
   - [Submission Format](#submission-format)
+  - [Rick's Pull Request](#ricks-pull-request)
 
 We're going to practice building a stateful class component with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
 
@@ -88,3 +89,6 @@ Follow these steps for completing your project.
 - [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
+
+## Rick's Pull Request
+- [Linked here]()
