@@ -20,7 +20,7 @@ class TodoForm extends React.Component {
         this.props.addTodo(this.state.input);
     }
     render() {
-        console.log('this.state.input TodoForm.js', this.state.input);
+        // console.log('this.state.input TodoForm.js', this.state.input);
         return (
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChanges} type="text" name="todo" placeholder="type task here " />

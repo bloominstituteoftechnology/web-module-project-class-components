@@ -1,10 +1,11 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import './styles.scss';
 const todos = [
   {
-    name: '',
-    id: '',
+    name: 'seed task',
+    id: 'hard coded 0',
     completed: false
   }
 ]
@@ -22,29 +23,47 @@ class App extends React.Component {
 
   toggleTodo = id => {
     console.log('id of todo in app.js', id);
+    this.setState({
+      ...this.state.todos, 
+      todos: this.state.todos.map(i =>{
+        if(i.id === id) {
+          return({
+            ...i,
+            completed: !i.completed
+            //could have written 
+            // completed i.completed ? false : true
+          })
+        } else {
+          return i
+        }
+      })
+    })
   }
 
-  addTodo = name =>{
-    console.log('"App.js todo:', name);
+  addTodo = name => {
+    // console.log('"App.js todo:', name);
     const newTodo = {
       name: name,
       id: Date.now(),
       completed: false
     }
     this.setState({
-      ...this.state, 
+      ...this.state,
       todos: [...this.state.todos, newTodo]
     })
   }
 
   render() {
+    console.log('this.state.todos App.js', this.state.todos);
     return (
-      <div>
+      <div className="App">
         <div className='Header'>
-        <h2>Todo List</h2>
-        <TodoForm addTodo={this.addTodo}/>
+          <h1>Todo List</h1>
+          <TodoForm addTodo={this.addTodo} />
         </div>
-        <TodoList todos={this.state.todos} />
+
+        <TodoList todos={this.state.todos} toggleTodo={this.toggleTodo}/>
+
       </div>
     );
   }
