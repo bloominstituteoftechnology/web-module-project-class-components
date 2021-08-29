@@ -3,8 +3,8 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 const todos = [
   {
-    todo: 'task',
-    id: 0,
+    name: '',
+    id: '',
     completed: false
   }
 ]
@@ -24,10 +24,10 @@ class App extends React.Component {
     console.log('id of todo in app.js', id);
   }
 
-  addTodo = newestTodo =>{
-    console.log('"App.js todo:', newestTodo);
+  addTodo = name =>{
+    console.log('"App.js todo:', name);
     const newTodo = {
-      todo: newestTodo,
+      name: name,
       id: Date.now(),
       completed: false
     }
@@ -40,11 +40,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className='Header'>
         <h2>Todo List</h2>
         <TodoForm addTodo={this.addTodo}/>
         </div>
-        <TodoList />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }

@@ -1,9 +1,11 @@
-import React from 'react'
 
-function Todo() {
+import React from 'react';
+
+
+const Todo = (props) => {
     return (
         <div>
-            
+            <p>{props.todo.name}</p>
         </div>
     )
 }
