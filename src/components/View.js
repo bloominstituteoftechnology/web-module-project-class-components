@@ -109,33 +109,3 @@ const ArticleDivider = styled.div`
     border-bottom: 2px solid black;
     padding: 1em;
 `
-
-// const ComponentContainer = styled.div`
-//     display:flex;
-//     width: 70%;
-//     flex-direction: column;
-//     justify-content: center;
-// `
-
-// const HeaderContainer = styled.h1`
-//     border-bottom: solid black 2px;
-//     padding: 1em;
-//     margin:0;
-//     font-size: 1.5em;
-//     background: black;
-//     color: white;
-// `
-
-// const ArticleDivider = styled.div`
-//     border-bottom: 1px solid black;
-//     padding: 1em;
-// `
-
-// const ContentContainer = styled.div`
-//     display: flex;
-//     flex-direction: ${props => props.flexDirection};
-// `
-
-// const ArticleContainer = styled.div`
-//     background: white;
-// `;

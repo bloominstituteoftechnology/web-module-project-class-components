@@ -59,9 +59,10 @@ export default Login;
 //Task List
 //1. Build login form DOM from scratch, making use of styled components if needed.
 //2. Add in a p tag under the login form for use in error display.
-//2. Add in necessary local state to support login form and error display.
-//3. When login form is submitted, make an http call to the login route. Save the auth token on a successful response and redirect to view page.
-//4. If the response is not successful, display an error statement. **a server provided error message can be found in ```err.response.data```**
+//3. Add in necessary local state to support login form and error display.
+//4. When login form is submitted, make an http call to the login route. Save the auth token on a successful response and redirect to view page.
+//5. If the response is not successful, display an error statement. **a server provided error message can be found in ```err.response.data```**
+//6. MAKE SURE TO ADD id="username", id="password", id="error" and id="submit" TO THE APPROPRIATE DOM ELEMENTS.
 
 const ComponentContainer = styled.div`
     height: 70%;

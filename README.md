@@ -99,13 +99,13 @@ Your finished project must include all of the following requirements.
 
 * **[POST]** * to `http://localhost:5000/api/logout`: returns the expired authentication information of the user.
 
-* **[GET]** to `http://localhost:5000/api/posts`: returns the all posts currently available. **This endpoint can only be accessed by an authenticated user.**
+* **[GET]** to `http://localhost:5000/api/articles`: returns the all posts currently available. **This endpoint can only be accessed by an authenticated user.**
 
-* **[POST]** to `http://localhost:5000/api/posts`: creates a article object. Returns all available articles. Pass the article as the `body` of the request. **This endpoint can only be accessed by an authenticated user.**
+* **[POST]** to `http://localhost:5000/api/articles`: creates a article object. Returns all available articles. Pass the article as the `body` of the request. **This endpoint can only be accessed by an authenticated user.**
 
-* **[PUT]** to `http://localhost:5000/api/posts/:id`: updates the article using the `id` passed as part of the URL. Returns all available articles. Send the updated article object as the `body` of the request. **This endpoint can only be accessed by an authenticated user.**
+* **[PUT]** to `http://localhost:5000/api/articles/:id`: updates the article using the `id` passed as part of the URL. Returns all available articles. Send the updated article object as the `body` of the request. **This endpoint can only be accessed by an authenticated user.**
 
-* **[DELETE]** to `http://localhost:5000/api/posts/:id`: removes the article with the `id` referenced. Returns all available articles. **This endpoint can only be accessed by an authenticated user.**
+* **[DELETE]** to `http://localhost:5000/api/articles/:id`: removes the article with the `id` referenced. Returns all available articles. **This endpoint can only be accessed by an authenticated user.**
 
 #### Article Data Structure
 ```
