@@ -1,0 +1,7 @@
+.item.completed {
+    width: 50%;
+    text-decoration: line-through;
+    cursor: pointer;
+    background-color: blue;
+    color: black
+}
