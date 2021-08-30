@@ -1,8 +1,8 @@
 import React from 'react';
 
 class TodoForm extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             input:''
         }
@@ -22,10 +22,6 @@ class TodoForm extends React.Component {
         })
     }
 
-    handleClearClick = () => {
-        this.handleClear();
-    }
-
     render() {
         return (
             <div>
@@ -39,7 +35,7 @@ class TodoForm extends React.Component {
                     />
                 </form>
                     <button onClick={this.handleAddClick}>Add Task</button>
-                    <button onClick={this.handleClearClick}>Clear Completed</button>
+                    <button onClick={() => this.props.handleClear()}>Clear Completed</button>
             </div>
         )
     }
