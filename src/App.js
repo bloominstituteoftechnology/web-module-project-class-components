@@ -75,7 +75,7 @@ class App extends React.Component {
       handleTodoToggle={this.handleTodoToggle}
       handleTodoCompleted={this.handleTodoCompleted}
       handleTodoAdd={this.handleTodoAdd} />
-      <TodoForm handleTodoAdd={this.handleTodoAdd}/>
+      <TodoForm handleTodoAdd={this.handleTodoAdd} />
       </div>
     );
   }

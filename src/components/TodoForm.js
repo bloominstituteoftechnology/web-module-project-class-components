@@ -12,7 +12,6 @@ class TodoForm extends React.Component {
         this.setState({
             inputValue: e.target.value
         })
-        console.log(e.target.value)
     }
 
     handleSubmit = (e) => {
@@ -22,6 +21,7 @@ class TodoForm extends React.Component {
             inputValue: ''
         })
     }
+
 
     render() {
         return(
