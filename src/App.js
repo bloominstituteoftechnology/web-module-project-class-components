@@ -43,7 +43,7 @@ class App extends React.Component {
     const newTodo = {
       name: name,
       id: Date.now(),
-      finished: false
+      done: false
     }
     this.setState({
       ...this.state,
