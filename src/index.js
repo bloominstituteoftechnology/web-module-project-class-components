@@ -4,7 +4,21 @@ import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 import App from './App';
-import './components/Todo.css';
+import styled from 'styled-components';
+
+const StyledIndex = styled.div`
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    h2{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        background-color:lightgreen;
+        border-radius:10px;
+    }
+`
 
 const task = [
     {
@@ -44,7 +58,7 @@ const task = [
           });
       }
 
-      Add = (task) => {
+      add = (task) => {
           const newTask = {
               task: task,
               id: Date.now(),
@@ -58,7 +72,7 @@ const task = [
           });
       }
 
-      Clear = () => {
+      clear = () => {
           this.setState({
               ...this.state,
               task: this.state.task.filter((item) => {
@@ -69,15 +83,17 @@ const task = [
 
       render() {
           return (
+              <StyledIndex>
               <div className='App' >
                   <App />
                   <div className='header'>
                       <h2>Todo List</h2>
-                      <TodoForm Add={this.Add}/>
+                      <TodoForm Add={this.add}/>
                   </div>
-                  <TodoList Clear={this.Clear}
+                  <TodoList Clear={this.clear}
                   ToggleComplete={this.ToggleComplete} task={this.state.task} />
               </div>
+              </StyledIndex>
           );
       }
   }
