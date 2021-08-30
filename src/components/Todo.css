@@ -1,0 +1,4 @@
+.item.purchased {
+    background-color: black;
+    text-decoration: line-through;
+  }

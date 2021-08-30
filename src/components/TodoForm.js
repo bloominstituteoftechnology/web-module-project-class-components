@@ -11,6 +11,7 @@ class TodoForm extends React.Component {
     }
 
     handleChanges = e => {
+        // console.log(e.target.value)
         this.setState({
             input: e.target.value
         })
@@ -23,12 +24,13 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleClick}>
+            <form >
                 <input 
                     type='text' 
-                    name='todo'
+                    name='item'
+                    onChange={this.handleChanges}
                 />
-                <button >Add</button>
+                <button onClick={this.handleClick}>Add</button>
             </form>
         )
     }
