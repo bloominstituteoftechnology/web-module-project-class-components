@@ -5,18 +5,7 @@ import TodoForm from './components/TodoForm';
 
 import './components/Todo.css'
 
-const toDoList = [
-  {
-    task: 'Learn React',
-    id: 123,
-    completed: true
-  },
-  {
-    task: 'Find a job',
-    id: 456,
-    completed: false
-  }
-]
+const toDoList = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.

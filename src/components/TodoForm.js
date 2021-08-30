@@ -17,6 +17,9 @@ class TodoForm extends React.Component {
     handleClickAdd = (e) => {
         e.preventDefault();
         this.props.handleAdd(this.state.input);
+        this.setState({
+            input: ''
+        });
     }
 
     handleClickClear = e => {
@@ -24,13 +27,22 @@ class TodoForm extends React.Component {
         this.props.handleClear();
     }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.handleAdd(this.state.input);
+        this.setState({
+            input: ''
+        });
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input 
                         type='text'
                         name='task'
+                        value={this.state.input}
                         placeholder='New Task'
                         onChange={this.changeHandler}
                     />
