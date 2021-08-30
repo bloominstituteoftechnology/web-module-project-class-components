@@ -10,7 +10,6 @@ class TodoForm extends React.Component {
 
     handleChange = e => {
         this.setState({
-            ...this.state,
             input: e.target.value
         })
     }
@@ -19,6 +18,10 @@ class TodoForm extends React.Component {
         e.preventDefault()
         this.props.addNewTodo(this.state.input)
         // console.log('click, todo form');
+        this.setState({
+            ...this.state,
+            input: ''
+        })
     }
 
     render() {
@@ -26,14 +29,17 @@ class TodoForm extends React.Component {
             <div>
                 <form>
                     <input
+                        className='form-input'
                         onChange={this.handleChange}
                         type='text'
                         name='todo'
                         placeholder="What's next?"
                         value={this.state.input}
                     />
-                    <button onClick={this.handleClick}>
-                        Add Todo
+                    <button
+                        className='add-btn'
+                        onClick={this.handleClick}>
+                    Add Todo
                     </button>
                 </form>
             </div>

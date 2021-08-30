@@ -1,8 +1,65 @@
+/* App.js */
+.app-container {
+  width: fit-content;
+  display: flex column;
+  background: #333;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.welcome-header {
+  background: #a79f44;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: fit-content;
+}
+
+/* Form */
+.form-input {
+  margin: 5px;
+}
+
+.add-btn:hover {
+  background: grey;
+  cursor: pointer;
+}
+
+/* Todo Item Component */
+li {
+  list-style-type: circle;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
 .item {
-  margin-left: 10px;
+  /* border: 1px solid black; */
+  margin: 20px;
+  padding: 5px;
+  background: #3f8f60;
+  border-radius: 10px;
+  color: white;
+  text-transform: uppercase;
 }
 
 .completed {
   text-decoration: line-through;
   font-style: italic;
+  list-style-type: disc;
+  color: grey;
+  background: #b497f0;
+  text-transform: lowercase;
+}
+
+.clear-btn-container {
+  display: flex column;
+}
+
+.clear-btn {
+  align-items: center;
+  justify-content: center;
 }

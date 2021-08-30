@@ -20,6 +20,12 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+      todos: todos
+    }
+  }
 
   addNewTodo = (inputValue) => {
     const newTodo = {
@@ -34,7 +40,7 @@ class App extends React.Component {
   }
 
   handleToggleComplete = id => {
-    console.log('toggle complete from app.js');
+    // console.log('toggle complete from app.js');
     this.setState({
       ...this.state,
       todos: this.state.todos.map((todo) => {
@@ -59,17 +65,10 @@ class App extends React.Component {
     })
   }
 
-  constructor() {
-    super();
-    this.state = {
-      todos: todos
-    }
-  }
-
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='app-container'>
+        <header className='welcome-header'>Welcome to your Todo App!</header>
         <TodoForm addNewTodo={this.addNewTodo}/>
         <TodoList
           handleClearComplete={this.handleClearComplete}
