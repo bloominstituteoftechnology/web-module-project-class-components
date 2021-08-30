@@ -6,12 +6,12 @@ import TodoForm from './components/TodoForm';
 const toDoList = [
   {
     task: 'Learn React',
-    id: Date.now(),
+    id: 123,
     completed: false
   },
   {
     task: 'Find a job',
-    id: Date.now(),
+    id: 456,
     completed: false
   }
 ]
@@ -28,12 +28,27 @@ class App extends React.Component {
   
   }
 
+  handleAdd = (task) => {
+    const newTask = {
+      task: task,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      ...this.state,
+      toDoList: [...this.state.toDoList, newTask]
+    })
+  }
+
+  
+
   render() {
     return (
       <div>
         <h1>Welcome to your Todo App!</h1>
-        <TodoForm />
-        <ToDoList toDoList={toDoList}/>
+        <TodoForm handleAdd={this.handleAdd}/>
+        <ToDoList toDoList={this.state.toDoList}/>
       </div>
     );
   }
