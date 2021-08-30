@@ -3,11 +3,13 @@ import React from 'react';
 import ToDoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
+import './components/Todo.css'
+
 const toDoList = [
   {
     task: 'Learn React',
     id: 123,
-    completed: false
+    completed: true
   },
   {
     task: 'Find a job',
@@ -41,14 +43,38 @@ class App extends React.Component {
     })
   }
 
-  
+  handleToggleComplete = (id) => {
+    this.setState({
+      ...this.state,
+      toDoList: this.state.toDoList.map(todo => {
+        if (todo.id === id) {
+          return ({
+            ...todo,
+            completed: !todo.completed
+          })
+        } else {
+          return todo;
+        }
+      })
+    })
+  }
+
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      toDoList: this.state.toDoList.filter((item)=> {
+        return(item.completed === false)
+      })
+    })
+  }
+
 
   render() {
     return (
       <div>
         <h1>Welcome to your Todo App!</h1>
-        <TodoForm handleAdd={this.handleAdd}/>
-        <ToDoList toDoList={this.state.toDoList}/>
+        <TodoForm handleAdd={this.handleAdd} handleClear={this.handleClear}/>
+        <ToDoList toDoList={this.state.toDoList} handleToggleComplete={this.handleToggleComplete}/>
       </div>
     );
   }
