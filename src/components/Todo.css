@@ -1,4 +1,4 @@
-.item.purchased {
-    background-color: black;
+.finisheddone {
+    background-color: white;
     text-decoration: line-through;
   }
