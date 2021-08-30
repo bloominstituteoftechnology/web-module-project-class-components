@@ -1,15 +1,27 @@
 import React from 'react';
 
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import { findAllByTestId } from '@testing-library/react';
 
  // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-const toDoList = [
+const todoList = [
   {
     task: 'Laundry',
-    id: Date.now(),
+    id: 123,
+    completed: false
+  },
+  {
+    task: 'Dishes',
+    id: 135,
+    completed: false
+  },
+  {
+    task: 'Vacuum',
+    id: 2469,
     completed: false
   }
 ]
@@ -22,18 +34,36 @@ class App extends React.Component {
     }
   }
 
-  
-  
+  handleAdd = (name) => {
+    const addList = {
+      task: name,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      todoList: [...this.state.todoList, addList]
+    })
+  }
+
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      todoList: this.state.todoList.filter(item => {
+        return (item.completed === false);
+      })
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.todoList} />
-        <TodoForm />
+        <TodoList list={this.state.todoList} />
+        <TodoForm handleAdd={this.handleAdd} handleClear={this.handleClear} />
       </div>
     );
   }
-
 }
 
 export default App;
