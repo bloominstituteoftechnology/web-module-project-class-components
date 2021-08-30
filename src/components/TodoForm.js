@@ -1,7 +1,7 @@
 import React from 'react'
 
 class TodoForm extends React.Component {
-    constructor () {
+    constructor() {
         super()
         this.state = {
             input: ''
@@ -10,32 +10,36 @@ class TodoForm extends React.Component {
 
     handleChange = e => {
         this.setState({
+            ...this.state,
             input: e.target.value
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        // console.log('handleSubmit click');
-        this.props.addNewTodo(this.state.input);
+    handleClick = e => {
+        e.preventDefault()
+        this.props.addNewTodo(this.state.input)
+        // console.log('click, todo form');
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <form>
                     <input
                         onChange={this.handleChange}
-                        name='todo'
                         type='text'
+                        name='todo'
+                        placeholder="What's next?"
+                        value={this.state.input}
                     />
-                    <button onClick={this.handleSubmit}>
-                        Add item to list
-                    </button>                   
+                    <button onClick={this.handleClick}>
+                        Add Todo
+                    </button>
                 </form>
             </div>
         )
     }
 }
+
 
 export default TodoForm

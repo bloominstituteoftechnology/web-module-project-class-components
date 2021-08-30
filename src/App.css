@@ -1,0 +1,8 @@
+.item {
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  font-style: italic;
+}
