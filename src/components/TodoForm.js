@@ -25,15 +25,11 @@ class TodoForm extends Component {
 
 
     render() {
-
-
-
       return (
         <form>
           {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
-          <input type="text" name="todo" onChange={this.handleChanges} />
+          <input type="text" task="item" onChange={this.handleChanges} />
           <button onClick={this.handleClick}>Add</button>
-          <button>Clear To do List in form</button>
         </form>
       )
     }

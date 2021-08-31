@@ -16,12 +16,14 @@ const TodoList = props => {
 
   return (
     <div className="todo-list">
-      {props.todos.map(todo => (
-        <Todo handleToggleComplete={props.handleToggleComplete} key= {todo.id} todo={todo}/>
+      {props.todos.map(item => (
+        <Todo handleToggleComplete={props.handleToggleComplete} key= {item.id} item={item}/>
       ))}
-
+      <button onClick={handleClick}
+      className="clear-btn">Clear</button>
     </div>
-  )
+  );
 };
 
 export default TodoList;
+
