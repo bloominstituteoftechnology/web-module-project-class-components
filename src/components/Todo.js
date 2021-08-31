@@ -25,7 +25,13 @@ width: 50%;
 display: flex;
 flex-direction: column;
 align-items: center;
+color: #000000;
+
 .completed{
     text-decoration: line-through;
+    background-color: rgba(255, 170, 0, 0.5);
+}
+p{
+    cursor: pointer;
 }
 `

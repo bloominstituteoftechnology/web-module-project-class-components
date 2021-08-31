@@ -33,11 +33,17 @@ const ListStyle = styled.div`
     align-items: center;
     width: 100%;
     .clear-btn{
-        width: 25%;
-        height: 7vh;
+        width: 35%;
+        height: 4vh;
+        margin-top: 2%;
         margin-bottom: 5%;
         margin-right: 2%;
         border-radius: 5rem;
-
+        background: #93ff00 ;
+        border: none;
+        box-shadow: 
+   inset 0 0 20px darkgreen;
+        font-size: 1.2rem;
+        font-family: 'Teko', sans-serif;
     }
 `

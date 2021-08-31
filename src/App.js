@@ -5,7 +5,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 const tasks =[{
-  task: "",
+  task: "Tester",
   id: Date.now(),
   completed: false,
 }
@@ -64,7 +64,9 @@ handleClear = () => {
     return (
       <BodyStyle>
         <div className='todo-container'>
-        <h2>Todo App</h2>
+        <h2>Todo List</h2>
+        <h3>Create a task, click it when complete. Simple!<span role='img' aria-label="Happy">😄</span><br/> 
+        Clear list when all tasks are complete, or a refresh is needed.</h3>
         <TodoForm handleAdd={this.handleAdd}/>
         <TodoList tasks={this.state.tasks} handleClear={this.handleClear} toggleComplete={this.toggleComplete}/>
         </div>
@@ -84,23 +86,26 @@ width: 100%;
 
 .todo-container{
   h2{
-    color: #ff00d1;
-    letter-spacing:7%;
+    color: #ffaa00;
+    letter-spacing:15%;
     font-size: 3rem;
-    margin-top:2%;
-    text-decoration: underline #ff00d1;
-    text-shadow: 0 0 10px #d500af;
+    margin:2%;
+    text-decoration: underline #ffaa00;
+    text-shadow: 0 0 5px #d500af;
+    font-family: 'Cantarell', sans-serif;
+
   }
   display: flex;
-flex-direction: column;
-align-items: center;
+  flex-direction: column;
+  align-items: center;
   width: 75%;
   height: auto;
-  background-color: #0084ff;
-  border-radius: 2rem;
+  background-color: rgba(240,240,240, 0.6);
+  border-radius: 3rem;
+  box-shadow:inset 0 0 20px #ffaa00;
 }
 .todo-container:hover{
-  box-shadow: 0 0 20px #ffffff,
+  box-shadow: 0 0 30px #0084ff,
    inset 0 0 20px #8100ff;
 }
 `
