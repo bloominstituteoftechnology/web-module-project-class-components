@@ -34,8 +34,8 @@ class TodoForm extends React.Component {
                         value={this.state.input}
                     />
                 </form>
-                    <button onClick={this.handleAddClick}>Add Task</button>
-                    <button onClick={() => this.props.handleClear()}>Clear Completed</button>
+                    <button className='button' onClick={this.handleAddClick}>Add Task</button>
+                    <button className='button' onClick={() => this.props.handleClear()}>Clear Completed</button>
             </div>
         )
     }

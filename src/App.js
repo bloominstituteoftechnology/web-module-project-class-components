@@ -8,23 +8,7 @@ import { findAllByTestId } from '@testing-library/react';
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-const todoList = [
-  {
-    task: 'Laundry',
-    id: 123,
-    completed: false
-  },
-  {
-    task: 'Dishes',
-    id: 135,
-    completed: false
-  },
-  {
-    task: 'Vacuum',
-    id: 2469,
-    completed: false
-  }
-]
+const todoList = []
 
 class App extends React.Component {
   constructor() {

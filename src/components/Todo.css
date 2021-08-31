@@ -1,0 +1,23 @@
+
+.list {
+    display:flex;
+    flex-flow: column nowrap;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+
+.item {
+    border:1px solid black;
+    padding: 5px;
+}
+
+.itemstrike {
+    text-decoration: line-through;
+    border:1px solid black;
+    padding: 5px;
+}
+
+.button {
+    padding: 5px;
+    margin: 5px;
+}
