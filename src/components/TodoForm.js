@@ -3,33 +3,31 @@ import React from 'react';
 class TodoForm extends React.Component {
     constructor() {
         super();
-        this.state = {inputsVal:''}
+      this.state = {
+        text:''
+      }
       }
 
-    addItem = (e) => {
+    
+      changetext = (e) => {
+        const {name,value} = e.target
+        this.setState({
+          [name]:value});
+        console.log(this.state.text);
+      }
+
+      submit = (e) => {
         e.preventDefault();
-        this.props.handleAddItem(this.state.inputsVal)
-        this.setState({inputsVal:''})
-      }
-     
-      inputs = (e) => {
-    console.log(e.target.value);
-    this.setState({inputsVal: e.target.value});
-
+        this.props.addItem(this.state.text)
+        this.setState({text:''});
       }
 
-
-    removeItem = (event) => {
-        event.preventDefault();
-        this.props.deleteItem()
-      }
 render() {
+  
     return (
-        <form>
-            <input onChange={this.inputs} type="text" placeholder="todo" value={this.state.inputsVal}/>
-            <button onClick={this.addItem}>Add Todo</button>
-            <button onClick={this.removeItem}>Clear Completed</button>
-
+        <form onSubmit={this.submit}>
+            <input name="text" type="text" placeholder="todo" value={this.state.text} onChange={this.changetext}/>
+            
         </form>
     )
 }

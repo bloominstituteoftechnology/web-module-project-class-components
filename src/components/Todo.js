@@ -2,19 +2,17 @@ import React from 'react';
 
 const Todo =(props) => {
 
-// console.log(props.todo.completed);
-const clickTodo = ()=> {
-   
-//    props.crossItem(props.todo.id);
-props.crossItem(props.todo.id)
-console.log('cross')
+
+const click = (event) => {
+    console.log('click');
+   props.toggleCompleted(props.item.id)
 }
 
     return (
         
-         <div onClick={clickTodo} className={`${props.todo.completed ? ' todo' : ''}`} >
-
-                     <p> {props.todo.task}</p>
+         <div>
+                <p onClick={click}>{props.item.task}</p>
+                     
          </div>
         
         
