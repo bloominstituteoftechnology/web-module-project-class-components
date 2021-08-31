@@ -1,0 +1,42 @@
+.task-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.Task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    flex-basis: 50%;
+    cursor: pointer;
+    
+}
+
+.completed{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: line-through;
+    color: red;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+form{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+form input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .2vw;
+}
