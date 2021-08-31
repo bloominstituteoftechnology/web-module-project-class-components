@@ -1,13 +1,12 @@
 body{
     background-color: rgb(241, 219, 190);
+    margin: 16vh 30vw;
 }
 
 .container{
     margin: auto;
     padding: 2vh 2vw;
     background-color: rgb(229, 243, 227);
-    width: 35vw;
-    height: 55vh;
     border-radius: 20px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.247);
 }

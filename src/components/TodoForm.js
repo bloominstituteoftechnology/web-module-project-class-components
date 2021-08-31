@@ -43,6 +43,7 @@ class ToDoForm extends Component {
               />
 
               <input
+                className='btn'
                 name='submit'
                 type='submit'
                 value='Add ToDo'
@@ -50,6 +51,7 @@ class ToDoForm extends Component {
               />
 
               <input 
+                className='btn'
                 name='clear'
                 type='button'
                 value='Clear Completed'

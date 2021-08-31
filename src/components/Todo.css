@@ -38,5 +38,13 @@ form input{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: .2vw;
+    margin: 2.2vh .2vw;
+}
+
+.btn{
+    background-color:  rgb(241, 219, 190);
+    border-radius: 10px;
+    border: none;
+    padding: .5vh .5vw;
+    color: rgba(0, 0, 0, 0.534);
 }
