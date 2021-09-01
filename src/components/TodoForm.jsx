@@ -1,12 +1,17 @@
 import React from 'react';
 
 class TodoForm extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            formStateEmptyString: ''
-        }
+    state = {
+        formStateEmptyString: ''
     }
+
+
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         formStateEmptyString: ''
+    //     }
+    // }
 
     handleChange = (e) => {
         this.setState({ formStateEmptyString: e.target.value })
