@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Todo = (props) => {
-    // console.log(props); // Displays the two hard coded items with are also named "item." Anything submitted also gets logged as a new item.
+    // console.log(props); // Displays the two hard coded items which are also named "item." Anything submitted also gets logged as a new item.
 
     const handleClick = (e) => {
         e.preventDefault();

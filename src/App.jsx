@@ -20,12 +20,17 @@ export default class App extends React.Component {
     notes: hardCodedNotes
   }
 
-  // Old way below, new way above.
+  
   // constructor() {
   //   super();
-  //   this.state = { notes: hardCodedNotes }           // Creates a state with the key name 'notes', which represents the hard coded array of objects.
-  //   // console.log(this.state.notes) // shows Arr num, then if traversed, shows the 3 key value pairs.
+  //   this.state = { notes: hardCodedNotes }        // Creates a state with the key name 'notes', which represents the hard coded array of objects.
+  //   // console.log(this.state.notes)              // shows Arr num, then if traversed, shows the 3 key value pairs.
   // }
+
+
+
+
+
 
   // This combines the 2 states that are created on two different class components (App.js and TodoForm.js). 
   addItem = (formStateEmptyString) => {              // In class components arrow functions do not need "const"
