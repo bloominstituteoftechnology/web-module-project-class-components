@@ -33,7 +33,7 @@ class App extends React.Component {
   handleTodoToggle = (name) => {
     this.setState({
       Todos: this.state.Todos.map((Todo) => {
-        if (name === Todo.name.trim()) {
+        if (name === Todo.name) {
           return {
             ...Todo,
             completed: !Todo.completed,
@@ -46,9 +46,11 @@ class App extends React.Component {
 
   handleTodoAdd = (name) => {
     const todo = {
-      name: name.trim(),
+      name: name,
       completed: false,
     };
+
+    console.log(todo)
 
     const newTodos = [...this.state.Todos, todo];
     this.setState({

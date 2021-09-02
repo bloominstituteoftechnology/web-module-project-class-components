@@ -19,24 +19,26 @@ class TodoForm extends React.Component {
         e.preventDefault();
         this.props.handleTodoAdd(this.state.inputValue);
         this.setState({
-            input: "",
+            inputValue: "",
         });
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label> New TODO:
-                    <input
-                        name="name"
-                        type="text"
-                        value={this.state.inputValue}
-                        onChange={this.handleInputValueChanges}
-                    />
-                </label>
-                <button className="AddTodoBtn" onClick={this.props.handleTodoAdd}>ADD</button>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label> New TODO:
+                        <input
+                            name="name"
+                            type="text"
+                            value={this.state.inputValue}
+                            onChange={this.handleInputValueChanges}
+                        />
+                    </label>
+                    <button className="AddTodoBtn">ADD</button>
+                </form>
                 <button className="CompletedBtn" onClick={this.props.handleCompletedTodos}>Clear Finished</button>
-            </form>
+            </div>
         )
     }
 }

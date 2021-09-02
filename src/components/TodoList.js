@@ -9,9 +9,9 @@ class TodoList extends React.Component {
     render() {
         return (
             <div className="TodoList">
-                {this.props.Todos.map((eachTodo) => (
+                {this.props.Todos.map((todo) => (
                     <Todo
-                        todo={eachTodo}
+                        todo={todo}
                         handleTodoToggle={this.props.handleTodoToggle}
                     />
                 ))}
