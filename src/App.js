@@ -34,14 +34,13 @@ const todoItems = [
     name:"Study",
     completed: true
   },
-  
 ]
 
 class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todoItems: todoItems
+      todoItems:todoItems
     }
   }
 
@@ -49,18 +48,18 @@ class App extends React.Component {
     console.log("handleToggle was fired in App.js");
   
     this.setState({
-      ...todoItems,
-      completed: this.state.todoItems.map(item => {
-        if(item.id === id){
+      ...this.state,
+      groceries: this.state.groceries.map(item => {
+        if (item.id === id){
           return({
             ...item,
-            completed: !item.completed
+            purchased: !item.purchased
           })
         } else {
           return item;
         }
       })
-    })
+    });
   }
 
 
