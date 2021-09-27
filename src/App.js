@@ -1,7 +1,7 @@
 import React from 'react';
-import Todo from './components/Todo';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './components/Todo.css'
 
 const todo = [
   {
@@ -13,7 +13,27 @@ const todo = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
-  }
+  },
+  {
+    task: ' Added the Clear Button',
+    id: 1528817077288,
+    completed: false
+  },
+  {
+    task: ' Added the Add button',
+    id: 1528817077246,
+    completed: false
+  },
+  {
+    task: ' Finishing the MVP',
+    id: 1528817077226,
+    completed: false
+  },
+  {
+    task: 'Doing Stretch Goals',
+    id: 1528817077280,
+    completed: false
+  },
 ];
 
 
