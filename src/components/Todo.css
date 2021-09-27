@@ -1,0 +1,23 @@
+* {
+  text-align: center;
+  justify-content: center;
+  background-color: pink;
+}
+p {
+  color: red;
+  font-size: 1.5em;
+  font-weight: bolder;
+  padding: 0.5em;
+}
+
+.clear-btn {
+  background-color: green;
+  border-radius: 20%;
+  margin: 5em;
+  padding: 1em;
+}
+.input {
+  padding: 1em;
+  margin: 1em;
+  background-color: white;
+}
