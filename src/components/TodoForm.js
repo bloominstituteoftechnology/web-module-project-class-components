@@ -20,9 +20,10 @@ class TodoForm extends Component {
     }
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <input onChange={this.handleChanges} type='text' name='item' />
-                <button>Add</button>
+                <button onClick={this.handleSubmit}>Add</button>
+                <button onClick={this.props.handleClear}>Clear</button>
             </form>
         );
     }
