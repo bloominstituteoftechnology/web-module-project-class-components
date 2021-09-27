@@ -24,7 +24,7 @@ class App extends React.Component {
   handleToggle = (id)=> {
     this.setState({
       ...this.state,
-      groceries: this.state.todos.map(todo=> {
+      todos: this.state.todos.map(todo=> {
         if(todo.id === id){
           return({...todo,
           complete:!todo.complete
@@ -49,16 +49,25 @@ handleAddTodo = (name)=> {
 }
 
 handleClear = ()=> {
-  console.log('duck');
+  
+const completed = this.state.todos.filter(todo=> todo.complete === false)
+console.log(completed);
+this.setState({
+  ...this.state,
+  todos: [...completed]
+});
+return this.state;
+
 }
   render() {
     return (
       <div className="App">
         <div className='header'>
         <h2>Welcome to your Todo App!</h2>
-        <ListForm handleAddTodo={this.handleAddTodo} handleClear={this.handleClear}/>
+        <ListForm handleAddTodo={this.handleAddTodo} />
       </div>
-      <TodoList handleToggle={this.handleToggle} todos={this.state.todos}/>
+      
+      <TodoList handleToggle={this.handleToggle} handleClear={this.handleClear} todos={this.state.todos}/>
 
       </div>
     );
