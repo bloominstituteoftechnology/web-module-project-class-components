@@ -8,11 +8,7 @@ const todoItems = [
     id: 0,
     completed: false
   },
-  {
-    task: 'Brush Teeth',
-    id: 1,
-    completed: false
-  }
+  
 ];
 
 class App extends React.Component {
@@ -40,12 +36,39 @@ class App extends React.Component {
     })
   }
 
+  handleDone = (id) => {
+    this.setState({
+      ...this.state,
+      todoItems: this.state.todoItems.map(item => {
+        if (item.id === id) {
+          return ({
+            ...item,
+            completed: !item.completed
+          });
+        } else {
+          return item;
+        }
+      })
+    });
+  }
+
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      todoItems: this.state.todoItems.filter(item => {
+        if (item.completed === false) {
+          return item;
+        }
+      })
+    })
+  }
+
   render() {
     return (
       <div>
-        <TodoList todoItems={this.state.todoItems}/>
-        <TodoForm handleSubmit={this.handleSubmit}/>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Things to do...</h1>
+        <TodoList todoItems={this.state.todoItems} handleDone={this.handleDone}/>
+        <TodoForm handleSubmit={this.handleSubmit} handleClear={this.handleClear}/>
       </div>
     );
   }

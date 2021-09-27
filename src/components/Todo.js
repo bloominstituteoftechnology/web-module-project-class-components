@@ -1,9 +1,15 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = (props) => {
     
+    const toggleDone = () => {
+
+        props.handleDone(props.item.id);
+    }
+
     return(
-        <div>
+        <div onClick={toggleDone} className={props.item.completed ? 'done' : ''}>
             {props.item.task}
         </div>
     )
