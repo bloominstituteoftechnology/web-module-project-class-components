@@ -1,0 +1,6 @@
+.item {
+    color:darkgreen;
+}
+.item.completed {
+    text-decoration: line-through;
+}
