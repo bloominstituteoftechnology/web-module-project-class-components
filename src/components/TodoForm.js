@@ -23,8 +23,8 @@ class TodoForm extends React.Component {
 
     render() {
         return(
-            <div>
-                <form onSubmit={this.submit}>
+            <div className="form-div">
+                <form onSubmit={this.submit} className="form">
                     <label> To do:
                         <input
                             type="text"
@@ -36,7 +36,7 @@ class TodoForm extends React.Component {
                     <button>Add</button>
                     
                 </form>
-                <button onClick={this.clear}>Clear</button>
+                <button className="clearbtn"onClick={this.clear}>Clear Completed</button>
             </div>
         )
     }

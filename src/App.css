@@ -1,0 +1,45 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 2.75rem;
+    padding-left: .75%;
+}
+
+label {
+    font-size: 1.25rem;
+    padding: 1%;
+}
+
+input {
+    
+}
+
+button {
+    padding: .2% .25%;
+    font-size: 1rem;
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.clearbtn {
+    margin-left: 1%;
+}
+
+#root {
+    width: 100%;
+}

@@ -1,3 +1,20 @@
 .done {
+    padding-left: 1%;
     text-decoration: line-through;
+    font-size: 1.25rem;
+    background-color: #464660;
+    border-radius: 4px;
+    padding: .5% 1%;
+    margin: .25% 0 0 1%;
+    width: 20%;
+}
+
+.notdone {
+    color: white;
+    background-color: #368B85;
+    border-radius: 4px;
+    padding: .5% 1%;
+    margin: .25% 0 0 1%;
+    font-size: 1.25rem;
+    width: 20%;
 }

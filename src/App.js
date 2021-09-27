@@ -1,13 +1,10 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './App.css';
 
 const todoItems = [
-  {
-    task: '',
-    id: 0,
-    completed: false
-  },
+  
   
 ];
 
