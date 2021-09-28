@@ -46,14 +46,14 @@ class App extends React.Component {
 
   handleToggle = (id) => {
     console.log("handleToggle was fired in App.js");
-  
+
     this.setState({
       ...this.state,
-      groceries: this.state.groceries.map(item => {
+      todoItems: this.state.todoItems.map(item => {
         if (item.id === id){
           return({
             ...item,
-            purchased: !item.purchased
+            completed: !item.completed
           })
         } else {
           return item;
@@ -62,16 +62,24 @@ class App extends React.Component {
     });
   }
 
+  handleAdd = (name) => {
+    const newItem = {
+      id:Date.now(),
+      name: name,
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      todoItems: [...todoItems, newItem]
+    })
+  }
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div className="App">
         <div className="header">
           <h1>Welcome to your Todo App</h1>
-          <TodoForm />
+          <TodoForm handleAdd={this.handleAdd} />
         </div>
         <TodoList todoItems={this.state.todoItems} handleToggle={this.handleToggle} />
       </div>
