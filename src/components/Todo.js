@@ -1,3 +1,4 @@
+import "./Todo.css";
 import React from "react";
 
 const Todo = props => {
@@ -8,8 +9,8 @@ const Todo = props => {
 
 	
 		return (
-			<div onClick={handleClick} className= {`item${props.completed ? 'completed' : ''}`}>
-				<h3 key={props.id} id={props.id} completed={props.completed} >{props.task}</h3>
+			<div onClick={handleClick} className= {`item ${props.completed ? 'completed' : ''}`}>
+				<h3 key={props.id} >{props.task}</h3>
 			</div>
 		)
 	
