@@ -64,7 +64,7 @@ class App extends React.Component {
 
   handleAdd = (name) => {
     const newItem = {
-      id:Date.now(),
+      id:Math.random(),
       name: name,
       completed: false
     }

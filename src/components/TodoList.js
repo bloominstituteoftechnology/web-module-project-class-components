@@ -9,7 +9,7 @@ const TodoList = (props) => {
         props.handleClear();
     }
     return (
-        <div>
+        <div className="TodoList">
             <h2>Todo List</h2>
             {
                 props.todoItems.map(item => {
@@ -18,7 +18,7 @@ const TodoList = (props) => {
                     )
                 })
             }
-            <button onClick={handleClick}>Clear Completed</button>
+            <button className="clear-btn" onClick={handleClick}>Clear Completed</button>
         </div>
     )
 }
