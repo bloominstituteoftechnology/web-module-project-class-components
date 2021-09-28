@@ -9,7 +9,7 @@ class TodoForm extends React.Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.setState({
             input: e.target.value
         });

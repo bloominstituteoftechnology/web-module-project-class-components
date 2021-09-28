@@ -3,6 +3,11 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
     // console.log(props);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        props.handleClear();
+    }
     return (
         <div>
             <h2>Todo List</h2>
@@ -13,6 +18,7 @@ const TodoList = (props) => {
                     )
                 })
             }
+            <button onClick={handleClick}>Clear Completed</button>
         </div>
     )
 }

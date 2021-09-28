@@ -40,7 +40,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todoItems:todoItems
+      todoItems: todoItems
     }
   }
 
@@ -70,7 +70,17 @@ class App extends React.Component {
     }
     this.setState({
       ...this.state,
-      todoItems: [...todoItems, newItem]
+      todoItems: [...this.state.todoItems, newItem]
+    })
+  }
+
+  handleClear = () => {
+    console.log("handleClear fired in App.js")
+    this.setState({
+      ...this.state,
+      todoItems: this.state.todoItems.filter(item => {
+        return(item.completed === false)
+      })
     })
   }
 
@@ -81,7 +91,7 @@ class App extends React.Component {
           <h1>Welcome to your Todo App</h1>
           <TodoForm handleAdd={this.handleAdd} />
         </div>
-        <TodoList todoItems={this.state.todoItems} handleToggle={this.handleToggle} />
+        <TodoList todoItems={this.state.todoItems} handleToggle={this.handleToggle} handleClear={this.handleClear}/>
       </div>
     );
   }
