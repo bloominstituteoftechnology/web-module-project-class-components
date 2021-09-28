@@ -51,10 +51,19 @@ class App extends React.Component {
       })
     }
   
+  handleClearBtn = () => {
+    this.setState({
+      ...this.state,
+      masterList: this.state.masterList.filter(item => {
+        return (!item.completed);
+      })
+    });
+  }
+  
   render() {
     return (
       <>
-        <TodoForm handleAddTodo={this.handleAddTodo}/>
+        <TodoForm handleAddTodo={this.handleAddTodo} handleClearBtn={ this.handleClearBtn}/>
         <TodoList list={this.state.masterList} handleToggle={this.handleToggle} />
 
       </>
