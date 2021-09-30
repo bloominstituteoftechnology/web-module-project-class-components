@@ -31,10 +31,10 @@ constructor() {
    })
   }
 
-  toggleTodo = (todoId) => {
+  toggleTodo = (id) => {
     this.setState({
-      todos: this.state.todos.maps(todo => {
-        if (todo.id ===todoId ) {
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id ) {
           return {
             ...todo,
             completed: !todo.completed,
