@@ -68,6 +68,22 @@ class App extends React.Component {
 
   // 3 - Toggle completed to/from uncompleted with click
 
+  handleToggleItem = (task) => {
+
+    this.setState({
+      ...this.state,
+      list: this.state.list.map( todo => {
+        if (todo.id === task.id) {
+          return {
+            ...list,
+            completed: !list.completed
+          }
+        }
+        return list;
+      })
+    });
+  }
+
   
   render() {
     return (
