@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'; 
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
 
@@ -28,17 +27,23 @@ const items = [
     }
   ];
 
-  
+
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state  = {
+      items: items
+    }
+  }
   render() {
     return (
       <div>
         <h2>Todo App!:</h2>
-        <TodoList />
+        <TodoList items = {this.state.items}/>
 
        {/* <TodoForm /> */}
 
-        <button>  </button>
+        <button>Clear Tasks</button>
       </div>
     );
   }
