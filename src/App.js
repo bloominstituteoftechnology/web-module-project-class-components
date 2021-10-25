@@ -1,6 +1,6 @@
 import React from 'react';
-import toDoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
 const list = [
 
@@ -93,7 +93,7 @@ class App extends React.Component {
         handleClear={this.handleClear} 
         handleAddItem={this.handleAddItem} 
         />
-        <toDoList 
+        <TodoList 
         list={this.state.list} 
         handleToggle={this.handleToggle} 
         />
