@@ -5,7 +5,7 @@ const Todo = props =>{
         props.handleToggleItem(props.item)
     }
     return (
-        <div onClick= {handleClick} className={`item${props.item.done? 'done': ' '}`} >
+        <div onClick= {handleClick} className={`item${props.item.completed? 'completed': ' '}`} >
             
         <h2>{props.item.task}</h2>
         </div>

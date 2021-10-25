@@ -7,6 +7,7 @@ class TodoForm extends React.Component{
           input: ""
       }
     }
+
 handleChange = e =>{
     this.setState({
         ...this.state,
@@ -17,6 +18,7 @@ handleChange = e =>{
 handleSubmit = e =>{
     e.preventDefault();
     this.props.handleAddItem(this.state.input)
+    
 }
   render(){  
 

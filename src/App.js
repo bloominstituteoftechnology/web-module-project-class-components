@@ -2,7 +2,7 @@ import React from 'react';
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
 
-import './App.css';
+import './app.css';
 
 
 
@@ -49,18 +49,24 @@ class App extends React.Component {
     })
   }
 
-  handleToggleItem = (item) =>{
+  handleToggleItem = (i) =>{
     this.setState({
-      items: this.state.items.map(task => {
-        if (item.id === task.id) {
+      items: this.state.items.map(item => {
+        if (item.id === i.id) {
           return {
             ...item,
-            done: !item.done
+            completed: !item.completed
           }
         }
-        return items
+        return item
       })
     })
+  }
+  handleClear = ()=> {
+    this.setState({
+      ...this.state,
+      items: this.state.items.filter(item=> !item.completed)
+    });
   }
   render() {
     return (
@@ -70,7 +76,7 @@ class App extends React.Component {
 
         <TodoForm handleAddItem= {this.handleAddItem}/>
 
-        <button>Clear Tasks</button>
+        <button onClick={this.handleClear}>Clear Tasks</button>
       </div>
     );
   }
