@@ -52,6 +52,19 @@ class App extends React.Component {
 
   // 2 - Create adding item function
 
+  handleAddItem = (task) => {
+    const newTask = {
+      task: task,
+      id: Date.now(),
+      completed: false,
+    }
+
+    this.setState({
+      ...this.state,
+      list: [ ...this.state.list, newTask ]
+    })
+
+  }
 
   // 3 - Toggle completed to/from uncompleted with click
 
