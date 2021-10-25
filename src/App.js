@@ -21,6 +21,14 @@ const todoList = [
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      todoList: todoList
+    }
+  }
+
   handleClear = ()=> {
     this.setState({
       ...this.state,
@@ -43,12 +51,6 @@ class App extends React.Component {
   }
   
   handleToggleTodo = (task) => {
-    //3. Toggle Item
-    // - setState and retain old state
-    // - find the item that matches our clicked item id
-    // - replace that item with same but purchased flipped
-    // - leave all other items alone
-
     this.setState({
       ...this.state,
       todoList: this.state.todoList.map(tasks => {

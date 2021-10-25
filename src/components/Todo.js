@@ -2,12 +2,12 @@ import React from 'react';
 
 const Todo = props => {
   const handleClick = ()=> {
-    props.handleToggleItem(props.item);
+    props.handleToggleTask(props.tasks);
   }
 
   return (
-    <div onClick={handleClick} className={`item${props.item.purchased ? ' purchased' : ''}`}>
-      <p>{props.item.name}</p>
+    <div onClick={handleClick}>
+      <p>{props.tasks.task}</p>
     </div>
   );
 };
