@@ -1,6 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Class Based Components - React Todo cheyenne bowman 1st push
 
+=======
+# Class Based Components - React Todo
+>>>>>>> parent of 9d630f4 (1st push)
 =======
 # Class Based Components - React Todo
 >>>>>>> parent of 9d630f4 (1st push)
