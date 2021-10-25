@@ -1,7 +1,10 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 
-const toDoList = [
+import Todo from './Todo'
+import React from 'react'
+
+const originalList = [
 
     {
       task: 'Clean Room',
@@ -30,5 +33,15 @@ const toDoList = [
       },
 
   ];
+
+  function toDoList () {
+
+      return(
+          <div>
+        {originalList.map( (item) =>  <Todo task={item.task}/>
+        )}
+        </div>
+      )
+  }
 
   export default toDoList
