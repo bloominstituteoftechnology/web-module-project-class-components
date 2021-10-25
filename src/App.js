@@ -2,17 +2,59 @@ import React from 'react';
 import toDoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+const list = [
 
+  {
+    task: 'Clean Room',
+    id: 1001,
+    completed: false
+  },
+  {
+    task: 'Vacuum',
+    id: 1002,
+    completed: false
+  },
+  {
+      task: 'Meal Prep',
+      id: 1003,
+      completed: false
+    },
+    {
+      task: 'Plan Weekend',
+      id: 1004,
+      completed: false
+    },
+    {
+      task: 'Brush Teeth',
+      id: 1005,
+      completed: false
+    },
+
+];
+
+class App extends React.Component {
+  
   constructor() {
     super();
     this.state = {
-      toDoList: toDoList
+      list: list
     }
   }
+
+  // 1 - Create clearing function
+
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      list: this.state.list.filter(item => !item.completed)
+    });
+  }
+
+  // 2 - Create adding item function
+
+
+  // 3 - Toggle completed to/from uncompleted with click
+
   
   render() {
     return (
