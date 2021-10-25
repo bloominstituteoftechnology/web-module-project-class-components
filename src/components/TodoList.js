@@ -7,7 +7,7 @@ function TodoList (props) {
       return(
           <div>
           {list.map( item =>  
-             {return <h3>{item.task}</h3>}
+             {return <h3 onClick={handleToggle}>{item.task}</h3>}
             )}
       </div>)
   }

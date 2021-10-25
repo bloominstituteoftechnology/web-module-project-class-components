@@ -5,7 +5,7 @@ function Todo (props) {
     const {task} = props
 
     return(
-        <h3>Do This -- {task}</h3>
+        <h3>{task}</h3>
     )
 }
 
