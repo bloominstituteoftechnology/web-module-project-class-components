@@ -47,7 +47,7 @@ In this project you will build an application that allows for todos to be added,
 
 ### Task 2: Project Requirements
 - **Don't focus on styling yet**. We want you to worry about function over form today.
-- **Build all components as class components**
+- **Build all components as class components.**
 - Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
 - Be sure to use the given files for building out these components.
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
