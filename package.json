@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "fkill :5000 :3000 -s && concurrently \"npm:backend\" \"npm:frontend\"",
-    "frontend": "webpack serve --open",
-    "backend": "node src/mocks/api.js",
+    "start": "webpack serve --open",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --forceExit"
   },
   "devDependencies": {
