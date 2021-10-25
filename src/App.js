@@ -68,7 +68,7 @@ class App extends React.Component {
 
   // 3 - Toggle completed to/from uncompleted with click
 
-  handleToggleItem = (task) => {
+  handleToggle = (task) => {
 
     this.setState({
       ...this.state,
@@ -89,8 +89,12 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoForm />
-        <toDoList />
+        <TodoForm 
+        handleClear={this.handleClear} 
+        handleAddItem={this.handleAddItem} 
+        handleToggle={this.handleToggle} 
+        />
+        <toDoList list={this.state.list}/>
       </div>
     );
   }
