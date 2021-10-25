@@ -2,6 +2,8 @@ import React from 'react';
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
 
+import './App.css';
+
 
 
 const items = [
@@ -12,7 +14,7 @@ const items = [
     },
     {
       task: 'Bake Cookies',
-      id: 1528817084358,
+      id: 17475858,
       completed: false
     },
     {
@@ -22,7 +24,7 @@ const items = [
     },
     {
       task: 'Walk the Dog',
-      id: 1528817084358,
+      id: 1234,
       completed: false
     }
   ];
@@ -35,13 +37,38 @@ class App extends React.Component {
       items: items
     }
   }
+  handleAddItem=(task) =>{
+    const newItem = {
+      task: task,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      items: [...this.state.items, newItem]
+    })
+  }
+
+  handleToggleItem = (item) =>{
+    this.setState({
+      items: this.state.items.map(task => {
+        if (item.id === task.id) {
+          return {
+            ...item,
+            done: !item.done
+          }
+        }
+        return items
+      })
+    })
+  }
   render() {
     return (
       <div>
         <h2>Todo App!:</h2>
-        <TodoList items = {this.state.items}/>
+        <TodoList handleToggleItem={this.handleToggleItem}items = {this.state.items}/>
 
-       {/* <TodoForm /> */}
+        <TodoForm handleAddItem= {this.handleAddItem}/>
 
         <button>Clear Tasks</button>
       </div>

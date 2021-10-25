@@ -1,8 +1,14 @@
 import React from "react";
 
 const Todo = props =>{
+    const handleClick = () =>{
+        props.handleToggleItem(props.item)
+    }
     return (
-        <div>{props.item.task}</div>
+        <div onClick= {handleClick} className={`item${props.item.done? 'done': ' '}`} >
+            
+        <h2>{props.item.task}</h2>
+        </div>
     )
 }
 
