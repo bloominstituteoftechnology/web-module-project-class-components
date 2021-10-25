@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList'
+import "./index.css"
 
 const todolist = [
   {
@@ -63,7 +64,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="App-container">
         <h1>TodoList</h1>
         <TodoList todolist={this.state.todolist} handleAddTodo={this.handleAddTodo} clearItems={this.clearItems} toggleItems={this.toggleItems}/>
       </div>

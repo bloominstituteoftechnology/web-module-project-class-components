@@ -1,3 +1,10 @@
+
+.App-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
 .todo.done {
     text-decoration: line-through;
   }
