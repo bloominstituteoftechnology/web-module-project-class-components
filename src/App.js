@@ -1,20 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList'
 import "./index.css"
 
-const todolist = [
-  {
-  todo: 'attend class',
-  id:123,
-  done: false
-  },
-  {
-    todo: 'do homework',
-    id:124,
-    done: false
-  }
-]
+const todolist = []
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.

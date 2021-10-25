@@ -1,9 +1,6 @@
 import React from 'react'
 
 class Todo extends React.Component{
-    constructor(){
-        super();
-    }
 
     handleClick=()=>{
        this.props.toggleItems(this.props.todo);
