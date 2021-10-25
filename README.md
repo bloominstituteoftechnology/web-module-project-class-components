@@ -11,6 +11,10 @@ We're going to practice building a stateful class component with this project. E
 
 ## Introduction
 In this project you will build an application that allows for todos to be added, toggle and checked off. Please use ALL CLASS BASED COMPONENTS when creating this application and use the Guided project as a model. This application should:
+- Use the following gif as base for building DOM:
+
+![Todo App MVP](./todo.gif)
+
 - Hold all todos in state within the App.js component. That todos should look like the following:
 ```js
 [
