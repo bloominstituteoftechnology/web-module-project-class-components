@@ -92,9 +92,11 @@ class App extends React.Component {
         <TodoForm 
         handleClear={this.handleClear} 
         handleAddItem={this.handleAddItem} 
+        />
+        <toDoList 
+        list={this.state.list} 
         handleToggle={this.handleToggle} 
         />
-        <toDoList list={this.state.list}/>
       </div>
     );
   }

@@ -1,6 +1,8 @@
 import React from 'react'
 
-function TodoForm () {
+function TodoForm (props) {
+
+    const { handleClear, handleAddItem } = props
 
     return(
         <div>
@@ -9,8 +11,8 @@ function TodoForm () {
                 type='text'
                 placeholder='Enter Todo Item'
                 />
-                <button>Add Todo</button>
-                <button>Clear Completed</button>
+                <button onClick={handleAddItem}>Add Todo</button>
+                <button onClick={handleClear}>Clear Completed</button>
             </form>
         </div>
     )

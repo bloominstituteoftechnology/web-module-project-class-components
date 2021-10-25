@@ -6,7 +6,7 @@ import React from 'react'
 
   function toDoList (props) {
 
-    const { list } = props
+    const { list, handleToggle } = props
 
       return(
           <div>
