@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { ReactDOM } from 'react';
+import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
+import './components/Todo.css'
 
 const todoList = [
   {
@@ -13,41 +17,32 @@ const todoList = [
   }
 ];
 
-class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-
+class App extends React.Component {
   handleClear = ()=> {
-    //1. Clear Purchased
-    // -  handle button click
-    // -  setState of groceries
-    // -  take this.state.groceries and return only grocery items where purchased = true
     this.setState({
       ...this.state,
-      groceries: this.state.groceries.filter(item=> !item.purchased)
+      todoList: this.state.todoList.filter(task=> !task.completed)
     });
   }
 
 
-  handleAddItem = (name) => {
-    //2. Add Item
-    // - create a newItem
-    // - setState and retain old state
-    // - save all current groceries and add on newItem to the end
-    const newItem = {
-      name: name,
+  handleAddTodo = (task) => {
+    const newTodo = {
+      task: task,
       id: Date.now(),
-      purchased: false
+      completed: false
     };
 
     this.setState({
       ...this.state,
-      groceries: [...this.state.groceries, newItem]
+      todoList: [...this.state.todoList, newTodo]
     });
   }
   
-  handleToggleItem = (item) => {
+  handleToggleTodo = (task) => {
     //3. Toggle Item
     // - setState and retain old state
     // - find the item that matches our clicked item id
@@ -56,43 +51,35 @@ class App extends React.Component {
 
     this.setState({
       ...this.state,
-      groceries: this.state.groceries.map(grocery => {
-        if (grocery.id === item.id) {
+      todoList: this.state.todoList.map(tasks => {
+        if (tasks.id === task.id) {
           return {
-            ...grocery,
-            purchased: !grocery.purchased //(grocery.purchased)? false: true
+            ...tasks,
+            completed: !task.completed
           }
         }
-        return grocery;
+        return tasks;
       })
     });
   }
   
 
-  // Class methods to update state
-//   render() {
-//     return (
-//       <div className="App">
-//         <div className="header">
-//            <h1>Shopping List</h1>
-//            <ListForm handleAddItem={this.handleAddItem}/>
-//          </div>
-//         <GroceryList handleToggleItem={this.handleToggleItem} groceries={this.state.groceries} />
-//         <button onClick={this.handleClear} className="clear-btn">Clear Purchased</button>
-//        </div>
-//     );
-//   }
-// }
+render() {
+  return (
+    <div>
+      <div>
+         <h1>Shopping List</h1>
+         <TodoForm handleAddTodo={this.handleAddTodo}/>
+       </div>
+      <TodoList handleToggleTodo={this.handleToggleTodo} todoList={this.state.task} />
+      <button onClick={this.handleClear} >Clear Purchased</button>
+     </div>
+  );
+}
+}
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
-  render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
-    );
-  }
-}
 
-export default App;
+
+export default App
