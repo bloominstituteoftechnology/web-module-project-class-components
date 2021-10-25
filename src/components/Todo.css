@@ -1,0 +1,11 @@
+.task {
+    background-color: #e64944;
+    width: 45%;
+    text-align: left;
+    margin: 4px 0;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+.task.added {
+    text-decoration: line-through;
+  }
