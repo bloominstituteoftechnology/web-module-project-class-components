@@ -4,7 +4,6 @@ const Todo = props => {
 
     const handleClick = () => {
         props.handleToggleTodo(props.todo)
-        console.log(props.todo)
     }
 
     return (
