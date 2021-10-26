@@ -50,6 +50,49 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
+  constructor() {
+    super();
+    this.state = {
+      groceryItems: groceryItems
+    }
+  }
+
+  handleUpdate = () => {
+    this.setState({
+      ...this.state,
+      groceryItems: this.state.groceryItems.filter(item => !item.completed)
+    });
+  }
+
+  handleAddItem = (name) => {
+    const newItem = {
+      name: name,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      ...this.state,
+      groceryItems: [...this.state.groceryItems, newItem]
+    });
+  }
+
+  handleToggle = (item) => {
+    this.setState({
+      ...this.state,
+      groceryItems: this.state.groceryItems.map(items => {
+        if (items.id === item.id) {
+          return {
+            ...items,
+            completed: !items.completed
+          }
+        }
+        return items;
+      })
+    });
+  }
+
+
   render() {
     return (
       <div className="app-container">
@@ -57,15 +100,15 @@ class App extends React.Component {
 
         <div>
           <h4>Let's start adding things!</h4>
-          <ToDoForm />
+          <ToDoForm handleAddItem={this.handleAddItem}/>
         </div>
 
         <div>
-          <ToDoList />
+          <ToDoList handleToggle={this.handleToggle} groceryItems={this.state.groceryItems}/>
         </div>
 
         <div>
-          <button> Update List </button>
+          <button onClick={this.handleUpdate}> Update List </button>
         </div>
 
 
