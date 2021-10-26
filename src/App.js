@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ReactDOM } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
@@ -72,7 +72,7 @@ class App extends React.Component {
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<App />, rootElement);
 
 export default App;
