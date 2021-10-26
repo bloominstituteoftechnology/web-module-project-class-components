@@ -1,13 +1,15 @@
 import React from 'react';
+import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
 const todos = [
   {
-    task: 'Organize Garage',
+    todo: 'Organize Garage',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    todo: 'Bake Cookies',
     id: 1528817084358,
     completed: false
   }
@@ -25,10 +27,50 @@ class App extends React.Component {
     }
   }
 
+  handleAddItem = (todo) => {
+
+    const newTodo = {
+      todo: todo,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    })
+  }
+
+  handleToggleTodo = (todo) => {
+
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map(task => {
+        if (task.id === todo.id) {
+          return ({
+            ...todo,
+            completed: !todo.completed
+          })
+        }
+        return task
+      })
+    })
+
+  }
+
+
+
   render() {
     return (
       <div>
-        <h1>To Do List</h1>
+        <div>
+          <h1>To Do List</h1>
+          <TodoForm handleAddItem={this.handleAddItem} />
+          <button>Clear completed</button>
+        </div>
+        <div>
+          <TodoList handleToggleTodo={this.handleToggleTodo} todos={this.state.todos} />
+        </div>
       </div>
     );
   }
