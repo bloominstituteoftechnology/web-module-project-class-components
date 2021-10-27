@@ -1,3 +1,4 @@
+
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -38,6 +39,10 @@ module.exports = {
             'plugins': [['babel-plugin-styled-components'], ['@babel/plugin-transform-react-jsx']]
           }
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       }
     ],
   },
