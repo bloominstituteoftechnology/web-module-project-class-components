@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import './components/Todo.css'
 
 
 const todo = [
@@ -41,15 +42,40 @@ class App extends React.Component {
     })
   }
 
+  handleClearTodo = () => {
+    this.setState({
+      ...this.state,
+      todo: this.state.todo.filter(todo => {
+        return !todo.completed;
+      })
+    });
+  }
+
+  handleToggleTodo = (selectedTodo) => {
+    this.setState({
+      ...this.state,
+      todo: this.state.todo.map(todo => {
+        if(todo.id === selectedTodo.id) {
+          return({
+            ...todo,
+            completed: !todo.completed
+          })
+        } else {
+          return todo;
+        }
+      })
+    });
+  }
+
   render() {
     return (
     <div>
       <div>
         <h2>ToDo List: MVP</h2>
-        <TodoList todo={this.state.todo} />
+        <TodoList handleToggleTodo={this.handleToggleTodo} todo={this.state.todo} />
       </div>
       <TodoForm handleAddTodo={this.handleAddTodo} />
-      <button>Clear Completed</button>
+      <button onClick={this.handleClearTodo} className='clear-button'>Clear Completed</button>
     </div>
     );
   }
