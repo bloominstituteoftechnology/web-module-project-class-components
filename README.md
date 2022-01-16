@@ -60,6 +60,7 @@ In this project you will build an application that allows for todos to be added,
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
 
 ## Submission Format
-- [ ] Only work on main.
-- [ ] Make sure to push your code at regular intervals.
-- [ ] Copy your github repo url and paste it into Canvas to submit your project
+- [ ] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
+- [ ] Connect your fork to Codegrade using the "Connect Git" button.
+- [ ] Find your newly created fork from the list and push your work to main.
+- [ ] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
