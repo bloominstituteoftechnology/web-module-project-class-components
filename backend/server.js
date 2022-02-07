@@ -12,15 +12,18 @@ server.use(express.static(path.join(__dirname, '../dist')))
 server.use(cors())
 
 server.get('/api/todos', (req, res) => {
-  res.json(Todo.getAll())
+  const [status, response] = Todo.getAll()
+  res.status(status).json(response)
 })
 
 server.get('/api/todos/:id', (req, res) => {
-  res.json(Todo.getById(req.params.id))
+  const [status, response] = Todo.getById(req.params.id)
+  res.status(status).json(response)
 })
 
-server.post('/api/todos', (req, res) => {
-  res.json(Todo.create(req.body))
+server.post('/api/todos', async (req, res) => {
+  const [status, response] = await Todo.create(req.body)
+  res.status(status).json(response)
 })
 
 server.patch('/api/todos/:id', (req, res) => {

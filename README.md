@@ -22,16 +22,16 @@ In this project you will build an application that allows for todos to be added,
 ```js
 [
   {
-    task: 'Organize Garage',
+    name: 'Organize Garage',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    name: 'Bake Cookies',
     id: 1528817084358,
     completed: false
   }
-];
+]
 ```
 
 - Allow for a todo to be toggled when clicking on an item.
