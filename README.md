@@ -35,8 +35,6 @@ In this project you will build an application that allows for todos to be added,
 - Allow for a todo to be added when submitting the todo form component.
 - Allow for completed todos to be filtered out when clicking the clear completed button.
 
-***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
-
 ## Instructions
 
 ### Task 1: Project Set Up
