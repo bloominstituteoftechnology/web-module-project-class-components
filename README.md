@@ -23,7 +23,7 @@ In this project you will build an application that allows for todos to be added,
 [
   {
     name: 'Organize Garage',
-    id: 1528817077286,
+    id: 1528817077286, // could look different, you could use a timestamp to generate it
     completed: false
   },
   {
@@ -61,6 +61,17 @@ In this project you will build an application that allows for todos to be added,
 - `<Form />` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
+
+### Stretch Task: Use Real Data from an API
+
+The following endpoints exist in your project (you can test them with Postman):
+
+- `GET http://localhost:9000/api/todos` responds with all todos
+- `GET http://localhost:9000/api/todos/:id` responds with the todo of the given `id`
+- `POST http://localhost:9000/api/todos` expects `name` and optional `completed`, responds with new todo
+- `PATCH http://localhost:9000/api/todos/:id` toggles todo of given `id`, responds with the patched todo
+
+Modify `<App />` so it utilizes these endpoints instead of fake, "frontend" data.
 
 ## Submission Format
 
