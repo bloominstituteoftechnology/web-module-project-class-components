@@ -1,21 +1,24 @@
 # Class Based Components - React Todo
 
-We're going to practice building a stateful class component with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
-
+We're going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
 
 ## Objectives
+
 - Build class components from scratch
 - Defining application state
 - Defining component state
 - Connecting state changes to components
 
 ## Introduction
+
 In this project you will build an application that allows for todos to be added, toggle and checked off. Please use ALL CLASS BASED COMPONENTS when creating this application and use the Guided project as a model. This application should:
+
 - Use the following gif as base for building DOM:
 
 ![Todo App MVP](./todo.gif)
 
 - Hold all todos in state within the App.js component. That todos state slice should look like the following:
+
 ```js
 [
   {
@@ -30,36 +33,37 @@ In this project you will build an application that allows for todos to be added,
   }
 ];
 ```
+
 - Allow for a todo to be toggled when clicking on an item.
 - Allow for a todo be be added when submitting the todo form component.
 - Allow for completed todos to be cleared when clicking the clear completed button.
 
-
 ***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
 
 ## Instructions
+
 ### Task 1: Project Set Up
-* [ ] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-lifecycle`
-* [ ] Download project dependencies by running `npm install`
-* [ ] Start up the app using `npm start`
+
+- Fork, clone, and `npm install`.
+- Launch the project on a development server executing `npm run dev`.
+- Visit your widget by navigating to `http://localhost:3000` with Chrome.
 
 ### Task 2: Project Requirements
-- **Don't focus on styling yet**. We want you to worry about function over form today.
-- **Build all components as class components.**
+
+- Build all components as class components. Find them inside `frontend/components`.
+- Don't focus on styling yet. We want you to worry about function over form today.
 - Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
-- Be sure to use the given files for building out these components.
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
   - All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
 - `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
 - `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
-- `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
+- `<Form />` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
 
 ## Submission Format
+
 - [ ] Only work on main.
-- [ ] Make sure to push your code at regular intervals.
-- [ ] Copy your github repo url and paste it into Canvas to submit your project
+- [ ] Try to avoid committing broken code.
+- [ ] Make sure to push code at regular intervals.
