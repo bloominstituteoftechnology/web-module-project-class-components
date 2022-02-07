@@ -1,6 +1,6 @@
 # Class Based Components - React Todo
 
-We're going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
+We are going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
 
 ## Objectives
 
@@ -14,7 +14,7 @@ We're going to practice building class components with this project. Even though
 In this project you will build an application that allows for todos to be added, completed and removed from view. This application should:
 
 - Use [this gif](./todo.gif) as inspiration for building the DOM.
-- Hold all todos in state within the App.js component. That todos state slice should look like the following:
+- Hold all todos in state within the `App.js` component. This slice of state should look like the following:
 
   ```js
   [
