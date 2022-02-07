@@ -11,9 +11,9 @@ We're going to practice building class components with this project. Even though
 
 ## Introduction
 
-In this project you will build an application that allows for todos to be added, toggle and checked off. Please use ALL CLASS BASED COMPONENTS when creating this application and use the Guided project as a model. This application should:
+In this project you will build an application that allows for todos to be added, toggled and checked off. Please use ALL CLASS BASED COMPONENTS when creating this application and use the Guided project as a model. This application should:
 
-- Use the following gif as base for building DOM:
+- Use the following gif as inspiration for building the DOM (your actual UI may be different):
 
 ![Todo App MVP](./todo.gif)
 
@@ -36,7 +36,7 @@ In this project you will build an application that allows for todos to be added,
 
 - Allow for a todo to be toggled when clicking on an item.
 - Allow for a todo be be added when submitting the todo form component.
-- Allow for completed todos to be cleared when clicking the clear completed button.
+- Allow for completed todos to be filtered out when clicking the clear completed button.
 
 ***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
 
