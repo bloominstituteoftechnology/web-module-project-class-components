@@ -13,7 +13,7 @@ We're going to practice building class components with this project. Even though
 
 In this project you will build an application that allows for todos to be added, completed and removed from view. This application should:
 
-- Use ![this gif](./todo.gif) as inspiration for building the DOM.
+- Use [this gif](./todo.gif) as inspiration for building the DOM.
 - Hold all todos in state within the App.js component. That todos state slice should look like the following:
 
   ```js
