@@ -11,31 +11,28 @@ We're going to practice building class components with this project. Even though
 
 ## Introduction
 
-In this project you will build an application that allows for todos to be added, toggled and checked off. Please use ALL CLASS BASED COMPONENTS when creating this application and use the Guided project as a model. This application should:
+In this project you will build an application that allows for todos to be added, completed and removed from view. This application should:
 
-- Use the following gif as inspiration for building the DOM (your actual UI may be different):
-
-![Todo App MVP](./todo.gif)
-
+- Use ![this gif](./todo.gif) as inspiration for building the DOM.
 - Hold all todos in state within the App.js component. That todos state slice should look like the following:
 
-```js
-[
-  {
-    name: 'Organize Garage',
-    id: 1528817077286, // could look different, you could use a timestamp to generate it
-    completed: false
-  },
-  {
-    name: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-]
-```
+  ```js
+  [
+    {
+      name: 'Organize Garage',
+      id: 1528817077286, // could look different, you could use a timestamp to generate it
+      completed: false
+    },
+    {
+      name: 'Bake Cookies',
+      id: 1528817084358,
+      completed: false
+    }
+  ]
+  ```
 
-- Allow for a todo to be toggled when clicking on an item.
-- Allow for a todo be be added when submitting the todo form component.
+- Allow for a todo's "completed" status to be toggled when clicking on an item.
+- Allow for a todo to be added when submitting the todo form component.
 - Allow for completed todos to be filtered out when clicking the clear completed button.
 
 ***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
@@ -50,13 +47,13 @@ In this project you will build an application that allows for todos to be added,
 
 ### Task 2: Project Requirements
 
-- Build all components as class components. Find them inside `frontend/components`.
-- Don't focus on styling yet. We want you to worry about function over form today.
-- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
-- `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
+- **Build all components as class components. Find them inside `frontend/components`.**
+- **Don't focus on styling. We want you to worry about function over form today.**
+- Your todo list should display a list of todos, an input field, a submit button, and a button to filter out completed todos.
+- `<App />` will hold all the data needed for this project.
   - All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
-- `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
+- `<TodoList />` receives your todos array and iterates over the list generating a new `<Todo />` for each element in the array.
 - `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
 - `<Form />` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
@@ -64,14 +61,14 @@ In this project you will build an application that allows for todos to be added,
 
 ### Stretch Task: Use Real Data from an API
 
-The following endpoints exist in your project (you can test them with Postman):
+The following live endpoints exist in this project (you can test them with Postman):
 
 - `GET http://localhost:9000/api/todos` responds with all todos
 - `GET http://localhost:9000/api/todos/:id` responds with the todo of the given `id`
 - `POST http://localhost:9000/api/todos` expects `name` and optional `completed`, responds with new todo
-- `PATCH http://localhost:9000/api/todos/:id` toggles todo of given `id`, responds with the patched todo
+- `PATCH http://localhost:9000/api/todos/:id` toggles completion of todo by given `id`, responds with the patched todo
 
-Modify `<App />` so it utilizes these endpoints instead of fake, "frontend" data.
+Modify `<App />` so it utilizes these endpoints instead of fake, "frontend" data. Axios is already installed in the project.
 
 ## Submission Format
 
