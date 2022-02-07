@@ -12,13 +12,6 @@ const schemaCreate = yup.object().shape({
     .typeError('completed must be a boolean')
 })
 
-const schemaUpdate = yup.object().shape({
-  completed: yup
-    .boolean()
-    .typeError('completed must be a boolean')
-    .required('completed is required')
-})
-
 let todos
 
 const resetTodos = () => {
@@ -64,7 +57,7 @@ const create = async todoFromClient => {
     const todo = { id: nanoid(5), completed: false, ...validated }
     todos.push(todo)
     data = todo
-    message = `Todo ${todo.id} has been created`
+    message = `Here is your created Todo ${todo.id}`
     status = 201
   } catch (err) {
     message = `Ouch: ${err.message}`
@@ -73,29 +66,24 @@ const create = async todoFromClient => {
   return [status, { message, data }]
 }
 
-const toggleDone = async id => {
-  try {
-    const validated = await schemaCreate.validate(todoFromClient, { stripUnknown: true })
-  } catch (err) {
-    message = `Ouch: ${err.message}`
-    status = 422
+const toggleDone = id => {
+  let message, data, status
+  const todoFromClient = todos.find(todo => todo.id == id)
+  if (todoFromClient) {
+    todos = todos.map(todo => {
+      if (todo.id == id) {
+        data = { ...todo, completed: !todo.completed }
+        return data
+      }
+      return todo
+    })
+    status = 200
+    message = `Here is your updated Todo ${id}`
+  } else {
+    status = 404
+    message = `Ouch: Todo ${id} not found`
   }
-
-
-
-  todos = todos.map(todo => {
-    return todo.id === id
-      ? { ...todo, completed: !todo.completed }
-      : todo
-  })
-  return todos
-}
-
-const remove = id => {
-  todos = todos.filter(todo => {
-    return todo.id !== id
-  })
-  return todos
+  return [status, { message, data }]
 }
 
 module.exports = {
@@ -103,6 +91,5 @@ module.exports = {
   getById,
   create,
   toggleDone,
-  remove,
   resetTodos, // only tests use this
 }

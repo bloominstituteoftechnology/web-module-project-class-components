@@ -27,11 +27,8 @@ server.post('/api/todos', async (req, res) => {
 })
 
 server.patch('/api/todos/:id', (req, res) => {
-  res.json(Todo.toggleDone(req.params.id))
-})
-
-server.delete('/api/todos/:id', (req, res) => {
-  res.json(Todo.remove(req.params.id))
+  const [status, response] = Todo.toggleDone(req.params.id)
+  res.status(status).json(response)
 })
 
 server.get('*', (req, res) => {
