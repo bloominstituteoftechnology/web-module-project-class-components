@@ -39,7 +39,7 @@
     "webpack-dev-server": "4.7.4"
   },
   "dependencies": {
-    "axios": "0.25.0",
+    "axios": "^0.25.0",
     "cors": "2.8.5",
     "express": "4.17.2",
     "nanoid": "^3.2.0",
