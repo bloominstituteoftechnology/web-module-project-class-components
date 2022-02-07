@@ -26,9 +26,7 @@ resetTodos()
 
 const getAll = () => {
   const message = 'Here are your Todos'
-  const status = 200
-  const data = todos
-  return [status, { message, data }]
+  return [200, { message, data: todos }]
 }
 
 const getById = id => {
