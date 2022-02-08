@@ -1,41 +1,48 @@
 import React from 'react'
-import axios from 'axios';
 import Form from './Form';
-import ToDo from './Todo'
 import TodoList from './TodoList';
 
-
 const initialState = {
-  toDos: [],
-  error: ''
+  toDos: []
 };
 export default class App extends React.Component {
   
   state = initialState;
 
-  componentDidMount() {
-    axios.get('http://localhost:9000/api/todos')
-    .then(resp => {
-      console.log('resp: ', resp);
-      this.setState({...this.state, toDos: resp.data.data});
+  clearFinished = () => {
+    const filtered = this.state.toDos.filter(item => {
+      return !item.completed;
     })
-    .catch(error => {
-      console.log('error: ',error.message);
-      this.setState({...this.state, error: error.message})
-    })
+    
+    this.setState({...this.state, toDos: filtered})
   }
   
-  addTodo(toDoToBeAdded) {
-    console.log(...this.state)
-    this.setState({ ...this.state, toDos: [...this.state.toDos, toDoToBeAdded]})
+  addTodo = (task) => {
+    const newTask = {
+      id: Date.now(),
+      task: task,
+      completed: false
+    }
+
+    this.setState({...this.state, toDos: [...this.state.toDos, newTask]})
   }
 
+  handleToggle = (task) => {
+    const filtered = this.state.toDos.map(item => {
+      if(item.id === task.id){
+        return {...item, completed: !item.completed};
+      }else{
+        return item;
+      }
+    })
+    this.setState({...this.state, toDos: filtered})
+  }
 
   render() {
     return (
       <div>
-        <TodoList toDos={this.state.toDos}/>
-        <Form addTodo={this.addTodo}/>
+        <TodoList toDos={this.state.toDos} handleToggle={this.handleToggle}/>
+        <Form addTodo={this.addTodo} clearFinished={this.clearFinished}/>
       </div>
     )
   }
