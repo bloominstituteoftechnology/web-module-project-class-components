@@ -16,7 +16,7 @@ export default class Todo extends React.Component {
   render() {
     return (
       <StyledToDo onClick={this.handleClick} >
-        <p className={this.props.item.completed ? "finished" : ""}>{this.props.item.task}</p>
+        <p className={this.props.item.completed ? "finished" : ""}>{this.props.item.name}</p>
       </StyledToDo>
     )
   }
