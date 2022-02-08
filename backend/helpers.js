@@ -24,12 +24,12 @@ const resetTodos = () => {
 
 resetTodos()
 
-const getAll = () => {
+const getAll = async () => {
   const message = 'Here are your Todos'
   return [200, { message, data: todos }]
 }
 
-const getById = id => {
+const getById = async id => {
   let message, data, status
   try {
     const todo = todos.find(todo => todo.id === id)
@@ -64,7 +64,7 @@ const create = async todoFromClient => {
   return [status, { message, data }]
 }
 
-const toggleDone = id => {
+const toggleDone = async id => {
   let message, data, status
   const todoFromClient = todos.find(todo => todo.id == id)
   if (todoFromClient) {

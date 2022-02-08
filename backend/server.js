@@ -11,13 +11,13 @@ server.use(express.static(path.join(__dirname, '../dist')))
 
 server.use(cors())
 
-server.get('/api/todos', (req, res) => {
-  const [status, response] = Todo.getAll()
+server.get('/api/todos', async (req, res) => {
+  const [status, response] = await Todo.getAll()
   res.status(status).json(response)
 })
 
-server.get('/api/todos/:id', (req, res) => {
-  const [status, response] = Todo.getById(req.params.id)
+server.get('/api/todos/:id', async (req, res) => {
+  const [status, response] = await Todo.getById(req.params.id)
   res.status(status).json(response)
 })
 
@@ -26,8 +26,8 @@ server.post('/api/todos', async (req, res) => {
   res.status(status).json(response)
 })
 
-server.patch('/api/todos/:id', (req, res) => {
-  const [status, response] = Todo.toggleDone(req.params.id)
+server.patch('/api/todos/:id', async (req, res) => {
+  const [status, response] = await Todo.toggleDone(req.params.id)
   res.status(status).json(response)
 })
 
