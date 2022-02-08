@@ -31,13 +31,19 @@ server.patch('/api/todos/:id', async (req, res) => {
   res.status(status).json(response)
 })
 
+server.use('/api/*', (req, res) => {
+  res.status(404).json({
+    message: `Endpoint [${req.method}] ${req.originalUrl} does not exist`,
+  })
+})
+
 server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'))
 })
 
 server.use((req, res) => {
   res.status(404).json({
-    message: `Endpoint [${req.method}] ${req.path} does not exist`,
+    message: `Endpoint [${req.method}] ${req.originalUrl} does not exist`,
   })
 })
 
