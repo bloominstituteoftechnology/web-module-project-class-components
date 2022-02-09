@@ -6,7 +6,6 @@ export default class TodoList extends React.Component {
   render() {
     return (
       <div>
-        {/* {console.log('inisde of ToDoList: ', this.props)} */}
         {this.props.toDos.map(item => (
           <Todo 
             item={item}

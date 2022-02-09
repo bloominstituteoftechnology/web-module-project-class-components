@@ -13,7 +13,6 @@ export default class App extends React.Component {
   componentDidMount(){
     axios.get('http://localhost:9000/api/todos')
     .then(resp => {
-      console.log('resp: ', resp);
       this.setState({...this.state, 
         toDos: resp.data.data
       })
@@ -24,6 +23,7 @@ export default class App extends React.Component {
   }
 
   clearFinished = () => {
+
     const filtered = this.state.toDos.filter(item => {
       return !item.completed;
     })
@@ -37,12 +37,9 @@ export default class App extends React.Component {
       name: task,
       completed: false
     }
-
-    console.log('newTask: ', newTask);
     
     axios.post('http://localhost:9000/api/todos', newTask)
     .then(resp => {
-      console.log('addTodo resp: ', resp)
       const taskToAdd = {...resp.data.data};
       this.setState({ ...this.state,
         toDos: [...this.state.toDos, taskToAdd]
@@ -51,38 +48,20 @@ export default class App extends React.Component {
     .catch(error => {
       console.error(error);
     })
-    
-    //Old code from Monday
-    // const newTask = {
-    //   id: Date.now(),
-    //   name: task,
-    //   completed: false
-    // }
-
-
-
-    // this.setState({...this.state, toDos: [...this.state.toDos, newTask]})
   }
 
   handleToggle = (task) => {
     const id = task.id;
 
-    // console.log('here ittttt is first one: ', task)
-
     axios.patch(`http://localhost:9000/api/todos/${id}`)
     .then(resp => {
-      // console.log('here ittttt is: ', resp)
-
       const newStateArray = this.state.toDos.map(item => {
         if(item.id === id){
-          console.log('adding ...resp.data.data: ', resp.data.data)
-          return resp.data.data
+          return resp.data.data;
         }else{
           return item
         }
       })
-
-      console.log('newStateArray: ', newStateArray);
 
       this.setState({...this.state,
         toDos: [...newStateArray]
@@ -91,19 +70,7 @@ export default class App extends React.Component {
     .catch(error => {
       console.log(error);
     })
-    
-    
-    
-    //This is the old code from monday.
-    // const filtered = this.state.toDos.map(item => {
-    //   if(item.id === task.id){
-    //     return {...item, completed: !item.completed};
-    //   }else{
-    //     return item;
-    //   }
-    // })
-    // this.setState({...this.state, toDos: filtered})
-  }//END OF handleToggle
+  }
 
   render() {
     return (
