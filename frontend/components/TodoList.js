@@ -3,14 +3,14 @@ import Todo from './Todo'
 
 export default class TodoList extends React.Component {
   render() {
-    return (
+    return(
       <ul>
         {
          this.props.todos.map(todo => {
-            return (<Todo todo={todo}/>); 
+            return (<Todo key={todo.id} todo={todo}/>); 
           })
         }
       </ul>  
-    )
+    );
   }
 }
