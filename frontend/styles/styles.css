@@ -83,3 +83,11 @@ ul, form {
 .todo:hover {
   cursor: pointer;
 }
+
+.list-item {
+  margin-left: 1rem;
+}
+
+.hidden {
+  display: none;
+}
