@@ -11,6 +11,8 @@ export default class Todo extends React.Component {
         onClick={()=> this.props.toggleCompleted(this.props.todoItem.id)}
         >
         {this.props.todoItem.name}{this.props.todoItem.completed ? ' ✓' : ''}
+        <br/>
+        <br/>
       </div>
     )
   }

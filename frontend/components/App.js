@@ -20,6 +20,14 @@ export default class App extends React.Component {
     }
   }
 
+  toggleHidden = ()=>{
+    this.setState({
+      ...this.state,
+      hideCompleted: !this.state.hideCompleted
+    })
+
+  }
+
   toggleCompleted = (itemId)=>{
     this.setState({
       todoList: this.state.todoList.map(item => {
@@ -50,15 +58,17 @@ export default class App extends React.Component {
     }
     this.setState({
       ...this.state,
-      todoList: [...this.state.todoList, newListItem]
+      todoList: [...this.state.todoList, newListItem],
+      inputValue: ''
     })
   }
 
   render() {
     return (
       <div className='App'>
-        <TodoList todoItems={this.state.todoList} toggleCompleted={this.toggleCompleted} />
+        <TodoList todoItems={this.state.todoList} toggleCompleted={this.toggleCompleted} hideCompleted={this.state.hideCompleted} />
         <Form inputValue={this.state.inputValue} inputChange={this.inputChange} handleSubmit={this.handleSubmit} />
+        <button onClick={this.toggleHidden}>{this.state.hideCompleted ? 'Show Completed' : 'Hide Completed'}</button>
       </div>
     )
   }
