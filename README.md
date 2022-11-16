@@ -1,13 +1,12 @@
 # Class Based Components - React Todo
 
-We are going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
+We are going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get used to class components, and feel comfortable working with them since you'll most likely encounter them when you are hired to work at a React app.
 
-## Objectives
+## Skills You Will Practice
 
-- Build class components from scratch
-- Defining application state
-- Defining component state
-- Connecting state changes to components
+- Creating class-components from scratch
+- Storing state in the top-level component, and sharing it via props
+- Handling form-related events like `change` and `submit`
 
 ## Introduction
 
