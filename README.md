@@ -5,7 +5,7 @@ We are going to practice building class components with this project. Even thoug
 ## Skills You Will Practice
 
 - Creating class-components from scratch
-- Storing state in the top-level component, and sharing it via props
+- Storing state in the top-level component, and sharing it with descendant components via props
 - Handling form-related events like `change` and `submit`
 
 ## Introduction
