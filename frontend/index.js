@@ -6,7 +6,7 @@ import './styles/styles.css'
 
 render(
   <React.StrictMode>
-    <h1>Todo App</h1>
+    <h1>What to get Done! Todo App</h1>
     <App />
   </React.StrictMode>
   , document.getElementById('root')
