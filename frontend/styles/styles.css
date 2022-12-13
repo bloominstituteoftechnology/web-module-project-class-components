@@ -69,6 +69,7 @@ nav a.active {
 }
 
 #todos {
+  color: black;
   margin: 0 0 1rem 0;
 }
 
@@ -82,4 +83,14 @@ ul, form {
 
 .todo:hover {
   cursor: pointer;
+}
+
+.itemcompleted {
+text-decoration: line-through;
+}
+.Todo-list {
+  background-image: url(https://images.unsplash.com/photo-1591195852468-03a01d1375d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTB8fHN0aWNreSUyMG5vdGVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60);
+  border: dashed black .05rem;
+  background-repeat: no-repeat;
+  
 }
