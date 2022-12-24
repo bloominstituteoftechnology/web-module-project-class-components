@@ -47,14 +47,14 @@ In this project you will build an application that allows for todos to be added,
 - **Build all components as class components. Find them inside `frontend/components`.**
 - **Don't focus on styling. We want you to worry about function over form today.**
 - Your todo list should display a list of todos, an input field, a submit button, and a button to filter out completed todos.
-- `<App />` will hold all the data needed for this project.
-  - All of your application data will be stored here on `<App />`.
-  - All of your `handler` functions should live here on `<App />`.
-- `<TodoList />` receives your todos array and iterates over the list generating a new `<Todo />` for each element in the array.
-- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
-- `<Form />` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
-  - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
-  - Once a todo is submitted, the Todo List should re-render and show the added todo.
+- `<App />` will hold all the data needed for this project. -- check
+  - All of your application data will be stored here on `<App />`. -- check
+  - All of your `handler` functions should live here on `<App />`. -- check
+- `<TodoList />` receives your todos array and iterates over the list generating a new `<Todo />` for each element in the array. -- check
+- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen. -- check
+- `<Form />` will hold your input field and your `Add Todo` and `Clear Completed` buttons. --check
+  - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list. -- check
+  - Once a todo is submitted, the Todo List should re-render and show the added todo. -- check
 
 ## Submission Format
 
