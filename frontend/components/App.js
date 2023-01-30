@@ -21,16 +21,49 @@ export default class App extends React.Component {
       ]
     }
   }
+
+  handleAdd = () => {
+    //1. set state
+    //2. change todos
+    //3. make a copy of todos
+    //4. add a new todo to the end of our todo list
+
+    const newTodo = {
+      task: 'Cook',
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    })
+  }
+
+  handleClear = () => {
+    //1. setState
+    //2. loop through all todos
+    //3. remove all todos that have completed === true
+    //4. save filtered todos to state
+
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(todo => {
+        return (todo.completed === false);
+      })
+    });    
+  }
+
   render() {
     const { todos } = this.state;
 
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoList todos={ todos }/>
-        <TodoForm />
+        <TodoList todos={todos}/>
+        <TodoForm handleAdd = {this.handleAdd}/>
 
-        <button>Clear</button>
+        <button onClick = {this.handleClear}>Clear</button>
       </div>
     )
   }
