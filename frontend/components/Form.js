@@ -4,9 +4,23 @@ import TodoList from './TodoList';
 
 export default class Form extends React.Component {
   
+  constructor() {
+    super();
+    this.state = {
+      input: ""
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleAdd();
+    this.props.handleAdd(this.state.input);
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      ...this.state,
+      input: e.target.value
+    });
   }
 
   render() { 
@@ -14,7 +28,7 @@ export default class Form extends React.Component {
     return (
       <div>
         <form>
-          <input/>
+          <input onChange={this.handleChange}/>
           <button onClick={this.handleSubmit}>Add</button>
         </form>
       </div>
