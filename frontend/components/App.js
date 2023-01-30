@@ -1,4 +1,5 @@
 import React from 'react'
+import TodoList from './TodoList';
 
 export default class App extends React.Component {
 
@@ -16,29 +17,16 @@ export default class App extends React.Component {
           id: 9876543,
           completed: false
         },
-        {
-          task: 'Organize Garage',
-          id: 1357913,
-          completed: false
-        }
       ]
     }
   }
   render() {
     const { todos } = this.state;
-    console.log(todos);
 
     return (
       <div>
-        <h1>Todo App</h1>
-
-        <ul>
-          {
-            todos.map(todo => {
-              return(<li>{todo.task}</li>)
-            })
-          }
-        </ul>
+        <h1>Todo List</h1>
+        <TodoList todos={ todos }/>
 
         <form>
           <input/>
