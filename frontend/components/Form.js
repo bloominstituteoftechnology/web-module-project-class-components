@@ -1,11 +1,10 @@
 import React from 'react'
 
-export default class Form extends React.Component {
-  render() {
-    return (
-      <div>
-        Form
-      </div>
-    )
+export default class TodoForm extends React.Component{
+  render(){
+    return(<form>
+      <input/>
+      <button>Add</button>
+    </form>)
   }
 }
