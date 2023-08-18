@@ -1,6 +1,6 @@
 # Class Based Components - React Todo
 
-We are going to practice building class components with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get used to class components, and feel comfortable working with them since you'll most likely encounter them when you are hired to work at a React app.
+We are going to practice building class components with this project. Even though function components and hooks have become the standard among React developers, class components are going to be around for a long time. It's important that you get used to class components, and feel comfortable working with them since you'll most likely encounter them when you are hired to work on a React app.
 
 ## Skills You Will Practice
 
@@ -56,8 +56,7 @@ In this project you will build an application that allows for todos to be added,
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
 
-## Submission Format
+## Tips
 
-- [ ] Only work on main.
-- [ ] Try to avoid committing broken code.
-- [ ] Make sure to push code at regular intervals.
+- [ ] Make commits often but avoid committing broken code.
+- [ ] Make sure to push code at regular intervals to back it up to the cloud.

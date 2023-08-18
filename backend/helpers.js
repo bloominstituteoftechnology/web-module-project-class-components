@@ -1,5 +1,10 @@
-const { nanoid } = require("nanoid")
 const yup = require('yup')
+
+const nanoid = () => {
+  const int = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000
+  const hex = int.toString(16)
+  return hex.padStart(5, '0')
+}
 
 const schemaCreate = yup.object().shape({
   name: yup
@@ -16,9 +21,9 @@ let todos
 
 const resetTodos = () => {
   todos = [
-    { id: nanoid(5), name: 'laundry', completed: false },
-    { id: nanoid(5), name: 'dishes', completed: false },
-    { id: nanoid(5), name: 'groceries', completed: false },
+    { id: nanoid(), name: 'laundry', completed: false },
+    { id: nanoid(), name: 'dishes', completed: false },
+    { id: nanoid(), name: 'groceries', completed: false },
   ]
 }
 
@@ -52,7 +57,7 @@ const create = async todoFromClient => {
   let message, data, status
   try {
     const validated = await schemaCreate.validate(todoFromClient, { stripUnknown: true })
-    const todo = { id: nanoid(5), completed: false, ...validated }
+    const todo = { id: nanoid(), completed: false, ...validated }
     todos.push(todo)
     data = todo
     message = `Here is your created Todo ${todo.id}`
